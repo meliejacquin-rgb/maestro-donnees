@@ -1,0 +1,42 @@
+{
+  "_note": "Sources interrogées automatiquement chaque mois. « melodi » liste les jeux INSEE à extraire : il est vide tant que la découverte (rapport-collecte.json → decouverte) n'a pas confirmé les identifiants réels. On ne configure jamais un identifiant non vérifié.",
+  "melodi": {
+    "base": "https://api.insee.fr/melodi",
+    "decouverte_mots_cles": ["ESANE", "ratio", "taux de marge", "valeur ajoutée", "productivité", "chiffre d'affaires", "frais de personnel", "investissement", "défaillance", "délais de paiement"],
+    "jeux": []
+  },
+  "_exemple_jeu_melodi": {
+    "dataset": "IDENTIFIANT_CONFIRME_PAR_LA_DECOUVERTE",
+    "indicateur": "taux_marge_ebe_va",
+    "filtres": { "GEO": "FRANCE-F" },
+    "dimension_naf": "ACTIVITY",
+    "dimension_periode": "TIME_PERIOD",
+    "mesure": "OBS_VALUE_NIVEAU",
+    "facteur": 1,
+    "perimetre": "Entreprises marchandes non financières, médiane",
+    "source": "INSEE — titre exact du jeu de données",
+    "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche"
+  },
+  "datagouv": {
+    "base": "https://www.data.gouv.fr/api/1/datasets/",
+    "_role": "Liens « pour aller plus loin » par priorité ; jamais utilisés comme valeur de comparaison.",
+    "recherches": {
+      "cash": "délais de paiement entreprises",
+      "profitability": "taux de marge entreprises secteur",
+      "productivity": "productivité entreprises secteur",
+      "decision": "indicateurs entreprises secteur",
+      "growth": "chiffre d'affaires secteur activité",
+      "costs": "charges entreprises secteur",
+      "investment": "investissement entreprises",
+      "tax": "fiscalité entreprises",
+      "compliance": "obligations déclaratives entreprises",
+      "people": "emploi salariés secteur",
+      "risks": "défaillances d'entreprises",
+      "transition": "transmission cession entreprises"
+    }
+  },
+  "banque_de_france": {
+    "_role": "Activé seulement si le secret BDF_API_KEY est défini dans GitHub et qu'au moins une série est configurée.",
+    "series": []
+  }
+}

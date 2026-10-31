@@ -1,0 +1,29 @@
+{
+  "_note": "Table de correspondance priorité → indicateurs comparables. Une priorité sans indicateur public chiffré le dit explicitement : le simulateur proposera alors une méthode de mesure, jamais un chiffre inventé.",
+  "indicateurs": {
+    "delai_clients_jours": { "libelle": "Délai de paiement des clients", "unite": "jours de chiffre d'affaires", "sens": "bas_favorable", "mesure_client": "Créances clients / CA TTC × 365" },
+    "retard_paiement_jours": { "libelle": "Retard moyen de paiement", "unite": "jours", "sens": "bas_favorable", "mesure_client": "Retard constaté au-delà de l'échéance contractuelle (balance âgée)" },
+    "solde_commercial_jours": { "libelle": "Solde commercial (délai clients − délai fournisseurs)", "unite": "jours de chiffre d'affaires", "sens": "bas_favorable", "mesure_client": "Délai clients − délai fournisseurs, en jours de CA" },
+    "taux_marge_ebe_va": { "libelle": "Taux de marge (EBE / valeur ajoutée)", "unite": "%", "sens": "haut_favorable", "mesure_client": "EBE / valeur ajoutée × 100 (liasse fiscale)" },
+    "va_par_salarie": { "libelle": "Valeur ajoutée par salarié (productivité apparente)", "unite": "k€ par salarié", "sens": "haut_favorable", "mesure_client": "Valeur ajoutée / effectif salarié moyen" },
+    "frais_personnel_va": { "libelle": "Frais de personnel / valeur ajoutée", "unite": "%", "sens": "bas_favorable", "mesure_client": "(Salaires + charges sociales) / valeur ajoutée × 100" },
+    "charges_externes_ca": { "libelle": "Charges externes / chiffre d'affaires", "unite": "%", "sens": "bas_favorable", "mesure_client": "Autres achats et charges externes / CA × 100" },
+    "taux_investissement": { "libelle": "Taux d'investissement (investissement / valeur ajoutée)", "unite": "%", "sens": "contexte", "mesure_client": "Investissements corporels de l'exercice / valeur ajoutée × 100" },
+    "evolution_ca": { "libelle": "Évolution annuelle du chiffre d'affaires du secteur", "unite": "%", "sens": "contexte", "mesure_client": "(CA N − CA N-1) / CA N-1 × 100" },
+    "defaillances_secteur": { "libelle": "Défaillances d'entreprises du secteur (cumul 12 mois)", "unite": "nombre", "sens": "contexte", "mesure_client": "Sans objet : indicateur de contexte sectoriel" }
+  },
+  "priorites": {
+    "cash":         { "libelle": "Trésorerie et encaissements", "indicateurs": ["delai_clients_jours", "retard_paiement_jours", "solde_commercial_jours"] },
+    "profitability":{ "libelle": "Rentabilité et marges", "indicateurs": ["taux_marge_ebe_va", "charges_externes_ca"] },
+    "productivity": { "libelle": "Gain de temps et productivité", "indicateurs": ["va_par_salarie"] },
+    "decision":     { "libelle": "Pilotage et prise de décision", "indicateurs": ["taux_marge_ebe_va", "delai_clients_jours"] },
+    "growth":       { "libelle": "Développement du chiffre d'affaires", "indicateurs": ["evolution_ca"] },
+    "costs":        { "libelle": "Maîtrise des charges", "indicateurs": ["charges_externes_ca", "frais_personnel_va"] },
+    "investment":   { "libelle": "Financement et investissements", "indicateurs": ["taux_investissement", "taux_marge_ebe_va"] },
+    "tax":          { "libelle": "Fiscalité et optimisation", "indicateurs": [], "sans_donnee_publique": "Pas de ratio sectoriel public pertinent : comparer la charge fiscale du client à ses propres exercices antérieurs." },
+    "compliance":   { "libelle": "Conformité et obligations réglementaires", "indicateurs": [], "sans_donnee_publique": "Pas de ratio sectoriel public : établir le calendrier des obligations applicables et suivre les échéances manquées." },
+    "people":       { "libelle": "Organisation et gestion des équipes", "indicateurs": ["va_par_salarie", "frais_personnel_va"] },
+    "risks":        { "libelle": "Gestion et prévention des risques", "indicateurs": ["defaillances_secteur", "retard_paiement_jours"] },
+    "transition":   { "libelle": "Transmission et évolution de l'entreprise", "indicateurs": ["taux_marge_ebe_va"], "complement": "La valorisation d'une entreprise ne dépend pas d'un ratio sectoriel public ; le taux de marge sert seulement de contexte." }
+  }
+}

@@ -1,0 +1,102 @@
+#!/usr/bin/env node
+// Collecte mensuelle des repères sectoriels publics → references.json + rapport-collecte.json
+// Usage : node scripts/collect.mjs [--offline]
+//   --offline : n'interroge aucune API (reconstruit depuis data/manuel.json et l'ancien fichier).
+// Aucune donnée client n'est lue ni envoyée : uniquement des statistiques publiques.
+import { readFile, writeFile } from 'node:fs/promises';
+import { parseMelodiCatalog, discover, normalizeMelodiData, parseDatagouv, build, validate } from './lib.mjs';
+
+const ROOT = new URL('../', import.meta.url);
+const read = async (p, fallback) => { try { return JSON.parse(await readFile(new URL(p, ROOT), 'utf8')); } catch (e) { if (fallback !== undefined) return fallback; throw e; } };
+const offline = process.argv.includes('--offline');
+
+async function get(url, { headers = {}, timeout = 20000, tries = 3 } = {}) {
+  let last;
+  for (let i = 0; i < tries; i++) {
+    const abort = new AbortController();
+    const timer = setTimeout(() => abort.abort(), timeout);
+    try {
+      const res = await fetch(url, { signal: abort.signal, headers: { Accept: 'application/json', 'User-Agent': 'maestro-donnees (GitHub Actions)', ...headers } });
+      if (res.status === 429 || res.status >= 500) throw new Error('HTTP ' + res.status);
+      if (!res.ok) { const e = new Error('HTTP ' + res.status); e.fatal = true; throw e; }
+      return await res.json();
+    } catch (e) {
+      last = e.name === 'AbortError' ? new Error('délai dépassé') : e;
+      if (last.fatal) break;
+      await new Promise((r) => setTimeout(r, 2000 * (i + 1)));
+    } finally { clearTimeout(timer); }
+  }
+  throw last;
+}
+
+const naf = await read('naf.json');
+const priorites = await read('config/priorites.json');
+const sources = await read('config/sources.json');
+const manuel = (await read('data/manuel.json')).indicateurs;
+const previous = await read('references.json', null);
+
+const report = { date: new Date().toISOString(), mode: offline ? 'hors ligne' : 'en ligne', sources: {}, decouverte: [], avertissements: [] };
+const auto = {};
+const failed = [];
+let liens = null;
+
+if (!offline) {
+  // 1. INSEE Melodi : découverte du catalogue + extraction des jeux configurés.
+  try {
+    const catalog = parseMelodiCatalog(await get(sources.melodi.base + '/catalog/all', { timeout: 60000 }));
+    report.decouverte = discover(catalog, sources.melodi.decouverte_mots_cles);
+    report.sources.melodi_catalogue = { ok: true, jeux: catalog.length, candidats: report.decouverte.length };
+  } catch (e) {
+    report.sources.melodi_catalogue = { ok: false, erreur: String(e.message || e) };
+  }
+  for (const cfg of sources.melodi.jeux) {
+    const origine = 'api:melodi:' + cfg.dataset;
+    try {
+      const params = new URLSearchParams({ maxResult: '100000', ...(cfg.filtres || {}) });
+      const json = await get(`${sources.melodi.base}/data/${encodeURIComponent(cfg.dataset)}?${params}`, { timeout: 90000 });
+      const { entries, ignored } = normalizeMelodiData(json, cfg, naf);
+      if (!entries.length) throw new Error('aucune observation exploitable');
+      auto[origine] = entries;
+      report.sources[origine] = { ok: true, valeurs: entries.length, ignorees: ignored };
+    } catch (e) {
+      failed.push(origine);
+      report.sources[origine] = { ok: false, erreur: String(e.message || e), conserve: 'valeurs précédentes' };
+    }
+  }
+
+  // 2. data.gouv.fr : liens de documentation par priorité (jamais des valeurs de comparaison).
+  liens = {};
+  let ok = 0;
+  for (const [prio, q] of Object.entries(sources.datagouv.recherches)) {
+    try {
+      liens[prio] = parseDatagouv(await get(`${sources.datagouv.base}?page_size=5&q=${encodeURIComponent(q)}`));
+      ok++;
+    } catch (e) {
+      liens[prio] = previous?.liens?.[prio] || [];
+      report.avertissements.push(`data.gouv.fr (${prio}) : ${e.message || e}`);
+    }
+  }
+  report.sources.datagouv = { ok: ok > 0, recherches_reussies: ok, total: Object.keys(sources.datagouv.recherches).length };
+  if (!ok) liens = null;
+
+  // 3. Banque de France : seulement si une clé et des séries sont configurées.
+  if (!process.env.BDF_API_KEY || !sources.banque_de_france.series.length) {
+    report.sources.banque_de_france = { ok: false, erreur: 'non configurée (secret BDF_API_KEY ou séries absents)' };
+  }
+}
+
+const refs = build({ manuel, auto, liens, previous, failed, now: report.date, naf, priorites });
+const errors = validate(refs);
+report.validation = errors.length ? errors : 'ok';
+report.total_indicateurs = refs.indicateurs.length;
+report.a_verifier = refs.indicateurs.filter((e) => e.statut === 'a_verifier').length;
+
+await writeFile(new URL('rapport-collecte.json', ROOT), JSON.stringify(report, null, 2) + '\n');
+if (errors.length) {
+  console.error('references.json NON publié — erreurs de validation :\n- ' + errors.join('\n- '));
+  process.exit(1);
+}
+await writeFile(new URL('references.json', ROOT), JSON.stringify(refs, null, 1) + '\n');
+console.log(`references.json : ${refs.indicateurs.length} repères (${report.a_verifier} à vérifier).`);
+for (const [k, v] of Object.entries(report.sources)) console.log(`  ${v.ok ? '✓' : '✗'} ${k}${v.erreur ? ' — ' + v.erreur : ''}`);
+if (report.decouverte.length) console.log(`  ${report.decouverte.length} jeux INSEE candidats listés dans rapport-collecte.json`);
