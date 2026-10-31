@@ -1,10 +1,542 @@
 {
-  "date": "2026-10-31T11:16:00.279Z",
-  "mode": "hors ligne",
-  "sources": {},
-  "decouverte": [],
+  "date": "2026-10-31T11:16:43.685Z",
+  "mode": "en ligne",
+  "sources": {
+    "melodi_catalogue": {
+      "ok": true,
+      "jeux": 163,
+      "candidats": 22
+    },
+    "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va": {
+      "ok": true,
+      "valeurs": 78,
+      "periodes": [
+        "1977",
+        "2018",
+        "2024",
+        "2025"
+      ],
+      "doublons_ecartes": 3928,
+      "branches_non_reconnues": [
+        "B_D_E",
+        "GTN_RTU",
+        "RTU",
+        "C_OTH",
+        "M_N",
+        "OTQ",
+        "GTI"
+      ],
+      "obs": [
+        4468,
+        10000
+      ]
+    },
+    "api:melodi:DD_CNA_BRANCHES:frais_personnel_va": {
+      "ok": true,
+      "valeurs": 49,
+      "periodes": [
+        "1977",
+        "2018",
+        "2024",
+        "2025"
+      ],
+      "doublons_ecartes": 7939,
+      "branches_non_reconnues": [
+        "GTN_RTU",
+        "C_OTH",
+        "B_D_E"
+      ],
+      "obs": [
+        9527,
+        10000
+      ]
+    },
+    "api:melodi:DD_CNA_BRANCHES:taux_investissement": {
+      "ok": true,
+      "valeurs": 59,
+      "periodes": [
+        "1977",
+        "2025"
+      ],
+      "doublons_ecartes": 3928,
+      "branches_non_reconnues": [
+        "C_OTH",
+        "B_D_E",
+        "GTN_RTU",
+        "GTI",
+        "RTU",
+        "M_N",
+        "OTQ"
+      ],
+      "obs": [
+        6797,
+        10000
+      ]
+    },
+    "api:melodi:DD_CNA_BRANCHES:conso_inter_production": {
+      "ok": true,
+      "valeurs": 78,
+      "periodes": [
+        "1977",
+        "2018",
+        "2024",
+        "2025"
+      ],
+      "doublons_ecartes": 7526,
+      "branches_non_reconnues": [
+        "B_D_E",
+        "C_OTH",
+        "GTN_RTU",
+        "GTI",
+        "M_N",
+        "OTQ",
+        "RTU"
+      ],
+      "obs": [
+        10000,
+        10000
+      ]
+    },
+    "api:melodi:DD_CNA_BRANCHES:va_par_salarie": {
+      "ok": true,
+      "valeurs": 80,
+      "periodes": [
+        "1977",
+        "1992",
+        "2008",
+        "2022",
+        "2024"
+      ],
+      "doublons_ecartes": 4403,
+      "branches_non_reconnues": [
+        "C_OTH",
+        "GTN_RTU",
+        "B_D_E",
+        "GTI",
+        "M_N",
+        "OTQ",
+        "RTU"
+      ],
+      "obs": [
+        10000,
+        7335
+      ]
+    },
+    "api:melodi:DD_CNA_BRANCHES:evolution_ca": {
+      "ok": true,
+      "valeurs": 79,
+      "periodes": [
+        "1977",
+        "1992",
+        "2016",
+        "2024"
+      ],
+      "doublons_ecartes": 3780,
+      "branches_non_reconnues": [
+        "C_OTH",
+        "B_D_E",
+        "GTI",
+        "GTN_RTU",
+        "M_N",
+        "OTQ",
+        "RTU"
+      ],
+      "obs": [
+        10000,
+        0
+      ]
+    },
+    "datagouv": {
+      "ok": true,
+      "recherches_reussies": 12,
+      "total": 12
+    },
+    "banque_de_france": {
+      "ok": false,
+      "erreur": "non configurée (secret BDF_API_KEY ou séries absents)"
+    }
+  },
+  "decouverte": [
+    {
+      "id": "DD_CNA_TEE",
+      "titre": "Tableau économique d'ensemble",
+      "description": "Le tableau économique d'ensemble (TEE), synthétise l'ensemble des opérations relatives aux secteurs institutionnels (entreprises, administrations publiques, ménages, etc.) et permet de décrire séquentiellement la production, la valeur ajoutée, l'excédent d'exploitation et le revenu mixte, le revenu disponible, l'épargne, la capacité ou le besoin de financement et la formation du patrimoine.\n\nCerta",
+      "modifie": "2026-08-31T14:45:40.424307581",
+      "mots_cles": [
+        "valeur ajoutee",
+        "entreprises",
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DS_CNT_CSI",
+      "titre": "Comptes de secteurs institutionnels",
+      "description": "Le tableau économique d'ensemble (TEE), synthétise l'ensemble des opérations relatives aux secteurs institutionnels (entreprises, administrations publiques, ménages, etc.) et permet de décrire séquentiellement la production, la valeur ajoutée, l'excédent d'exploitation et le revenu mixte, le revenu disponible, l'épargne, la capacité ou le besoin de financement et la formation du patrimoine.\n\nCe je",
+      "modifie": "2026-10-30T11:36:09.638075579",
+      "mots_cles": [
+        "valeur ajoutee",
+        "entreprises",
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DD_CNA_BRANCHES",
+      "titre": "Activité des branches de l'économie",
+      "description": "Données annuelles sur l'activité des branches qui est retracée par les comptes de production et d'exploitation. Le compte de production décrit la relation entre la production et la consommation intermédiaire nécessaire à cette production. Il a pour solde la valeur ajoutée brute qui mesure la richesse créée lors du processus de production.\n\nLe compte d'exploitation décrit comment la valeur ajoutée ",
+      "modifie": "2026-08-31T15:44:44.067464852",
+      "mots_cles": [
+        "valeur ajoutee",
+        "branche"
+      ]
+    },
+    {
+      "id": "DS_CNT_CB",
+      "titre": "Comptes des branches",
+      "description": "Données trimestrielles sur l'activité des branches qui est retracée par les comptes de production et d'exploitation. Le compte de production décrit la relation entre la production et la consommation intermédiaire nécessaire à cette production. Il a pour solde la valeur ajoutée brute qui mesure la richesse créée lors du processus de production.\n\nLe compte d'exploitation décrit comment la valeur ajo",
+      "modifie": "2026-10-30T07:30:08.363204083",
+      "mots_cles": [
+        "valeur ajoutee",
+        "branche"
+      ]
+    },
+    {
+      "id": "DS_FLORES_A17",
+      "titre": "Nombre d'établissements et effectifs salariés en 17 grands secteurs",
+      "description": "Les données sur le nombre d'établissements et les effectifs salariés sont disponibles par secteur d'activité en 17 grands secteurs (A17), tranche d'effectifs et à différents niveaux géographiques (commune, aire d'attraction des villes 2020, arrondissement, arrondissement municipal, bassin de vie 2022, département, établissement public de coopération intercommunal, région, unité urbaines 2020, zone",
+      "modifie": "2026-08-27T09:21:45.406444418",
+      "mots_cles": [
+        "effectifs salaries",
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DS_FLORES_A38",
+      "titre": "Nombre d'établissements et effectifs salariés en 38 grands secteurs",
+      "description": "Les données sur le nombre d'établissements et les effectifs salariés sont disponibles par secteur d'activité en 38 grands secteurs (A38), tranche d'effectifs et à différents niveaux géographiques (commune, aire d'attraction des villes 2020, arrondissement, arrondissement municipal, bassin de vie 2022, département, établissement public de coopération intercommunal, région, unité urbaines 2020, zone",
+      "modifie": "2026-08-27T09:21:45.414730124",
+      "mots_cles": [
+        "effectifs salaries",
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DS_FLORES_A5",
+      "titre": "Nombre d'établissements et effectifs salariés en 5 grands secteurs",
+      "description": "Les données sur le nombre d'établissements et les effectifs salariés sont disponibles par secteur d'activité en cinq grands secteurs (A5), tranche d'effectifs et à différents niveaux géographiques (commune, aire d'attraction des villes 2020, arrondissement, arrondissement municipal, bassin de vie 2022, département, établissement public de coopération intercommunal, région, unité urbaines 2020, zon",
+      "modifie": "2026-08-27T09:21:45.418641014",
+      "mots_cles": [
+        "effectifs salaries",
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DS_FLORES_A88",
+      "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
+      "description": "Les données sur le nombre d'établissements et les effectifs salariés sont disponibles par secteur d'activité en 88 grands secteurs (A88) et à différents niveaux géographiques (commune, aire d'attraction des villes 2020, arrondissement, arrondissement municipal, bassin de vie 2022, département, établissement public de coopération intercommunal, région, unité urbaines 2020, zone d'emploi 2020, Franc",
+      "modifie": "2026-08-27T09:21:45.413509104",
+      "mots_cles": [
+        "effectifs salaries",
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DD_CNA_APU",
+      "titre": "Comptes des administrations publiques",
+      "description": "Le secteur institutionnel des administrations publiques se décompose en trois sous-secteurs : l'administration publique centrale (S1311), les administrations publiques locales (S1313), et les administrations de sécurité sociale (S1314). Les données propres aux administrations publiques comprennent la dette et le déficit public au sens de Maastricht, les dépenses et recettes des administrations pub",
+      "modifie": "2026-08-31T15:11:41.507130921",
+      "mots_cles": [
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DD_CNA_PATRIMOINE_BRANCHES",
+      "titre": "Comptes de patrimoine par branches",
+      "description": "Le patrimoine national représente les encours d’actifs financiers et non-financiers, nets des passifs financiers, évalués au prix de marché en fin d’année.  Les actifs sont acquis par les agents économiques grâce à leur épargne ou en contractant des dettes. Les actifs non-financiers sont des biens corporels ou incorporels sur lesquels des droits de propriété peuvent être exercés. Les actifs financ",
+      "modifie": "2026-08-31T15:50:44.012326834",
+      "mots_cles": [
+        "branche"
+      ]
+    },
+    {
+      "id": "DD_CNA_SUT",
+      "titre": "Tableau des entrées-sorties (TES)",
+      "description": "Le tableau des entrées-sorties (ou TES) rassemble dans un même cadre comptable, les comptes de biens et de services par produits et les comptes de production et d'exploitation par branches. Les comptes de biens et de services donnent les équilibres entre ressources (production et importations) et emplois (consommation, formation brute de capital fixe, acquisitions moins cessions d'objets de valeur",
+      "modifie": "2026-08-31T13:58:38.639152082",
+      "mots_cles": [
+        "branche"
+      ]
+    },
+    {
+      "id": "DS_ANTIPOL",
+      "titre": "Enquête annuelle sur les investissements pour protéger l'environnement (Antipol)",
+      "description": "Les montants sont détaillés par domaines environnementaux (eau, déchet, énergie, protection du climat, protection des sols, etc.) et déclinées par secteur d'activité, tranches d'effectifs et région d'implantation de l'établissement. Tous les trois ans, des données sur les montants des dépenses courantes (coûts d'entretien des installations pour la protection de l'environnement, gestion des déchets",
+      "modifie": "2026-09-03T17:00:04.110233113",
+      "mots_cles": [
+        "investissement"
+      ]
+    },
+    {
+      "id": "DS_CNT_OPERATIONS",
+      "titre": "Opérations sur biens et services",
+      "description": "Le tableau des entrées-sorties (ou TES) rassemble dans un même cadre comptable, les comptes de biens et de services par produits et les comptes de production et d'exploitation par branches. Les comptes de biens et de services donnent les équilibres entre ressources (production et importations) et emplois (consommation, formation brute de capital fixe, acquisitions moins cessions d'objets de valeur",
+      "modifie": "2026-10-30T07:30:08.590419181",
+      "mots_cles": [
+        "branche"
+      ]
+    },
+    {
+      "id": "DS_ICA",
+      "titre": "Indicateur d’activité et de chiffre d’affaires",
+      "description": "Ce jeu de données contient l’ensemble des indices (mensuels) de chiffres d’affaires. Ces indices couvrent les secteurs suivants : l’industrie, la construction, le commerce et les services. Il contient également les indices de volumes associés aux services (indices de production dans les services) et au commerce (indices de volume des ventes dans le commerce). \nPour chaque indice, sont disponibles ",
+      "modifie": "2026-10-29T12:00:03.960816061",
+      "mots_cles": [
+        "secteurs"
+      ]
+    },
+    {
+      "id": "DS_SIDE_CREA_COM",
+      "titre": "Créations d'entreprises et d'établissements au niveau communal et supra communal par secteur d'activité (A10) et forme légale",
+      "description": "Les données de créations sont disponibles pour tous les territoires ((Aire d'attraction des villes 2020, Arrondissement, Arrondissement municipal, Bassin de vie 2022, Commune, Département, Etablissement public de coopération intercommunal, France, Région, Unité urbaine 2020, Zone d'emploi 2020) et réparties selon le secteur d’activité (A10 hors agriculture) et la forme légale du siège (Entreprise ",
+      "modifie": "2026-08-05T16:29:33.074957883",
+      "mots_cles": [
+        "entreprises"
+      ]
+    },
+    {
+      "id": "DS_SIDE_CREA_DEP_REG_NAT",
+      "titre": "Créations d'entreprises et d'établissements au niveau départemental, régional et national par secteur d'activité (A21) et forme légale",
+      "description": "Les données sont détaillées selon le secteur d’activité (A21 hors agriculture) et la forme légale (Entreprise individuelle, SAS, SARL et autres).",
+      "modifie": "2026-08-05T13:46:31.889351547",
+      "mots_cles": [
+        "entreprises"
+      ]
+    },
+    {
+      "id": "DS_SIDE_CREA_EI",
+      "titre": "Créations d'entreprises individuelles (unités légales)",
+      "description": "Au niveau national les données sont disponibles par secteur d'activité (A21 agrégé) et forme légale, selon l'âge ou le sexe. Au niveau départemental et régional, les données sont disponibles par forme légale, selon l'âge ou le sexe.",
+      "modifie": "2026-08-05T12:18:58.653222334",
+      "mots_cles": [
+        "entreprises"
+      ]
+    },
+    {
+      "id": "DS_SIDE_CREA_ENT_DEP_REG_NAT_CJ",
+      "titre": "Créations d'entreprises au niveau départemental, régional et national par forme légale détaillée",
+      "description": "Les données de créations sont réparties selon la forme légale détaillée (Micro-entrepreneurs, entreprise individuelle hors micro-entrepreneur, SAS, SARL et autres).",
+      "modifie": "2026-08-05T13:43:58.896960124",
+      "mots_cles": [
+        "entreprises"
+      ]
+    },
+    {
+      "id": "DS_SIDE_CREA_ENT_SERIES",
+      "titre": "Créations d'entreprises - séries longues",
+      "description": "Les créations d'entreprises sont réparties selon le secteur d’activité et la forme légale, elles sont disponibles pour les niveaux France, région et département.\nCes données sont requêtables via l’API Melodi à partir de l’identifiant (idbank BDM) présent sur insee.fr, voir rubrique Pour en savoir plus.",
+      "modifie": "2026-10-16T08:45:53.910265219",
+      "mots_cles": [
+        "entreprises"
+      ]
+    },
+    {
+      "id": "DS_SIDE_STOCKS_EI",
+      "titre": "Stocks d'unités légales et d'établissements des entreprises individuelles par activité (A21)",
+      "description": "Les données sont détaillées selon le secteur d'activité (A21 hors agriculture), la forme légale et le sexe. Elles sont disponibles à différents niveaux géographiques (département, région, France).\nPour chacune des observations contenues dans le jeu de données, le statut de l’observation (OBS_STATUS) indique si la donnée est manquante (O) ou non, et le statut de confidentialité (CONF_STATUS) indiqu",
+      "modifie": "2026-07-23T14:00:43.492943517",
+      "mots_cles": [
+        "entreprises"
+      ]
+    },
+    {
+      "id": "DS_SOCIAL_ECONOMY",
+      "titre": "L'économie sociale et solidaire",
+      "description": "L'économie sociale et solidaire regroupe des entreprises (au sens unités légales) dont la forme juridique est celle d'une coopérative, d'une mutuelle, d'une association ou d'une fondation ainsi que des organismes privés à but non lucratif. Les données sur les effectifs sont déclinées par sexe. Le champ est celui des postes de travail (hors intérimaires), sur la France hors Mayotte, actifs durant l",
+      "modifie": "2026-07-28T12:22:22.187929971",
+      "mots_cles": [
+        "entreprises"
+      ]
+    },
+    {
+      "id": "DS_TICE",
+      "titre": "Les TIC et le commerce électronique dans les entreprises",
+      "description": "L’enquête sur les TIC et le commerce électronique 2025 a été réalisée début 2025 auprès d’un échantillon d’environ 11 000 entreprises actives, occupant 10 personnes ou plus (salariés et non-salariés), implantées en France métropolitaine ou dans les départements d’outre-mer.\n\nCette enquête s’appuie depuis 2022 sur la définition économique instaurée par la loi de modernisation de l’économie (LME) et",
+      "modifie": "2026-08-31T16:20:44.429469861",
+      "mots_cles": [
+        "entreprises"
+      ]
+    }
+  ],
   "avertissements": [],
+  "catalogue": [
+    "DD_CNA_AGREGATS — Produit Intérieur Brut (PIB) et grands agrégats économiques",
+    "DD_CNA_APU — Comptes des administrations publiques",
+    "DD_CNA_BRANCHES — Activité des branches de l'économie",
+    "DD_CNA_CONSO_MENAGES_COICOP — Consommation des ménages par fonction",
+    "DD_CNA_CONSO_MENAGES_PRODUITS — Consommation des ménages par produit",
+    "DD_CNA_ECH_EXT — Échanges extérieurs",
+    "DD_CNA_PATRIMOINE — Comptes de patrimoine",
+    "DD_CNA_PATRIMOINE_BRANCHES — Comptes de patrimoine par branches",
+    "DD_CNA_REBS — Ressources et emplois de biens et services",
+    "DD_CNA_SUT — Tableau des entrées-sorties (TES)",
+    "DD_CNA_TEE — Tableau économique d'ensemble",
+    "DD_EEC_ANNUEL — Activité, emploi et chômage - résultats annuels 2025",
+    "DD_EEC_SERIES — Activité, emploi et chômage - séries longues",
+    "DS_ANTIPOL — Enquête annuelle sur les investissements pour protéger l'environnement (Antipol)",
+    "DS_BPE — Dénombrement des équipements (commerce, sport, services, santé…)",
+    "DS_BPE_EDUCATION — Enseignement : dénombrement et caractéristiques des équipements",
+    "DS_BPE_EVOLUTION — Évolution du nombre d'équipements et services",
+    "DS_BPE_SPORT_CULTURE — Sport, loisirs et culture : dénombrement, caractéristiques et capacités des équipements",
+    "DS_BTS_SAL_EQTP_SEX_AGE — Salaires dans le secteur privé selon le sexe et l'âge au niveau communal",
+    "DS_BTS_SAL_EQTP_SEX_PCS — Salaires dans le secteur privé selon le sexe et la catégorie socioprofessionnelle au niveau communal",
+    "DS_CNT_CB — Comptes des branches",
+    "DS_CNT_CSI — Comptes de secteurs institutionnels",
+    "DS_CNT_OPERATIONS — Opérations sur biens et services",
+    "DS_CNT_PIB_EQB_RF — Équilibre du produit intérieur brut",
+    "DS_COEFF_EURO_FRANC — Coefficient de transformation de l'euro ou du franc d'une année, en euro ou en franc d'une autre année",
+    "DS_COMPTES_REGIONAUX — Comptes régionaux annuels",
+    "DS_DECES_MORTALITE_SERIES — Décès et mortalité - séries longues",
+    "DS_DECHET_COMMERCE — Enquête sur la production de déchets non dangereux dans le commerce en 2022",
+    "DS_DECHET_INDUSTRIE — Enquête sur la production de déchets non dangereux dans l'industrie en 2022",
+    "DS_DECHET_SERVICES — Enquête sur la production de déchets non dangereux dans les services en 2022",
+    "DS_DERA_PRIVE_ANNUEL — Salaires dans le secteur privé par catégorie socioprofessionnelle détaillée",
+    "DS_DERA_PRIVE_SERIES_LONGUES — Séries longues de salaires dans le secteur privé",
+    "DS_DERA_PUBLIC_ANNUEL — Salaires dans la fonction publique par catégorie socioprofessionnelle détaillée",
+    "DS_DERA_PUBLIC_SERIES_LONGUES — Séries longues des salaires dans la fonction publique",
+    "DS_EACEI — Enquête annuelle sur les consommations d'énergie dans l'industrie (EACEI)",
+    "DS_EC_DECES — Décès quotidiens et mensuels",
+    "DS_EC_NAIS — Naissances mensuelles",
+    "DS_ELECTORAL — Caractéristiques du corps électoral",
+    "DS_ENQPAT_DET — Détention et montants du patrimoine des ménages",
+    "DS_ENQPAT_TRANSM — Transmissions intergénérationnelles",
+    "DS_ERFS_NON_RETROPOLE — Indicateurs de pauvreté et de niveau de vie de 1975 à 2024 (données non rétropolées)",
+    "DS_ERFS_RETROPOLE — Indicateurs de pauvreté et de niveau de vie de 1996 à 2024 (données rétropolées)",
+    "DS_ESTIMATION_POPULATION — Estimations localisées de population - séries longues",
+    "DS_ETAT_CIVIL_DECES_COMMUNES — Nombre de décès annuels par commune",
+    "DS_ETAT_CIVIL_NAIS_COMMUNES — Nombre de naissances annuelles par commune",
+    "DS_FECONDITE — [déprécié] Fécondité",
+    "DS_FILOSOFI_CC — Niveau de vie, taux de pauvreté, décomposition du revenu disponible en 2023",
+    "DS_FILOSOFI_SAGE_LOG_TP_NIVVIE — Niveau de vie médian et taux de pauvreté par tranche d’âge, sexe et statut d'occupation du logement en 2023",
+    "DS_FLORES_A17 — Nombre d'établissements et effectifs salariés en 17 grands secteurs",
+    "DS_FLORES_A38 — Nombre d'établissements et effectifs salariés en 38 grands secteurs",
+    "DS_FLORES_A5 — Nombre d'établissements et effectifs salariés en 5 grands secteurs",
+    "DS_FLORES_A88 — Nombre d'établissements et effectifs salariés en 88 grands secteurs",
+    "DS_FLORES_ECONOMIC_SPHERE — Nombre d'établissements selon les sphères de l'économie",
+    "DS_FLORES_PE — Nombre de particuliers employeurs d'assistantes maternelles et d'autres salariés",
+    "DS_ICA — Indicateur d’activité et de chiffre d’affaires",
+    "DS_IPCH — Indice des prix à la consommation harmonisés (IPCH)",
+    "DS_IPC_IND_CAT — Indice des prix à la consommation - indices catégoriels",
+    "DS_IPC_PM — Prix moyens de vente de détail",
+    "DS_IPC_PRINC — Indice des prix à la consommation - jeu de données principal",
+    "DS_MAR_PACS_DIV_SERIES — Mariages, pactes civils de solidarité (pacs) et divorces - séries longues",
+    "DS_MORTALITE — [déprécié] Mortalité",
+    "DS_NAISSANCES_FECONDITE_SERIES — Naissances et fécondité - séries longues",
+    "DS_NAT_SDG — Indicateurs d'objectifs de développement durable",
+    "DS_PARC_LOGEMENTS_SERIES — Le parc des logements - séries longues",
+    "DS_POPULATIONS_HISTORIQUES — Populations municipales de 1968 à 2023",
+    "DS_POPULATIONS_REFERENCE — Populations de référence",
+    "DS_POP_STRUCT_SERIES — Population et structure de la population - séries longues",
+    "DS_PRENOM — Prénoms",
+    "DS_RP_ACTIVITE_PRINC — Caractéristiques de l'emploi - Principaux indicateurs (dossier complet)",
+    "DS_RP_ACTIVITE_PRINC_IRIS — Caractéristiques de l'emploi - Principaux indicateurs - Iris",
+    "DS_RP_DIPLOMES_PRINC — Diplômes et Formation – Principaux indicateurs (dossier complet)",
+    "DS_RP_DIPLOMES_PRINC_IRIS — Diplômes et Formation - Principaux indicateurs - Iris",
+    "DS_RP_EDUCATION_PRINC — Éducation - Scolarisation – Principaux indicateurs (dossier complet)",
+    "DS_RP_EDUCATION_PRINC_IRIS — Éducation - Scolarisation - Principaux indicateurs - Iris",
+    "DS_RP_EMPLOI_LR_COMP — Population active et chômage - Principaux indicateurs (dossier complet)",
+    "DS_RP_EMPLOI_LR_COMP_IRIS — Population active et chômage - Principaux indicateurs - Iris",
+    "DS_RP_EMPLOI_LR_PRINC — Population active et chômage - Principaux indicateurs (dossier complet)",
+    "DS_RP_EMPLOI_LR_PRINC_IRIS — Population active et chômage - Principaux indicateurs - Iris",
+    "DS_RP_EMPLOI_LT_COMP — Emploi au lieu de travail - Principaux indicateurs (dossier complet)",
+    "DS_RP_EMPLOI_LT_PRINC — Emploi au lieu de travail - Principaux indicateurs (dossier complet)",
+    "DS_RP_FAMILLE_COMP — Famille – Principaux indicateurs (dossier complet)",
+    "DS_RP_FAMILLE_COMP_IRIS — Famille - Principaux indicateurs - Iris",
+    "DS_RP_LOGEMENT_COMP — Logements - Principaux indicateurs (dossier complet)",
+    "DS_RP_LOGEMENT_COMP_IRIS — Logements - Principaux indicateurs - Iris",
+    "DS_RP_LOGEMENT_DOM_PRINC — Logements dans les départements d'Outre-mer (DOM) - Principaux indicateurs (dossier complet)",
+    "DS_RP_LOGEMENT_DOM_PRINC_IRIS — Logements (spécificités des départements d'Outre-mer DOM) - Principaux indicateurs - Iris",
+    "DS_RP_LOGEMENT_PRINC — Logements - Principaux indicateurs (dossier complet)",
+    "DS_RP_LOGEMENT_PRINC_IRIS — Logements - Principaux indicateurs - Iris",
+    "DS_RP_MENAGES_COMP — Ménages – Principaux indicateurs (dossier complet)",
+    "DS_RP_MENAGES_COMP_IRIS — Ménages - Principaux indicateurs - Iris",
+    "DS_RP_MENAGES_PRINC — Ménages et couple – Principaux indicateurs (dossier complet)",
+    "DS_RP_MENAGES_PRINC_IRIS — Ménages et couples - Principaux indicateurs - Iris",
+    "DS_RP_MIGRES_PRINC — Migrations résidentielles – Principaux indicateurs (dossier complet)",
+    "DS_RP_NAVETTES_PRINC — Déplacements domicile-travail - Principaux indicateurs (dossier complet)",
+    "DS_RP_NAVETTES_PRINC_IRIS — Déplacements domicile-travail - Principaux indicateurs - Iris",
+    "DS_RP_POPULATION_COMP — Évolution et structure de la population – Principaux indicateurs (dossier complet)",
+    "DS_RP_POPULATION_COMP_IRIS — Population selon la catégorie socioprofessionnelle - Principaux indicateurs - Iris",
+    "DS_RP_POPULATION_PRINC — Évolution et structure de la population - Principaux indicateurs (dossier complet)",
+    "DS_RP_POPULATION_PRINC_IRIS — Population - Principaux indicateurs - Iris",
+    "DS_RP_SERIE_HISTORIQUE — Série historique du recensement de la population",
+    "DS_RP_TD_ACTIVITE_ACTIVITYEMPFORM_COMP — Population active selon le statut et l’activité économique – Données détaillées (ACT3)",
+    "DS_RP_TD_ACTIVITE_AGED_PRINC — Population active selon l’âge détaillé – Données détaillées (ACT1)",
+    "DS_RP_TD_ACTIVITE_AGEEMPFORMD_COMP — Population active selon la forme d’emploi, le temps de travail et l'âge regroupé – Données détaillées (ACT2B)",
+    "DS_RP_TD_ACTIVITE_AGEQEMPFORMR_COMP — Population active selon le statut, le temps de travail et l'âge quinquennal – Données détaillées (ACT2A)",
+    "DS_RP_TD_ACTIVITE_PCSACTIVITY_COMP — Population active selon la PCS et l’activité économique – Données détaillées (ACT4 et ACT5)",
+    "DS_RP_TD_DIPLOMES_PRINC — Diplômes et Formation – Données détaillées (FOR2)",
+    "DS_RP_TD_EDUCATION_PRINC — Éducation - Scolarisation – Données détaillées (FOR1)",
+    "DS_RP_TD_EMPLOI_LT_AGEEMPFORM_COMP — Emploi au lieu de travail selon le statut, le temps de travail et l'âge quinquennal – Données détaillées (EMP1)",
+    "DS_RP_TD_EMPLOI_LT_EMPFORMACTIVITY_COMP — Emploi au lieu de travail selon le statut et l’activité économique – Données détaillées (EMP2)",
+    "DS_RP_TD_EMPLOI_LT_EMPFORMWKTIME_COMP — Emploi au lieu de travail selon la forme d’emploi et le temps de travail – Données détaillées (EMP4)",
+    "DS_RP_TD_EMPLOI_LT_PCSACTIVITY_COMP — Emploi au lieu de travail selon la PCS et l’activité économique – Données détaillées (EMP3)",
+    "DS_RP_TD_FAMILLE_AGEENF_COMP — Famille selon l’âge des enfants – Données détaillées (FAM6, FAM7, FAM8, FAM9)",
+    "DS_RP_TD_FAMILLE_NBENF_COMP — Famille selon le nombre d’enfants – Données détaillées (FAM1, FAM2, FAM3, FAM4 et FAM5)",
+    "DS_RP_TD_IMMI_AGESEXEMPSTA_PRINC — Population détaillée par sexe, âge et situation quant à l'immigration – Données détaillées (IMG1 et IMG2)",
+    "DS_RP_TD_IMMI_AGESEXPCS_COMP — Population de 15 ans ou plus détaillée par sexe, groupe socioprofessionnel et situation quant à l'immigration – Données détaillées (IMG3)",
+    "DS_RP_TD_IMMI_AGESEX_PAYSNAISS_D_PRINC — Population immigrée par sexe, âge et pays de naissance détaillé (ex IMG1B)",
+    "DS_RP_TD_IMMI_AGESEX_PAYSNAISS_R_PRINC — Population immigrée par sexe, âge et pays de naissance regroupé (ex IMG1B)",
+    "DS_RP_TD_IMMI_EMPSTASEX_PAYSNAISS_R_PRINC — Population immigrée de 15 ans ou plus par sexe, statut d'emploi et pays de naissance regroupé (ex IMG2B)",
+    "DS_RP_TD_IMMI_PCSSEX_PAYSNAISS_R_COMP — Population de 15 ans ou plus détaillée par sexe, groupe socioprofessionnel et pays de naissance (ex IMG3B)",
+    "DS_RP_TD_LOGEMENT_AGE_PRINC — Caractéristiques des résidences principales selon l'âge de la personne de référence - Données détaillées (PRINC1 et PRINC22)",
+    "DS_RP_TD_LOGEMENT_CARACT_PRINC — Logements et résidences principales selon leurs caractéristiques - Données détaillées (LOG1, PRINC2, PRINC3, PRINC5 et PRINC27)",
+    "DS_RP_TD_LOGEMENT_PCS_COMP — Caractéristiques des résidences principales selon la PCS de la personne de référence - Données détaillées (PRINC 15)",
+    "DS_RP_TD_MENAGES_EMPSTA_COMP — Ménages selon le type d’activité de la personne de référence – Données détaillées (MEN3)",
+    "DS_RP_TD_MENAGES_FST_COMP — Population des ménages selon le mode de cohabitation – Données détaillées (MEN7)",
+    "DS_RP_TD_MENAGES_NOC_COMP — Ménages selon la taille du ménage – Données détaillées (MEN4)",
+    "DS_RP_TD_MENAGES_PCS_COMP — Ménages selon la PCS de la personne de référence – Données détaillées (MEN1 et MEN2)",
+    "DS_RP_TD_MENAGES_TPH_COMP — Ménages selon l’âge de la personne de référence et le type de ménage – Données détaillées (MEN5 et MEN6)",
+    "DS_RP_TD_MIGRES_COMP — Migrations résidentielles selon la PCS – Données détaillées (MIG2)",
+    "DS_RP_TD_MIGRES_PRINC — Migrations résidentielles selon l’âge et la nationalité – Données détaillées (MIG1)",
+    "DS_RP_TD_NAT_AGESEXEMPSTA_PRINC — Population de 15 ans ou plus détaillée par sexe, type d'activité et nationalité - Données détaillées (NAT2)",
+    "DS_RP_TD_NAT_AGESEXPCS_COMP — Population de 15 ans ou plus détaillée par sexe, groupe socioprofessionnel et nationalité - Données détaillées (NAT3)",
+    "DS_RP_TD_NAT_AGESEX_NATIONALITY_D_PRINC — Population détaillée par sexe, âge et nationalité actuelle (48 regroupements) - Données détaillées (ex NAT1 détaillé)",
+    "DS_RP_TD_NAT_AGESEX_NATIONALITY_R_PRINC — Population détaillée par sexe, âge et nationalité actuelle (13 regroupements) - Données détaillées (ex NAT1 regroupé)",
+    "DS_RP_TD_NAT_AGESEX_PRINC — Population détaillée par sexe, âge et nationalité - Données détaillées (NAT1)",
+    "DS_RP_TD_NAT_PCS_NATIONALITY_R_COMP — Population de 15 ans ou plus détaillée par groupe socioprofessionnel et nationalité actuelle (13 regroupements) - Données détaillées (ex NAT3B)",
+    "DS_RP_TD_NAT_SEXEMPSTA_NATIONALITY_R_PRINC — Population de 15 ans ou plus détaillée par sexe, type d'activité et nationalité actuelle (13 regroupements) - Données détaillées (ex NAT2 regroupé)",
+    "DS_RP_TD_NAVETTES_PCSACTIVITY_COMP — Déplacements domicile-travail selon la PCS et l’activité économique – Données détaillées (NAV3 et NAV4)",
+    "DS_RP_TD_NAVETTES_SEXAGE_COMP — Déplacements domicile-travail selon le sexe et l’âge – Données détaillées (NAV1)",
+    "DS_RP_TD_NAVETTES_SEXTRANSPORT_COMP — Déplacements domicile-travail selon le sexe, le lieu de travail et le moyen de transport – Données détaillées (NAV2A et NAV2B)",
+    "DS_RP_TD_POPULATION_AGECOUPLECIVILSEX_PRINC — Population par sexe, âge, statut conjugal et statut d'emploi – Données détaillées (POP3, POP4 et POP5)",
+    "DS_RP_TD_POPULATION_AGEHARSEX_PRINC — Population détaillée par sexe, âge et catégorie – Données détaillées (POP2)",
+    "DS_RP_TD_POPULATION_AGESEX_PRINC — Population détaillée par sexe et âge – Données détaillées (POP1)",
+    "DS_RP_TD_POPULATION_PCSAGESEX_COMP — Population selon l’âge et la PCS – Données détaillées (POP6)",
+    "DS_SIDE_CREA_COM — Créations d'entreprises et d'établissements au niveau communal et supra communal par secteur d'activité (A10) et forme légale",
+    "DS_SIDE_CREA_DEP_REG_NAT — Créations d'entreprises et d'établissements au niveau départemental, régional et national par secteur d'activité (A21) et forme légale",
+    "DS_SIDE_CREA_EI — Créations d'entreprises individuelles (unités légales)",
+    "DS_SIDE_CREA_ENT_DEP_REG_NAT_CJ — Créations d'entreprises au niveau départemental, régional et national par forme légale détaillée",
+    "DS_SIDE_CREA_ENT_SERIES — Créations d'entreprises - séries longues",
+    "DS_SIDE_EQDEMO_A10 — Équations démographiques des unités légales et des établissements (A10)",
+    "DS_SIDE_EQDEMO_A21 — Équations démographiques des unités légales et des établissements (A21)",
+    "DS_SIDE_STOCKS_A21 — Stocks d'unités légales et d'établissements par activité (A21) et forme légale",
+    "DS_SIDE_STOCKS_COM — Stocks d'unités légales et d'établissements par activité (A10)",
+    "DS_SIDE_STOCKS_EI — Stocks d'unités légales et d'établissements des entreprises individuelles par activité (A21)",
+    "DS_SOCIAL_ECONOMY — L'économie sociale et solidaire",
+    "DS_SRCV_CONFIANCE — Conditions de vie : confiance envers les autres",
+    "DS_SRCV_PMS — Privations matérielles et sociales",
+    "DS_SRCV_SATISFACTION — Conditions de vie : niveau de satisfaction",
+    "DS_SUIVI_DDE_TOUR — Suivi de la demande touristique",
+    "DS_TICE — Les TIC et le commerce électronique dans les entreprises",
+    "DS_TICM_EQUIPEMENT — Équipement des ménages en internet",
+    "DS_TICM_PRATIQUES — Pratiques en ligne des personnes",
+    "DS_TOUR_CAP — Capacités d'hébergements touristiques",
+    "DS_TOUR_FREQ — Fréquentation des hébergements touristiques"
+  ],
+  "inspection": {},
+  "pagination_exemple": {
+    "first": "https://api.insee.fr/melodi/data/DD_CNA_BRANCHES?maxResult=10000&FREQ=A&REF_SECTOR=S1&TRANSFORMATION=N&PRICES=_Z&UNIT_MEASURE=PS&STO=EMP&page=1"
+  },
   "validation": "ok",
-  "total_indicateurs": 10,
+  "total_indicateurs": 433,
   "a_verifier": 10
 }
