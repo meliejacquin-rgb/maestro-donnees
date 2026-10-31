@@ -2,13 +2,36 @@
   "_note": "Sources interrogées automatiquement chaque mois. « melodi » liste les jeux INSEE à extraire : il est vide tant que la découverte (rapport-collecte.json → decouverte) n'a pas confirmé les identifiants réels. On ne configure jamais un identifiant non vérifié.",
   "melodi": {
     "base": "https://api.insee.fr/melodi",
-    "decouverte_mots_cles": ["ESANE", "ratio", "taux de marge", "valeur ajoutée", "productivité", "chiffre d'affaires", "frais de personnel", "investissement", "défaillance", "délais de paiement"],
-    "jeux": []
+    "decouverte_mots_cles": [
+      "ESANE",
+      "taux de marge",
+      "valeur ajoutée",
+      "productivité",
+      "chiffre d'affaires",
+      "frais de personnel",
+      "investissement",
+      "défaillance",
+      "délais de paiement",
+      "branche",
+      "entreprises",
+      "effectifs salariés",
+      "secteurs"
+    ],
+    "jeux": [],
+    "inspecter": [
+      "DS_CNT_CB",
+      "DD_CNA_BRANCHES",
+      "DS_CNT_CSI",
+      "DD_CNA_TEE",
+      "DS_FLORES_A88"
+    ]
   },
   "_exemple_jeu_melodi": {
     "dataset": "IDENTIFIANT_CONFIRME_PAR_LA_DECOUVERTE",
     "indicateur": "taux_marge_ebe_va",
-    "filtres": { "GEO": "FRANCE-F" },
+    "filtres": {
+      "GEO": "FRANCE-F"
+    },
     "dimension_naf": "ACTIVITY",
     "dimension_periode": "TIME_PERIOD",
     "mesure": "OBS_VALUE_NIVEAU",
@@ -21,18 +44,18 @@
     "base": "https://www.data.gouv.fr/api/1/datasets/",
     "_role": "Liens « pour aller plus loin » par priorité ; jamais utilisés comme valeur de comparaison.",
     "recherches": {
-      "cash": "délais de paiement entreprises",
-      "profitability": "taux de marge entreprises secteur",
-      "productivity": "productivité entreprises secteur",
-      "decision": "indicateurs entreprises secteur",
-      "growth": "chiffre d'affaires secteur activité",
-      "costs": "charges entreprises secteur",
+      "cash": "délais de paiement",
+      "profitability": "taux de marge",
+      "productivity": "productivité",
+      "decision": "comptes des entreprises",
+      "growth": "chiffre d'affaires",
+      "costs": "charges entreprises",
       "investment": "investissement entreprises",
       "tax": "fiscalité entreprises",
-      "compliance": "obligations déclaratives entreprises",
-      "people": "emploi salariés secteur",
-      "risks": "défaillances d'entreprises",
-      "transition": "transmission cession entreprises"
+      "compliance": "obligations entreprises",
+      "people": "effectifs salariés",
+      "risks": "défaillances",
+      "transition": "transmission entreprises"
     }
   },
   "banque_de_france": {

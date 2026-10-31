@@ -46,8 +46,25 @@ if (!offline) {
     const catalog = parseMelodiCatalog(await get(sources.melodi.base + '/catalog/all', { timeout: 60000 }));
     report.decouverte = discover(catalog, sources.melodi.decouverte_mots_cles);
     report.sources.melodi_catalogue = { ok: true, jeux: catalog.length, candidats: report.decouverte.length };
+    report.catalogue = catalog.map((d) => d.id + ' — ' + d.titre);
   } catch (e) {
     report.sources.melodi_catalogue = { ok: false, erreur: String(e.message || e) };
+  }
+  // Inspection : structure réelle de quelques jeux (dimensions, codes, exemples) pour configurer l'extraction.
+  report.inspection = {};
+  for (const id of sources.melodi.inspecter || []) {
+    const out = {};
+    try {
+      const json = await get(`${sources.melodi.base}/data/${encodeURIComponent(id)}?maxResult=5`, { timeout: 60000, tries: 2 });
+      out.exemples = (json.observations || []).slice(0, 5);
+      out.cles = Object.keys(json).filter((k) => k !== 'observations');
+      out.total = json.paging?.count ?? json.totalCount ?? null;
+    } catch (e) { out.erreur_data = String(e.message || e); }
+    try {
+      const range = await get(`${sources.melodi.base}/range/${encodeURIComponent(id)}`, { timeout: 60000, tries: 2 });
+      out.dimensions = JSON.stringify(range).slice(0, 25000);
+    } catch (e) { out.erreur_range = String(e.message || e); }
+    report.inspection[id] = out;
   }
   for (const cfg of sources.melodi.jeux) {
     const origine = 'api:melodi:' + cfg.dataset;
