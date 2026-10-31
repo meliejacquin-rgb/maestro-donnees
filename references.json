@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "genere_le": "2026-10-31T11:13:29.080Z",
+ "genere_le": "2026-10-31T11:13:42.418Z",
  "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
  "definitions": {
   "delai_clients_jours": {
@@ -829,16 +829,97 @@
   }
  ],
  "liens": {
-  "cash": [],
+  "cash": [
+   {
+    "titre": "Nombre annuel de délais de paiement octroyés par les Urssaf",
+    "url": "https://www.data.gouv.fr/datasets/nombre-annuel-de-delais-de-paiement-octroyes-par-les-urssaf",
+    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
+    "modifie": "2025-07-17T14:02:00+00:00"
+   },
+   {
+    "titre": "Délais global de paiement des fournisseurs de la Ville d'Issy-les-Moulineaux",
+    "url": "https://www.data.gouv.fr/datasets/delais-global-de-paiement-des-fournisseurs-de-la-ville-dissy-les-moulineaux",
+    "producteur": "Ville d'Issy-les-Moulineaux",
+    "modifie": "2019-11-12T09:45:43+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2025 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2025-des-collectivites-territoriales",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2026-07-17T10:38:23.201000+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2024 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2024-des-collectivites-territoriales-1",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2025-07-21T10:34:06.402000+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2023 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2023-des-collectivites-territoriales",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2024-04-12T09:04:12+00:00"
+   }
+  ],
   "profitability": [],
-  "productivity": [],
-  "decision": [],
+  "productivity": [
+   {
+    "titre": "Indice de productivité des milieux profonds",
+    "url": "https://www.data.gouv.fr/datasets/indice-de-productivite-des-milieux-profonds",
+    "producteur": "Office Français de la Biodiversité",
+    "modifie": "2026-10-02T13:56:46.698000+00:00"
+   }
+  ],
+  "decision": [
+   {
+    "titre": "Synthèse des comptes 2012 des principales entreprises à participations publiques",
+    "url": "https://www.data.gouv.fr/datasets/synthese-des-comptes-2012-des-principales-entreprises-a-participations-publiques",
+    "producteur": "Ministère de l'Economie, de l'Industrie et du Numérique",
+    "modifie": "2014-03-11T17:28:44.020000+00:00"
+   },
+   {
+    "titre": "Documents et comptes des entreprises",
+    "url": "https://www.data.gouv.fr/datasets/documents-et-comptes-des-entreprises",
+    "producteur": "Institut national de la propriété industrielle (INPI)",
+    "modifie": "2026-01-26T07:41:16.455000+00:00"
+   },
+   {
+    "titre": "Commissaires aux comptes des entreprises relevant de l'APE",
+    "url": "https://www.data.gouv.fr/datasets/commissaires-aux-comptes-des-entreprises-relevant-de-l-ape",
+    "producteur": "Ministère de l'Economie, de l'Industrie et du Numérique",
+    "modifie": "2014-03-11T17:02:15.901000+00:00"
+   }
+  ],
   "growth": [
    {
-    "titre": "Chiffre d'affaires median des entreprises, par departement et secteur d'activite",
-    "url": "https://www.data.gouv.fr/datasets/chiffre-daffaires-median-des-entreprises-par-departement-et-secteur-dactivite",
-    "producteur": "Firmio",
-    "modifie": "2026-10-03T05:00:18.834000+00:00"
+    "titre": "Sources du chiffre d'affaires SNCF depuis 1955",
+    "url": "https://www.data.gouv.fr/datasets/sources-du-chiffre-daffaires-sncf-depuis-1955",
+    "producteur": "SNCF",
+    "modifie": "2017-04-01T08:24:08+00:00"
+   },
+   {
+    "titre": "Artisans : nombre d'entreprises, chiffre d'affaires et valeur ajoutée",
+    "url": "https://www.data.gouv.fr/datasets/artisans-nombre-d-entreprises-chiffre-d-affaires-et-valeur-ajoutee",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2018-12-13T22:01:19+00:00"
+   },
+   {
+    "titre": "Entreprises : évolution du chiffre d'affaires 2020 des librairies",
+    "url": "https://www.data.gouv.fr/datasets/entreprises-evolution-du-chiffre-daffaires-2020-des-librairies",
+    "producteur": "Ministère de la Culture",
+    "modifie": "2025-08-27T13:31:31.634000+00:00"
+   },
+   {
+    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
+    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
+    "producteur": "Ministère des Armées",
+    "modifie": "2014-01-06T09:17:18.390000+00:00"
+   },
+   {
+    "titre": "Entreprises : évolution du chiffre d'affaires 2020 du spectacle vivant",
+    "url": "https://www.data.gouv.fr/datasets/entreprises-evolution-du-chiffre-daffaires-2020-du-spectacle-vivant",
+    "producteur": "Ministère de la Culture",
+    "modifie": "2025-08-27T13:31:36.411000+00:00"
    }
   ],
   "costs": [],
@@ -851,31 +932,44 @@
     "modifie": "2025-10-02T15:01:38+00:00"
    }
   ],
-  "compliance": [],
+  "compliance": [
+   {
+    "titre": "Base de données des obligations d'information pesant sur les entreprises",
+    "url": "https://www.data.gouv.fr/datasets/base-de-donnees-des-obligations-d-information-pesant-sur-les-entreprises-30380604",
+    "producteur": "Premier ministre",
+    "modifie": "2014-01-06T08:46:38.789000+00:00"
+   }
+  ],
   "people": [
    {
-    "titre": "Entreprises : Salariés des secteurs culturels par zone d'emploi",
-    "url": "https://www.data.gouv.fr/datasets/entreprises-salaries-des-secteurs-culturels-par-zone-demploi",
-    "producteur": "Ministère de la Culture",
-    "modifie": "2025-08-27T13:32:00.843000+00:00"
+    "titre": "Effectifs salariés hospitaliers - Séries longues",
+    "url": "https://www.data.gouv.fr/datasets/effectifs-salaries-hospitaliers-series-longues",
+    "producteur": "Ministère des Solidarités et de la Santé",
+    "modifie": "2026-05-27T13:00:00+00:00"
    },
    {
-    "titre": "Effectifs salariés et masse salariale trimestriels du secteur privé, par zone d'emploi",
-    "url": "https://www.data.gouv.fr/datasets/effectifs-salaries-et-masse-salariale-trimestriels-du-secteur-prive-par-zone-demploi",
-    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
-    "modifie": "2026-09-18T06:45:24+00:00"
+    "titre": "Effectifs salariés privés depuis 2006 par commune",
+    "url": "https://www.data.gouv.fr/datasets/effectifs-salaries-prives-depuis-2006-par-commune",
+    "producteur": "Région des Pays de la Loire",
+    "modifie": "2022-10-10T08:01:16+00:00"
    },
    {
-    "titre": "Nombre d'établissements employeurs, effectifs salariés et masse salariale du secteur privé, par zone d'emploi et par an (depuis 1998)",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-employeurs-effectifs-salaries-et-masse-salariale-du-secteur-prive-par-zone-demploi-et-par-an-depuis-1998",
-    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
-    "modifie": "2025-09-17T22:01:15+00:00"
+    "titre": "Nombre d'établissements et effectifs salariés en 17 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-17-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:25.827000+00:00"
    },
    {
-    "titre": "Nombre d'établissements employeurs et effectifs salariés du secteur privé, par zone d'emploi x NA88 (au 31/12 depuis 2006)",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-employeurs-et-effectifs-salaries-du-secteur-prive-par-zone-demploi-x-na88-au-31-12-depuis-2006",
-    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
-    "modifie": "2026-05-29T06:45:40+00:00"
+    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:26.316000+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 5 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-5-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:26.185000+00:00"
    }
   ],
   "risks": [],
