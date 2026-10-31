@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "genere_le": "2026-10-31T11:13:42.418Z",
+ "genere_le": "2026-10-31T11:16:00.279Z",
  "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
  "definitions": {
   "delai_clients_jours": {
@@ -28,22 +28,16 @@
    "mesure_client": "EBE / valeur ajoutée × 100 (liasse fiscale)"
   },
   "va_par_salarie": {
-   "libelle": "Valeur ajoutée par salarié (productivité apparente)",
-   "unite": "k€ par salarié",
+   "libelle": "Valeur ajoutée par emploi (productivité apparente du travail)",
+   "unite": "k€ par emploi",
    "sens": "haut_favorable",
-   "mesure_client": "Valeur ajoutée / effectif salarié moyen"
+   "mesure_client": "Valeur ajoutée / effectif total (salariés + dirigeants non salariés)"
   },
   "frais_personnel_va": {
    "libelle": "Frais de personnel / valeur ajoutée",
    "unite": "%",
    "sens": "bas_favorable",
    "mesure_client": "(Salaires + charges sociales) / valeur ajoutée × 100"
-  },
-  "charges_externes_ca": {
-   "libelle": "Charges externes / chiffre d'affaires",
-   "unite": "%",
-   "sens": "bas_favorable",
-   "mesure_client": "Autres achats et charges externes / CA × 100"
   },
   "taux_investissement": {
    "libelle": "Taux d'investissement (investissement / valeur ajoutée)",
@@ -52,7 +46,7 @@
    "mesure_client": "Investissements corporels de l'exercice / valeur ajoutée × 100"
   },
   "evolution_ca": {
-   "libelle": "Évolution annuelle du chiffre d'affaires du secteur",
+   "libelle": "Évolution annuelle de la production du secteur (en valeur)",
    "unite": "%",
    "sens": "contexte",
    "mesure_client": "(CA N − CA N-1) / CA N-1 × 100"
@@ -62,6 +56,12 @@
    "unite": "nombre",
    "sens": "contexte",
    "mesure_client": "Sans objet : indicateur de contexte sectoriel"
+  },
+  "conso_inter_production": {
+   "libelle": "Consommations intermédiaires / production",
+   "unite": "%",
+   "sens": "bas_favorable",
+   "mesure_client": "(Achats consommés + autres achats et charges externes) / production de l'exercice × 100"
   }
  },
  "priorites": {
@@ -77,7 +77,7 @@
    "libelle": "Rentabilité et marges",
    "indicateurs": [
     "taux_marge_ebe_va",
-    "charges_externes_ca"
+    "conso_inter_production"
    ]
   },
   "productivity": {
@@ -102,7 +102,7 @@
   "costs": {
    "libelle": "Maîtrise des charges",
    "indicateurs": [
-    "charges_externes_ca",
+    "conso_inter_production",
     "frais_personnel_va"
    ]
   },

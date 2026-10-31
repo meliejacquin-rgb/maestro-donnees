@@ -4,7 +4,7 @@
 //   --offline : n'interroge aucune API (reconstruit depuis data/manuel.json et l'ancien fichier).
 // Aucune donnée client n'est lue ni envoyée : uniquement des statistiques publiques.
 import { readFile, writeFile } from 'node:fs/promises';
-import { parseMelodiCatalog, discover, normalizeMelodiData, parseDatagouv, build, validate } from './lib.mjs';
+import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate } from './lib.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = async (p, fallback) => { try { return JSON.parse(await readFile(new URL(p, ROOT), 'utf8')); } catch (e) { if (fallback !== undefined) return fallback; throw e; } };
@@ -66,6 +66,39 @@ if (!offline) {
     } catch (e) { out.erreur_range = String(e.message || e); }
     report.inspection[id] = out;
   }
+  // Ratios sectoriels calculés à partir des comptes nationaux par branche.
+  const cache = new Map();
+  async function melodiAll(dataset, filters) {
+    const key = dataset + JSON.stringify(filters);
+    if (cache.has(key)) return cache.get(key);
+    const obs = [];
+    let url = `${sources.melodi.base}/data/${encodeURIComponent(dataset)}?${new URLSearchParams({ maxResult: '10000', ...filters })}`;
+    for (let page = 0; url && page < 30; page++) {
+      const json = await get(url, { timeout: 90000 });
+      obs.push(...(json.observations || []));
+      if (page === 0) report.pagination_exemple = json.paging ?? null;
+      const next = json.paging?.next;
+      url = next && !json.paging?.isLast && (json.observations || []).length ? (next.startsWith('http') ? next : sources.melodi.base + next) : null;
+    }
+    cache.set(key, obs);
+    return obs;
+  }
+  for (const cfg of sources.melodi.ratios || []) {
+    const origine = 'api:melodi:' + cfg.dataset + ':' + cfg.indicateur;
+    try {
+      const num = await melodiAll(cfg.dataset, { ...cfg.filtres, ...cfg.numerateur });
+      const den = cfg.croissance ? [] : await melodiAll(cfg.dataset, { ...cfg.filtres, ...cfg.denominateur });
+      const { entries, doublons, non_reconnus } = computeBranchRatio(num, den, cfg, naf);
+      if (!entries.length) throw new Error(`aucune valeur exploitable (${num.length} obs. numérateur, ${den.length} obs. dénominateur, ${doublons} doublons)`);
+      auto[origine] = entries;
+      const periodes = [...new Set(entries.map((e) => e.periode))].sort();
+      report.sources[origine] = { ok: true, valeurs: entries.length, periodes, doublons_ecartes: doublons, branches_non_reconnues: non_reconnus, obs: [num.length, den.length] };
+    } catch (e) {
+      failed.push(origine);
+      report.sources[origine] = { ok: false, erreur: String(e.message || e), conserve: 'valeurs précédentes' };
+    }
+  }
+
   for (const cfg of sources.melodi.jeux) {
     const origine = 'api:melodi:' + cfg.dataset;
     try {

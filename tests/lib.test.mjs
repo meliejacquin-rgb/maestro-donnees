@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { textFr, parseMelodiCatalog, discover, nafCode, normalizeMelodiData, parseDatagouv, build, validate, resolve, periodKey } from '../scripts/lib.mjs';
+import { branchCodes, computeBranchRatio, textFr, parseMelodiCatalog, discover, nafCode, normalizeMelodiData, parseDatagouv, build, validate, resolve, periodKey } from '../scripts/lib.mjs';
 
 const naf = JSON.parse(await readFile(new URL('../naf.json', import.meta.url), 'utf8'));
 const priorites = JSON.parse(await readFile(new URL('../config/priorites.json', import.meta.url), 'utf8'));
@@ -79,4 +79,47 @@ test('periodKey trie par année', () => {
 test('naf.json : 88 divisions, chacune dans une section', () => {
   assert.equal(Object.keys(naf.divisions).length, 88);
   for (const [d, v] of Object.entries(naf.divisions)) assert.ok(naf.sections[v.section].divisions.includes(d));
+});
+
+test('branchCodes : codes des comptes nationaux → NAF', () => {
+  assert.deepEqual(branchCodes('C16', naf).codes, ['16']);
+  assert.deepEqual(branchCodes('C10T12', naf).codes, ['10', '11', '12']);
+  assert.deepEqual(branchCodes('C29_30', naf).codes, ['29', '30']);
+  assert.deepEqual(branchCodes('F', naf).codes, ['F']);
+  assert.deepEqual(branchCodes('BTE', naf).codes, ['B-E']);
+  assert.deepEqual(branchCodes('_T', naf).codes, ['*']);
+  assert.equal(branchCodes('GTI', naf), null); // regroupement multi-sections non comparable
+});
+
+const ob = (act, sto, period, value, mult = '6', extra = {}) => ({ attributes: { UNIT_MULT: mult }, dimensions: { ACTIVITY: act, STO: sto, TIME_PERIOD: period, FREQ: 'A', REF_SECTOR: 'S1', TRANSFORMATION: 'N', PRICES: 'V', UNIT_MEASURE: 'XDC', ...extra }, measures: { OBS_VALUE_NIVEAU: { value } } });
+const base = { dataset: 'DD', filtres: { FREQ: 'A', REF_SECTOR: 'S1' }, perimetre: 'p', source: 's', url: 'https://insee.fr', methode: 'm' };
+
+test('ratio de branche : dernière année commune, précision division > regroupement, doublons écartés', () => {
+  const num = [ob('F', 'B2A3G', '2023', 30), ob('F', 'B2A3G', '2024', 33), ob('C22', 'B2A3G', '2024', 5), ob('C22_23', 'B2A3G', '2024', 8),
+    ob('J', 'B2A3G', '2024', 1), ob('J', 'B2A3G', '2024', 2), ob('F', 'B2A3G', '2024', 99, '6', { REF_SECTOR: 'S11' })];
+  const den = [ob('F', 'B1G', '2023', 100), ob('F', 'B1G', '2024', 110), ob('C22', 'B1G', '2024', 20), ob('C22_23', 'B1G', '2024', 40), ob('J', 'B1G', '2024', 10)];
+  const r = computeBranchRatio(num, den, { ...base, indicateur: 'taux_marge_ebe_va', numerateur: { STO: 'B2A3G' }, denominateur: { STO: 'B1G' }, facteur: 100, bornes: [-50, 100] }, naf);
+  const by = Object.fromEntries(r.entries.map((e) => [e.naf, e]));
+  assert.equal(by.F.valeur, 30);       // 33/110, année 2024, la ligne S11 est filtrée
+  assert.equal(by.F.periode, '2024');
+  assert.equal(by['22'].valeur, 25);   // division exacte prioritaire sur C22_23
+  assert.equal(by['23'].valeur, 20);   // couverte seulement par C22_23
+  assert.match(by['23'].perimetre, /regroupée C22_23/);
+  assert.equal(by.J, undefined);       // doublon → écarté
+  assert.equal(r.doublons, 1);
+});
+
+test('ratio de branche : unités (millions / milliers) et bornes de plausibilité', () => {
+  const num = [ob('F', 'B1G', '2024', 120000, '6'), ob('J', 'B1G', '2024', 1, '6')];
+  const den = [ob('F', 'EMP', '2024', 1500, '3', { PRICES: '_Z', UNIT_MEASURE: 'PS' }), ob('J', 'EMP', '2024', 1000, '3', { PRICES: '_Z', UNIT_MEASURE: 'PS' })];
+  const r = computeBranchRatio(num, den, { ...base, indicateur: 'va_par_salarie', numerateur: { STO: 'B1G' }, denominateur: { STO: 'EMP' }, facteur: 0.001, bornes: [5, 5000] }, naf);
+  assert.equal(r.entries.length, 1);
+  assert.equal(r.entries[0].valeur, 80); // 120 Md€ / 1,5 M emplois = 80 k€ ; J (1 k€) hors bornes
+});
+
+test('croissance annuelle de la production', () => {
+  const num = [ob('F', 'P1', '2023', 200), ob('F', 'P1', '2024', 210)];
+  const r = computeBranchRatio(num, [], { ...base, indicateur: 'evolution_ca', croissance: true, numerateur: { STO: 'P1' }, bornes: [-60, 100] }, naf);
+  assert.equal(r.entries[0].valeur, 5);
+  assert.equal(r.entries[0].periode, '2024');
 });

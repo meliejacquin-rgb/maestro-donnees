@@ -91,6 +91,98 @@ export function normalizeMelodiData(json, cfg, naf) {
   return { entries, ignored };
 }
 
+/**
+ * Code d'activité des comptes nationaux → liste de codes NAF couverts, avec un rang de précision.
+ * « C16 » → [16] ; « C10T12 » → [10,11,12] ; « C29_30 » → [29,30] ; « F » → [F] ; « BTE » → [B-E] ; « _T » → [*].
+ */
+export function branchCodes(raw, naf) {
+  const s = String(raw || '').toUpperCase().trim();
+  if (s === '_T' || s === 'TOTAL') return { codes: ['*'], rang: 3 };
+  let m;
+  if ((m = s.match(/^([A-U])$/)) && naf.sections[m[1]]) return { codes: [m[1]], rang: 1 };
+  if ((m = s.match(/^[A-U](\d{2})$/)) && naf.divisions[m[1]]) return { codes: [m[1]], rang: 0 };
+  if ((m = s.match(/^[A-U](\d{2})(?:T|_)(\d{2})$/))) {
+    const codes = Object.keys(naf.divisions).filter((d) => d >= m[1] && d <= m[2]);
+    return codes.length ? { codes, rang: 0.5 } : null;
+  }
+  if ((m = s.match(/^([A-U])T([A-U])$/))) {
+    const want = Object.keys(naf.sections).filter((x) => x >= m[1] && x <= m[2]);
+    for (const [k, a] of Object.entries(naf.agregats)) if (a.sections.join() === want.join()) return { codes: [k], rang: 2 };
+  }
+  return null;
+}
+
+const matches = (dims, filters) => Object.entries(filters || {}).every(([k, v]) => String(dims[k]) === String(v));
+
+/**
+ * Ratio calculé à partir des comptes nationaux par branche : numérateur / dénominateur × facteur,
+ * pour la dernière année où les deux existent. Les doublons (plusieurs observations pour la même
+ * branche et année) rendent la valeur ambiguë : elle est écartée et signalée.
+ * Option « croissance » : variation annuelle du numérateur seul.
+ */
+export function computeBranchRatio(obsNum, obsDen, cfg, naf) {
+  const index = (obs, side) => {
+    const map = new Map(), dup = new Set();
+    for (const o of obs) {
+      const d = o.dimensions || {};
+      if (!matches(d, { ...(cfg.filtres || {}), ...(side || {}) })) continue;
+      const m = o.measures?.OBS_VALUE_NIVEAU;
+      const raw = m && typeof m === 'object' ? m.value : m;
+      if (raw === null || raw === undefined || raw === '' || !Number.isFinite(Number(raw))) continue;
+      const k = d.ACTIVITY + '|' + d.TIME_PERIOD;
+      if (map.has(k)) dup.add(k);
+      map.set(k, Number(raw) * 10 ** Number(o.attributes?.UNIT_MULT || 0)); // valeurs ramenées en unités
+    }
+    for (const k of dup) map.delete(k);
+    return { map, dup: dup.size };
+  };
+  const num = index(obsNum, cfg.numerateur);
+  const den = cfg.croissance ? null : index(obsDen, cfg.denominateur);
+  const byActivity = new Map();
+  for (const [k, v] of num.map) {
+    const [act, period] = k.split('|');
+    let value;
+    if (cfg.croissance) {
+      const prev = num.map.get(act + '|' + String(Number(period) - 1));
+      if (!prev) continue;
+      value = (v / prev - 1) * 100;
+    } else {
+      const d = den.map.get(k);
+      if (!d) continue;
+      value = (v / d) * (cfg.facteur ?? 1);
+    }
+    if (!Number.isFinite(value) || value < cfg.bornes[0] || value > cfg.bornes[1]) continue;
+    const prev = byActivity.get(act);
+    if (!prev || period > prev.periode) byActivity.set(act, { periode: period, valeur: value });
+  }
+  const entries = [], nonReconnus = new Set();
+  const ranked = [];
+  for (const [act, x] of byActivity) {
+    const b = branchCodes(act, naf);
+    if (!b) { nonReconnus.add(act); continue; }
+    for (const code of b.codes) ranked.push({ code, rang: b.rang, act, ...x });
+  }
+  ranked.sort((a, b) => a.rang - b.rang);
+  const seen = new Set();
+  for (const r of ranked) {
+    if (seen.has(r.code)) continue;
+    seen.add(r.code);
+    entries.push({
+      indicateur: cfg.indicateur,
+      naf: r.code,
+      valeur: Math.round(r.valeur * 10) / 10,
+      periode: r.periode,
+      perimetre: cfg.perimetre + (r.rang === 0.5 ? ` (branche regroupée ${r.act})` : ''),
+      source: cfg.source,
+      url: cfg.url,
+      methode: cfg.methode,
+      statut: 'verifie',
+      origine: 'api:melodi:' + cfg.dataset + ':' + cfg.indicateur,
+    });
+  }
+  return { entries, doublons: num.dup + (den?.dup || 0), non_reconnus: [...nonReconnus] };
+}
+
 /** Recherche data.gouv.fr → liens de documentation. */
 export function parseDatagouv(json) {
   if (!Array.isArray(json?.data)) throw new Error('data.gouv.fr : format non reconnu');
