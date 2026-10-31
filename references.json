@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "genere_le": "2026-10-31T11:11:09.543Z",
+ "genere_le": "2026-10-31T11:12:36.018Z",
  "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
  "definitions": {
   "delai_clients_jours": {
@@ -828,5 +828,57 @@
    "origine": "manuel"
   }
  ],
- "liens": {}
+ "liens": {
+  "cash": [],
+  "profitability": [],
+  "productivity": [],
+  "decision": [],
+  "growth": [
+   {
+    "titre": "Chiffre d'affaires median des entreprises, par departement et secteur d'activite",
+    "url": "https://www.data.gouv.fr/datasets/chiffre-daffaires-median-des-entreprises-par-departement-et-secteur-dactivite",
+    "producteur": "Firmio",
+    "modifie": "2026-10-03T05:00:18.834000+00:00"
+   }
+  ],
+  "costs": [],
+  "investment": [],
+  "tax": [
+   {
+    "titre": "Fiscalité locale des entreprises dans la Communauté de Communes Cœur de France",
+    "url": "https://www.data.gouv.fr/datasets/fiscalite-locale-des-entreprises-dans-la-communaute-de-communes-coeur-de-france",
+    "producteur": "Communauté de Communes Coeur de France",
+    "modifie": "2025-10-02T15:01:38+00:00"
+   }
+  ],
+  "compliance": [],
+  "people": [
+   {
+    "titre": "Entreprises : Salariés des secteurs culturels par zone d'emploi",
+    "url": "https://www.data.gouv.fr/datasets/entreprises-salaries-des-secteurs-culturels-par-zone-demploi",
+    "producteur": "Ministère de la Culture",
+    "modifie": "2025-08-27T13:32:00.843000+00:00"
+   },
+   {
+    "titre": "Effectifs salariés et masse salariale trimestriels du secteur privé, par zone d'emploi",
+    "url": "https://www.data.gouv.fr/datasets/effectifs-salaries-et-masse-salariale-trimestriels-du-secteur-prive-par-zone-demploi",
+    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
+    "modifie": "2026-09-18T06:45:24+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements employeurs, effectifs salariés et masse salariale du secteur privé, par zone d'emploi et par an (depuis 1998)",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-employeurs-effectifs-salaries-et-masse-salariale-du-secteur-prive-par-zone-demploi-et-par-an-depuis-1998",
+    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
+    "modifie": "2025-09-17T22:01:15+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements employeurs et effectifs salariés du secteur privé, par zone d'emploi x NA88 (au 31/12 depuis 2006)",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-employeurs-et-effectifs-salaries-du-secteur-prive-par-zone-demploi-x-na88-au-31-12-depuis-2006",
+    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
+    "modifie": "2026-05-29T06:45:40+00:00"
+   }
+  ],
+  "risks": [],
+  "transition": []
+ }
 }
