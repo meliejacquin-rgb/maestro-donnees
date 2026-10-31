@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-31T11:16:43.685Z",
+  "date": "2026-10-31T11:18:15.813Z",
   "mode": "en ligne",
   "sources": {
     "melodi_catalogue": {
@@ -9,140 +9,128 @@
     },
     "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va": {
       "ok": true,
-      "valeurs": 78,
+      "valeurs": 42,
       "periodes": [
-        "1977",
-        "2018",
         "2024",
         "2025"
       ],
-      "doublons_ecartes": 3928,
-      "branches_non_reconnues": [
-        "B_D_E",
-        "GTN_RTU",
-        "RTU",
-        "C_OTH",
-        "M_N",
-        "OTQ",
-        "GTI"
+      "doublons_ecartes": 428,
+      "doublon_exemple": [
+        "COUNTERPART_AREA: W2 / W0"
       ],
-      "obs": [
-        4468,
-        10000
-      ]
-    },
-    "api:melodi:DD_CNA_BRANCHES:frais_personnel_va": {
-      "ok": true,
-      "valeurs": 49,
-      "periodes": [
-        "1977",
-        "2018",
-        "2024",
-        "2025"
-      ],
-      "doublons_ecartes": 7939,
       "branches_non_reconnues": [
         "GTN_RTU",
         "C_OTH",
         "B_D_E"
       ],
       "obs": [
+        4468,
+        10441
+      ]
+    },
+    "api:melodi:DD_CNA_BRANCHES:frais_personnel_va": {
+      "ok": true,
+      "valeurs": 42,
+      "periodes": [
+        "2024",
+        "2025"
+      ],
+      "doublons_ecartes": 846,
+      "doublon_exemple": [
+        "COUNTERPART_AREA: W2 / W0"
+      ],
+      "branches_non_reconnues": [
+        "C_OTH",
+        "GTN_RTU",
+        "B_D_E"
+      ],
+      "obs": [
         9527,
-        10000
+        10441
       ]
     },
     "api:melodi:DD_CNA_BRANCHES:taux_investissement": {
       "ok": true,
-      "valeurs": 59,
+      "valeurs": 6,
       "periodes": [
-        "1977",
         "2025"
       ],
-      "doublons_ecartes": 3928,
+      "doublons_ecartes": 428,
+      "doublon_exemple": [
+        "COUNTERPART_AREA: W2 / W0",
+        "INSTR_ASSET: _Z / N11G"
+      ],
       "branches_non_reconnues": [
         "C_OTH",
         "B_D_E",
-        "GTN_RTU",
-        "GTI",
-        "RTU",
-        "M_N",
-        "OTQ"
+        "GTN_RTU"
       ],
       "obs": [
         6797,
-        10000
+        10441
       ]
     },
     "api:melodi:DD_CNA_BRANCHES:conso_inter_production": {
       "ok": true,
-      "valeurs": 78,
+      "valeurs": 42,
       "periodes": [
-        "1977",
-        "2018",
         "2024",
         "2025"
       ],
-      "doublons_ecartes": 7526,
+      "doublons_ecartes": 841,
+      "doublon_exemple": [
+        "COUNTERPART_AREA: W0 / W2"
+      ],
       "branches_non_reconnues": [
         "B_D_E",
         "C_OTH",
-        "GTN_RTU",
-        "GTI",
-        "M_N",
-        "OTQ",
-        "RTU"
+        "GTN_RTU"
       ],
       "obs": [
-        10000,
-        10000
+        10096,
+        10160
       ]
     },
     "api:melodi:DD_CNA_BRANCHES:va_par_salarie": {
       "ok": true,
-      "valeurs": 80,
+      "valeurs": 40,
       "periodes": [
-        "1977",
-        "1992",
-        "2008",
         "2022",
-        "2024"
+        "2024",
+        "2025"
       ],
-      "doublons_ecartes": 4403,
+      "doublons_ecartes": 483,
+      "doublon_exemple": [
+        "COUNTERPART_AREA: W2 / W0"
+      ],
       "branches_non_reconnues": [
-        "C_OTH",
         "GTN_RTU",
         "B_D_E",
-        "GTI",
-        "M_N",
-        "OTQ",
-        "RTU"
+        "C_OTH"
       ],
       "obs": [
-        10000,
+        10441,
         7335
       ]
     },
     "api:melodi:DD_CNA_BRANCHES:evolution_ca": {
       "ok": true,
-      "valeurs": 79,
+      "valeurs": 40,
       "periodes": [
-        "1977",
-        "1992",
-        "2016",
-        "2024"
+        "2024",
+        "2025"
       ],
-      "doublons_ecartes": 3780,
+      "doublons_ecartes": 423,
+      "doublon_exemple": [
+        "COUNTERPART_AREA: W2 / W0"
+      ],
       "branches_non_reconnues": [
-        "C_OTH",
-        "B_D_E",
-        "GTI",
         "GTN_RTU",
-        "M_N",
-        "OTQ",
-        "RTU"
+        "B_D_E",
+        "C_OTH"
       ],
       "obs": [
-        10000,
+        10160,
         0
       ]
     },
@@ -534,9 +522,10 @@
   ],
   "inspection": {},
   "pagination_exemple": {
-    "first": "https://api.insee.fr/melodi/data/DD_CNA_BRANCHES?maxResult=10000&FREQ=A&REF_SECTOR=S1&TRANSFORMATION=N&PRICES=_Z&UNIT_MEASURE=PS&STO=EMP&page=1"
+    "first": "https://api.insee.fr/melodi/data/DD_CNA_BRANCHES?maxResult=10000&FREQ=A&REF_SECTOR=S1&TRANSFORMATION=N&PRICES=_Z&UNIT_MEASURE=PS&STO=EMP&page=1",
+    "isLast": true
   },
   "validation": "ok",
-  "total_indicateurs": 433,
+  "total_indicateurs": 222,
   "a_verifier": 10
 }
