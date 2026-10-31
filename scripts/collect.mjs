@@ -72,13 +72,14 @@ if (!offline) {
     const key = dataset + JSON.stringify(filters);
     if (cache.has(key)) return cache.get(key);
     const obs = [];
-    let url = `${sources.melodi.base}/data/${encodeURIComponent(dataset)}?${new URLSearchParams({ maxResult: '10000', ...filters })}`;
-    for (let page = 0; url && page < 30; page++) {
-      const json = await get(url, { timeout: 90000 });
-      obs.push(...(json.observations || []));
-      if (page === 0) report.pagination_exemple = json.paging ?? null;
-      const next = json.paging?.next;
-      url = next && !json.paging?.isLast && (json.observations || []).length ? (next.startsWith('http') ? next : sources.melodi.base + next) : null;
+    const size = 10000;
+    for (let page = 1; page <= 60; page++) {
+      const json = await get(`${sources.melodi.base}/data/${encodeURIComponent(dataset)}?${new URLSearchParams({ maxResult: String(size), ...filters, page: String(page) })}`, { timeout: 90000 });
+      const got = json.observations || [];
+      obs.push(...got);
+      if (page === 1) report.pagination_exemple = json.paging ?? null;
+      if (got.length < size) break;
+      if (page === 60) throw new Error('plus de 600 000 observations : filtres insuffisants');
     }
     cache.set(key, obs);
     return obs;
@@ -88,11 +89,11 @@ if (!offline) {
     try {
       const num = await melodiAll(cfg.dataset, { ...cfg.filtres, ...cfg.numerateur });
       const den = cfg.croissance ? [] : await melodiAll(cfg.dataset, { ...cfg.filtres, ...cfg.denominateur });
-      const { entries, doublons, non_reconnus } = computeBranchRatio(num, den, cfg, naf);
+      const { entries, doublons, doublon_exemple, non_reconnus } = computeBranchRatio(num, den, { ...cfg, annee_min: new Date().getUTCFullYear() - 5 }, naf);
       if (!entries.length) throw new Error(`aucune valeur exploitable (${num.length} obs. numérateur, ${den.length} obs. dénominateur, ${doublons} doublons)`);
       auto[origine] = entries;
       const periodes = [...new Set(entries.map((e) => e.periode))].sort();
-      report.sources[origine] = { ok: true, valeurs: entries.length, periodes, doublons_ecartes: doublons, branches_non_reconnues: non_reconnus, obs: [num.length, den.length] };
+      report.sources[origine] = { ok: true, valeurs: entries.length, periodes, doublons_ecartes: doublons, doublon_exemple, branches_non_reconnues: non_reconnus, obs: [num.length, den.length] };
     } catch (e) {
       failed.push(origine);
       report.sources[origine] = { ok: false, erreur: String(e.message || e), conserve: 'valeurs précédentes' };

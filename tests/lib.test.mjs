@@ -123,3 +123,11 @@ test('croissance annuelle de la production', () => {
   assert.equal(r.entries[0].valeur, 5);
   assert.equal(r.entries[0].periode, '2024');
 });
+
+test('ratio de branche : années trop anciennes ignorées, doublon expliqué', () => {
+  const num = [ob('F', 'B2A3G', '1977', 50), ob('G', 'B2A3G', '2024', 10), ob('G', 'B2A3G', '2024', 12, '6', { ACCOUNTING_ENTRY: 'D' })];
+  const den = [ob('F', 'B1G', '1977', 100), ob('G', 'B1G', '2024', 40)];
+  const r = computeBranchRatio(num, den, { ...base, indicateur: 'taux_marge_ebe_va', numerateur: { STO: 'B2A3G' }, denominateur: { STO: 'B1G' }, facteur: 100, bornes: [-50, 100], annee_min: 2021 }, naf);
+  assert.equal(r.entries.length, 0);
+  assert.deepEqual(r.doublon_exemple, ['ACCOUNTING_ENTRY: undefined / D']);
+});

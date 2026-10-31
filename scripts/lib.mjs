@@ -121,16 +121,21 @@ const matches = (dims, filters) => Object.entries(filters || {}).every(([k, v]) 
  * Option « croissance » : variation annuelle du numérateur seul.
  */
 export function computeBranchRatio(obsNum, obsDen, cfg, naf) {
+  const diag = {};
   const index = (obs, side) => {
-    const map = new Map(), dup = new Set();
+    const map = new Map(), dup = new Set(), first = new Map();
     for (const o of obs) {
       const d = o.dimensions || {};
+      if (cfg.annee_min && Number(String(d.TIME_PERIOD).slice(0, 4)) < cfg.annee_min) continue;
       if (!matches(d, { ...(cfg.filtres || {}), ...(side || {}) })) continue;
       const m = o.measures?.OBS_VALUE_NIVEAU;
       const raw = m && typeof m === 'object' ? m.value : m;
       if (raw === null || raw === undefined || raw === '' || !Number.isFinite(Number(raw))) continue;
       const k = d.ACTIVITY + '|' + d.TIME_PERIOD;
-      if (map.has(k)) dup.add(k);
+      if (map.has(k)) {
+        dup.add(k);
+        if (!diag.exemple) { const a = first.get(k); diag.exemple = Object.keys({ ...a, ...d }).filter((x) => a[x] !== d[x]).map((x) => `${x}: ${a[x]} / ${d[x]}`); }
+      } else first.set(k, d);
       map.set(k, Number(raw) * 10 ** Number(o.attributes?.UNIT_MULT || 0)); // valeurs ramenées en unités
     }
     for (const k of dup) map.delete(k);
@@ -180,7 +185,7 @@ export function computeBranchRatio(obsNum, obsDen, cfg, naf) {
       origine: 'api:melodi:' + cfg.dataset + ':' + cfg.indicateur,
     });
   }
-  return { entries, doublons: num.dup + (den?.dup || 0), non_reconnus: [...nonReconnus] };
+  return { entries, doublons: num.dup + (den?.dup || 0), doublon_exemple: diag.exemple || null, non_reconnus: [...nonReconnus] };
 }
 
 /** Recherche data.gouv.fr → liens de documentation. */
