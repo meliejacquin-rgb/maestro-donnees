@@ -132,14 +132,21 @@ export function computeBranchRatio(obsNum, obsDen, cfg, naf) {
       const raw = m && typeof m === 'object' ? m.value : m;
       if (raw === null || raw === undefined || raw === '' || !Number.isFinite(Number(raw))) continue;
       const k = d.ACTIVITY + '|' + d.TIME_PERIOD;
+      const v = Number(raw) * 10 ** Number(o.attributes?.UNIT_MULT || 0); // valeurs ramenées en unités
+      const score = Object.entries(cfg.preference || {}).filter(([x, want]) => String(d[x]) === String(want)).length;
       if (map.has(k)) {
+        const prev = map.get(k);
+        if (Math.abs(prev.v - v) <= 1e-9 * Math.max(1, Math.abs(v))) continue; // même valeur publiée deux fois
+        if (score !== prev.score) { if (score > prev.score) { map.set(k, { v, score }); dup.delete(k); } continue; } // variante préférée
         dup.add(k);
         if (!diag.exemple) { const a = first.get(k); diag.exemple = Object.keys({ ...a, ...d }).filter((x) => a[x] !== d[x]).map((x) => `${x}: ${a[x]} / ${d[x]}`); }
-      } else first.set(k, d);
-      map.set(k, Number(raw) * 10 ** Number(o.attributes?.UNIT_MULT || 0)); // valeurs ramenées en unités
+        continue;
+      }
+      first.set(k, d);
+      map.set(k, { v, score });
     }
     for (const k of dup) map.delete(k);
-    return { map, dup: dup.size };
+    return { map: new Map([...map].map(([k, x]) => [k, x.v])), dup: dup.size };
   };
   const num = index(obsNum, cfg.numerateur);
   const den = cfg.croissance ? null : index(obsDen, cfg.denominateur);

@@ -43,10 +43,20 @@ jobs:
           head -c 60000 rapport-collecte.json >> "$GITHUB_STEP_SUMMARY" || true
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
-      # Publie le résultat (y compris sur la branche d'une pull request du même dépôt,
-      # pour pouvoir relire le rapport de découverte). Un fichier invalide a déjà fait échouer l'étape précédente.
+      # Pull request : résultats écrits sur la branche d'essai « collecte-essai » (la branche de travail reste intacte).
+      - name: Publier l'essai (pull request)
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          git config user.name "maestro-collecte"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B collecte-essai
+          git add references.json rapport-collecte.json
+          git commit -m "Essai de collecte pour ${{ github.head_ref }} ($(date -u +%Y-%m-%d))" || true
+          git push -f origin collecte-essai
+
+      # Collecte mensuelle ou manuelle : enregistrement sur main (publié par GitHub Pages).
       - name: Enregistrer les données mises à jour
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "maestro-collecte"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -56,6 +66,6 @@ jobs:
           # La branche a pu avancer pendant la collecte : on se recale puis on réessaie.
           for i in 1 2 3; do
             git push && exit 0
-            git pull --rebase -X theirs origin "${{ github.head_ref || github.ref_name }}" || { git rebase --abort; exit 1; }
+            git pull --rebase -X theirs origin "${{ github.ref_name }}" || { git rebase --abort; exit 1; }
           done
           exit 1

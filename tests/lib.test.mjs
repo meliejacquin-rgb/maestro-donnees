@@ -131,3 +131,14 @@ test('ratio de branche : années trop anciennes ignorées, doublon expliqué', (
   assert.equal(r.entries.length, 0);
   assert.deepEqual(r.doublon_exemple, ['ACCOUNTING_ENTRY: undefined / D']);
 });
+
+test('ratio de branche : valeur identique publiée deux fois conservée, variante préférée retenue', () => {
+  const num = [ob('G', 'B2A3G', '2024', 10, '6', { COUNTERPART_AREA: 'W2' }), ob('G', 'B2A3G', '2024', 10, '6', { COUNTERPART_AREA: 'W0' }),
+    ob('H', 'B2A3G', '2024', 99, '6', { COUNTERPART_AREA: 'W0' }), ob('H', 'B2A3G', '2024', 8, '6', { COUNTERPART_AREA: 'W2' })];
+  const den = [ob('G', 'B1G', '2024', 40), ob('H', 'B1G', '2024', 40)];
+  const r = computeBranchRatio(num, den, { ...base, indicateur: 'taux_marge_ebe_va', numerateur: { STO: 'B2A3G' }, denominateur: { STO: 'B1G' }, facteur: 100, bornes: [-50, 100], preference: { COUNTERPART_AREA: 'W2' } }, naf);
+  const by = Object.fromEntries(r.entries.map((e) => [e.naf, e.valeur]));
+  assert.equal(by.G, 25);
+  assert.equal(by.H, 20);
+  assert.equal(r.doublons, 0);
+});

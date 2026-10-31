@@ -46,7 +46,11 @@
           -50,
           100
         ],
-        "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants"
+        "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
       },
       {
         "dataset": "DD_CNA_BRANCHES",
@@ -74,7 +78,11 @@
           0,
           150
         ],
-        "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche"
+        "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
       },
       {
         "dataset": "DD_CNA_BRANCHES",
@@ -102,7 +110,11 @@
           0,
           200
         ],
-        "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche"
+        "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "N11G"
+        }
       },
       {
         "dataset": "DD_CNA_BRANCHES",
@@ -130,7 +142,11 @@
           0,
           100
         ],
-        "methode": "Consommation intermédiaire / production de la branche, prix courants"
+        "methode": "Consommation intermédiaire / production de la branche, prix courants",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
       },
       {
         "dataset": "DD_CNA_BRANCHES",
@@ -158,7 +174,11 @@
           5,
           5000
         ],
-        "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros"
+        "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
       },
       {
         "dataset": "DD_CNA_BRANCHES",
@@ -181,7 +201,11 @@
           -60,
           100
         ],
-        "methode": "Variation annuelle de la production de la branche à prix courants"
+        "methode": "Variation annuelle de la production de la branche à prix courants",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
       }
     ]
   },
