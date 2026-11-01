@@ -142,3 +142,23 @@ test('ratio de branche : valeur identique publiée deux fois conservée, variant
   assert.equal(by.H, 20);
   assert.equal(r.doublons, 0);
 });
+
+test('défaillances BDM : cumul 12 mois par secteur, évolution sur un an, correspondance NAF', async () => {
+  const { parseBdmSeries, buildDefaillances } = await import('../scripts/lib.mjs');
+  const obs = (rows) => rows.map(([p, v]) => `<Obs TIME_PERIOD="${p}" OBS_VALUE="${v}"/>`).join('');
+  const xml = `<message:StructureSpecificData><message:DataSet>
+    <Series REF_AREA="FE" FREQ="M" CORRECTION="BRUT" INDICATEUR="NOMBRE_DEFAILLANCES" SERIE_ARRETEE="FALSE" ACTIVITE_CREAT_ENT="I" IDBANK="001656191" TITLE_FR="Nombre de défaillances d'entreprises par date de jugement - Cumul brut glissant sur 12 mois - France - Hébergement et restauration">${obs([['2025-07', 9000], ['2026-06', 9600], ['2026-07', 9721]])}</Series>
+    <Series REF_AREA="FE" FREQ="M" CORRECTION="BRUT" INDICATEUR="NOMBRE_DEFAILLANCES" SERIE_ARRETEE="FALSE" ACTIVITE_CREAT_ENT="MN" IDBANK="1" TITLE_FR="… - Cumul brut glissant sur 12 mois - France - Soutien aux entreprises">${obs([['2026-07', 9061]])}</Series>
+    <Series REF_AREA="FE" FREQ="M" CORRECTION="CVS-CJO" INDICATEUR="NOMBRE_DEFAILLANCES" SERIE_ARRETEE="FALSE" ACTIVITE_CREAT_ENT="I" IDBANK="2" TITLE_FR="… - Données CVS-CJO - France - Hébergement et restauration">${obs([['2026-07', 826]])}</Series>
+    <Series REF_AREA="D01" FREQ="M" CORRECTION="BRUT" INDICATEUR="NOMBRE_DEFAILLANCES" SERIE_ARRETEE="FALSE" ACTIVITE_CREAT_ENT="I" IDBANK="3" TITLE_FR="… - Cumul brut glissant sur 12 mois - Ain - Hébergement">${obs([['2026-07', 5]])}</Series>
+  </message:DataSet></message:StructureSpecificData>`;
+  const cfg = { indicateur: 'defaillances_secteur', origine: 'bdm:test', source: 'INSEE', titre_contient: 'Cumul brut glissant sur 12 mois',
+    filtre: { REF_AREA: 'FE', FREQ: 'M', CORRECTION: 'BRUT', INDICATEUR: 'NOMBRE_DEFAILLANCES', SERIE_ARRETEE: 'FALSE' },
+    correspondance: { I: ['I'], MN: ['M', 'N'] } };
+  const out = buildDefaillances(parseBdmSeries(xml), cfg);
+  assert.deepEqual(out.map((e) => [e.naf, e.valeur]), [['I', 9721], ['M', 9061], ['N', 9061]]);
+  assert.equal(out[0].periode, '12 mois glissants à fin 07/2026');
+  assert.equal(out[0].methode, '+8 % sur un an');
+  assert.equal(out[0].url, 'https://www.insee.fr/fr/statistiques/serie/001656191');
+  assert.equal(out[1].methode, undefined);
+});

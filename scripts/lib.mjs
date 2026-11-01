@@ -281,3 +281,46 @@ export function resolve(refs, indicateur, code) {
   }
   return null;
 }
+
+/** Séries SDMX (format « StructureSpecific ») de la base BDM de l'INSEE : attributs + observations triées. */
+export function parseBdmSeries(xml) {
+  const attrs = (txt) => Object.fromEntries([...String(txt).matchAll(/([A-Za-z_][\w-]*)="([^"]*)"/g)].map((m) => [m[1], m[2]]));
+  return [...String(xml).matchAll(/<Series\b([^>]*)>([\s\S]*?)<\/Series>/g)].map(([, a, body]) => ({
+    ...attrs(a),
+    obs: [...body.matchAll(/<Obs\b([^>]*?)\/?>/g)].map((m) => attrs(m[1]))
+      .filter((o) => o.TIME_PERIOD && o.OBS_VALUE !== undefined && o.OBS_VALUE !== '' && o.OBS_VALUE !== 'NaN')
+      .map((o) => ({ periode: o.TIME_PERIOD, valeur: Number(o.OBS_VALUE) }))
+      .filter((o) => Number.isFinite(o.valeur))
+      .sort((x, y) => x.periode.localeCompare(y.periode)),
+  }));
+}
+
+/** Défaillances d'entreprises : cumul 12 mois par grand secteur → repères (un par code NAF de la correspondance). */
+export function buildDefaillances(series, cfg) {
+  const out = [];
+  const mois = (p) => { const [y, m] = p.split('-'); return `${m}/${y}`; };
+  for (const s of series) {
+    if (Object.entries(cfg.filtre).some(([k, v]) => s[k] !== v)) continue;
+    if (cfg.titre_contient && !String(s.TITLE_FR || '').includes(cfg.titre_contient)) continue;
+    const codes = cfg.correspondance[s.ACTIVITE_CREAT_ENT];
+    const last = s.obs.at(-1);
+    if (!codes || !last) continue;
+    const [y, m] = last.periode.split('-').map(Number);
+    const ilYaUnAn = `${y - 1}-${String(m).padStart(2, '0')}`;
+    const prev = s.obs.find((o) => o.periode === ilYaUnAn);
+    const evolution = prev && prev.valeur ? Math.round(((last.valeur - prev.valeur) / prev.valeur) * 1000) / 10 : null;
+    const secteur = String(s.TITLE_FR || '').split(' - ').at(-1);
+    for (const naf of codes) {
+      out.push({
+        indicateur: cfg.indicateur, naf, valeur: last.valeur,
+        periode: `12 mois glissants à fin ${mois(last.periode)}`,
+        perimetre: `France, ${secteur} : défaillances par date de jugement, cumul brut sur 12 mois`,
+        methode: evolution === null ? undefined : `${evolution > 0 ? '+' : ''}${String(evolution).replace('.', ',')} % sur un an`,
+        source: `${cfg.source} (série ${s.IDBANK})`,
+        url: `https://www.insee.fr/fr/statistiques/serie/${s.IDBANK}`,
+        statut: 'verifie', origine: cfg.origine,
+      });
+    }
+  }
+  return out;
+}

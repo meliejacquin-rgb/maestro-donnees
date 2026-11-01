@@ -246,9 +246,61 @@
     "series": []
   },
   "bdm": {
-    "_role": "Exploration de la base BDM de l'INSEE (séries chronologiques), sans effet sur les repères publiés.",
-    "explorer": [
-      "DEFAILLANCES-ENTREPRISES"
-    ]
+    "_role": "Base BDM de l'INSEE (séries chronologiques).",
+    "defaillances": {
+      "flux": "DEFAILLANCES-ENTREPRISES",
+      "indicateur": "defaillances_secteur",
+      "origine": "bdm:DEFAILLANCES-ENTREPRISES",
+      "source": "INSEE — Défaillances d'entreprises par date de jugement",
+      "titre_contient": "Cumul brut glissant sur 12 mois",
+      "filtre": {
+        "REF_AREA": "FE",
+        "FREQ": "M",
+        "CORRECTION": "BRUT",
+        "INDICATEUR": "NOMBRE_DEFAILLANCES",
+        "SERIE_ARRETEE": "FALSE"
+      },
+      "correspondance": {
+        "ENS": [
+          "*"
+        ],
+        "AZ": [
+          "A"
+        ],
+        "BE": [
+          "B-E"
+        ],
+        "FZ": [
+          "F"
+        ],
+        "G": [
+          "G"
+        ],
+        "H": [
+          "H"
+        ],
+        "I": [
+          "I"
+        ],
+        "JZ": [
+          "J"
+        ],
+        "KZ": [
+          "K"
+        ],
+        "LZ": [
+          "L"
+        ],
+        "MN": [
+          "M",
+          "N"
+        ],
+        "PQS": [
+          "P",
+          "Q",
+          "S"
+        ]
+      }
+    }
   }
 }

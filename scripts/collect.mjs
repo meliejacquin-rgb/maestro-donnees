@@ -4,7 +4,7 @@
 //   --offline : n'interroge aucune API (reconstruit depuis data/manuel.json et l'ancien fichier).
 // Aucune donnée client n'est lue ni envoyée : uniquement des statistiques publiques.
 import { readFile, writeFile } from 'node:fs/promises';
-import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate } from './lib.mjs';
+import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate, parseBdmSeries, buildDefaillances } from './lib.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = async (p, fallback) => { try { return JSON.parse(await readFile(new URL(p, ROOT), 'utf8')); } catch (e) { if (fallback !== undefined) return fallback; throw e; } };
@@ -130,26 +130,21 @@ if (!offline) {
   report.sources.datagouv = { ok: ok > 0, recherches_reussies: ok, total: Object.keys(sources.datagouv.recherches).length };
   if (!ok) liens = null;
 
-  // 2 bis. Exploration (sans effet sur les repères) : défaillances d'entreprises par secteur, base BDM de l'INSEE.
-  // Le rapport garde la structure réelle des séries pour configurer ensuite l'extraction.
-  if (sources.bdm?.explorer?.length) {
-    report.exploration_bdm = {};
-    for (const flux of sources.bdm.explorer) {
-      const out = {};
-      try {
-        const abort = new AbortController(); const timer = setTimeout(() => abort.abort(), 90000);
-        const res = await fetch(`https://bdm.insee.fr/series/sdmx/data/${flux}?lastNObservations=1`, { signal: abort.signal, headers: { 'User-Agent': 'maestro-donnees (GitHub Actions)' } });
-        clearTimeout(timer);
-        const xml = await res.text();
-        out.http = res.status; out.taille = xml.length; out.debut = xml.slice(0, 1500);
-        const series = [...xml.matchAll(/<Series\b([^>]*)>([\s\S]*?)<\/Series>/g)].map(([, attrs, body]) => {
-          const a = Object.fromEntries([...attrs.matchAll(/(\w+)="([^"]*)"/g)].map((m) => [m[1], m[2]]));
-          const obs = body.match(/<Obs\b([^>]*)\/?>/); const o = obs ? Object.fromEntries([...obs[1].matchAll(/(\w+)="([^"]*)"/g)].map((m) => [m[1], m[2]])) : {};
-          return { ...a, derniere: o.TIME_PERIOD, valeur: o.OBS_VALUE };
-        });
-        out.nb_series = series.length; out.series = series.slice(0, 400);
-      } catch (e) { out.erreur = String(e.message || e); }
-      report.exploration_bdm[flux] = out;
+  // 2 bis. Défaillances d'entreprises par grand secteur (base BDM de l'INSEE, cumul 12 mois glissants).
+  const def = sources.bdm?.defaillances;
+  if (def) {
+    try {
+      const abort = new AbortController(); const timer = setTimeout(() => abort.abort(), 120000);
+      const res = await fetch(`https://bdm.insee.fr/series/sdmx/data/${def.flux}?lastNObservations=13`, { signal: abort.signal, headers: { 'User-Agent': 'maestro-donnees (GitHub Actions)' } });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const entries = buildDefaillances(parseBdmSeries(await res.text()), def);
+      if (!entries.length) throw new Error('aucune série reconnue');
+      auto[def.origine] = entries;
+      report.sources[def.origine] = { ok: true, valeurs: entries.length, periode: entries[0].periode };
+    } catch (e) {
+      failed.push(def.origine);
+      report.sources[def.origine] = { ok: false, erreur: String(e.message || e) };
     }
   }
 
