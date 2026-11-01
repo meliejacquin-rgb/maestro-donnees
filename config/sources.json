@@ -1,0 +1,248 @@
+{
+  "_note": "Sources interrogées automatiquement chaque mois. Les identifiants INSEE ont été confirmés par la découverte du catalogue Melodi (rapport-collecte.json). « ratios » calcule des ratios sectoriels à partir des comptes nationaux par branche ; chaque repère indique sa méthode.",
+  "melodi": {
+    "base": "https://api.insee.fr/melodi",
+    "decouverte_mots_cles": [
+      "ESANE",
+      "taux de marge",
+      "valeur ajoutée",
+      "productivité",
+      "chiffre d'affaires",
+      "frais de personnel",
+      "investissement",
+      "défaillance",
+      "délais de paiement",
+      "branche",
+      "entreprises",
+      "effectifs salariés",
+      "secteurs"
+    ],
+    "jeux": [],
+    "inspecter": [],
+    "ratios": [
+      {
+        "dataset": "DD_CNA_BRANCHES",
+        "filtres": {
+          "FREQ": "A",
+          "REF_SECTOR": "S1",
+          "TRANSFORMATION": "N"
+        },
+        "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+        "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+        "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+        "indicateur": "taux_marge_ebe_va",
+        "numerateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "B2A3G"
+        },
+        "denominateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "B1G"
+        },
+        "facteur": 100,
+        "bornes": [
+          -50,
+          100
+        ],
+        "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
+      },
+      {
+        "dataset": "DD_CNA_BRANCHES",
+        "filtres": {
+          "FREQ": "A",
+          "REF_SECTOR": "S1",
+          "TRANSFORMATION": "N"
+        },
+        "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+        "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+        "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+        "indicateur": "frais_personnel_va",
+        "numerateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "D1"
+        },
+        "denominateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "B1G"
+        },
+        "facteur": 100,
+        "bornes": [
+          0,
+          150
+        ],
+        "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
+      },
+      {
+        "dataset": "DD_CNA_BRANCHES",
+        "filtres": {
+          "FREQ": "A",
+          "REF_SECTOR": "S1",
+          "TRANSFORMATION": "N"
+        },
+        "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+        "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+        "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+        "indicateur": "taux_investissement",
+        "numerateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "P51G"
+        },
+        "denominateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "B1G"
+        },
+        "facteur": 100,
+        "bornes": [
+          0,
+          200
+        ],
+        "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "N11G"
+        }
+      },
+      {
+        "dataset": "DD_CNA_BRANCHES",
+        "filtres": {
+          "FREQ": "A",
+          "REF_SECTOR": "S1",
+          "TRANSFORMATION": "N"
+        },
+        "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+        "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+        "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+        "indicateur": "conso_inter_production",
+        "numerateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "P2"
+        },
+        "denominateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "P1"
+        },
+        "facteur": 100,
+        "bornes": [
+          0,
+          100
+        ],
+        "methode": "Consommation intermédiaire / production de la branche, prix courants",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
+      },
+      {
+        "dataset": "DD_CNA_BRANCHES",
+        "filtres": {
+          "FREQ": "A",
+          "REF_SECTOR": "S1",
+          "TRANSFORMATION": "N"
+        },
+        "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+        "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+        "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+        "indicateur": "va_par_salarie",
+        "numerateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "B1G"
+        },
+        "denominateur": {
+          "PRICES": "_Z",
+          "UNIT_MEASURE": "PS",
+          "STO": "EMP"
+        },
+        "facteur": 0.001,
+        "bornes": [
+          5,
+          5000
+        ],
+        "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
+      },
+      {
+        "dataset": "DD_CNA_BRANCHES",
+        "filtres": {
+          "FREQ": "A",
+          "REF_SECTOR": "S1",
+          "TRANSFORMATION": "N"
+        },
+        "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+        "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+        "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+        "indicateur": "evolution_ca",
+        "croissance": true,
+        "numerateur": {
+          "PRICES": "V",
+          "UNIT_MEASURE": "XDC",
+          "STO": "P1"
+        },
+        "bornes": [
+          -60,
+          100
+        ],
+        "methode": "Variation annuelle de la production de la branche à prix courants",
+        "preference": {
+          "COUNTERPART_AREA": "W2",
+          "INSTR_ASSET": "_Z"
+        }
+      }
+    ]
+  },
+  "_exemple_jeu_melodi": {
+    "dataset": "IDENTIFIANT_CONFIRME_PAR_LA_DECOUVERTE",
+    "indicateur": "taux_marge_ebe_va",
+    "filtres": {
+      "GEO": "FRANCE-F"
+    },
+    "dimension_naf": "ACTIVITY",
+    "dimension_periode": "TIME_PERIOD",
+    "mesure": "OBS_VALUE_NIVEAU",
+    "facteur": 1,
+    "perimetre": "Entreprises marchandes non financières, médiane",
+    "source": "INSEE — titre exact du jeu de données",
+    "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche"
+  },
+  "datagouv": {
+    "base": "https://www.data.gouv.fr/api/1/datasets/",
+    "_role": "Liens « pour aller plus loin » par priorité ; jamais utilisés comme valeur de comparaison.",
+    "recherches": {
+      "cash": "délais de paiement",
+      "profitability": "taux de marge",
+      "productivity": "productivité",
+      "decision": "comptes des entreprises",
+      "growth": "chiffre d'affaires",
+      "costs": "charges entreprises",
+      "investment": "investissement entreprises",
+      "tax": "fiscalité entreprises",
+      "compliance": "obligations entreprises",
+      "people": "effectifs salariés",
+      "risks": "défaillances",
+      "transition": "transmission entreprises"
+    }
+  },
+  "banque_de_france": {
+    "_role": "Activé seulement si le secret BDF_API_KEY est défini dans GitHub et qu'au moins une série est configurée.",
+    "series": []
+  }
+}

@@ -1,0 +1,7 @@
+{"observations":[
+ {"dimensions":{"GEO":"FRANCE-F","ACTIVITY":"43","TIME_PERIOD":"2022"},"measures":{"OBS_VALUE_NIVEAU":{"value":20.1}}},
+ {"dimensions":{"GEO":"FRANCE-F","ACTIVITY":"43","TIME_PERIOD":"2023"},"measures":{"OBS_VALUE_NIVEAU":{"value":21.5}}},
+ {"dimensions":{"GEO":"FRANCE-F","ACTIVITY":"F","TIME_PERIOD":"2023"},"measures":{"OBS_VALUE_NIVEAU":{"value":18}}},
+ {"dimensions":{"GEO":"FRANCE-METRO","ACTIVITY":"43","TIME_PERIOD":"2024"},"measures":{"OBS_VALUE_NIVEAU":{"value":99}}},
+ {"dimensions":{"GEO":"FRANCE-F","ACTIVITY":"43","TIME_PERIOD":"2021"},"measures":{"OBS_VALUE_NIVEAU":{"value":null}}}
+]}

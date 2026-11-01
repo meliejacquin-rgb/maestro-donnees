@@ -1,0 +1,3522 @@
+{
+ "schema": 1,
+ "genere_le": "2026-10-31T11:18:15.813Z",
+ "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
+ "definitions": {
+  "delai_clients_jours": {
+   "libelle": "Délai de paiement des clients",
+   "unite": "jours de chiffre d'affaires",
+   "sens": "bas_favorable",
+   "mesure_client": "Créances clients / CA TTC × 365"
+  },
+  "retard_paiement_jours": {
+   "libelle": "Retard moyen de paiement",
+   "unite": "jours",
+   "sens": "bas_favorable",
+   "mesure_client": "Retard constaté au-delà de l'échéance contractuelle (balance âgée)"
+  },
+  "solde_commercial_jours": {
+   "libelle": "Solde commercial (délai clients − délai fournisseurs)",
+   "unite": "jours de chiffre d'affaires",
+   "sens": "bas_favorable",
+   "mesure_client": "Délai clients − délai fournisseurs, en jours de CA"
+  },
+  "taux_marge_ebe_va": {
+   "libelle": "Taux de marge (EBE / valeur ajoutée)",
+   "unite": "%",
+   "sens": "haut_favorable",
+   "mesure_client": "EBE / valeur ajoutée × 100 (liasse fiscale)"
+  },
+  "va_par_salarie": {
+   "libelle": "Valeur ajoutée par emploi (productivité apparente du travail)",
+   "unite": "k€ par emploi",
+   "sens": "haut_favorable",
+   "mesure_client": "Valeur ajoutée / effectif total (salariés + dirigeants non salariés)"
+  },
+  "frais_personnel_va": {
+   "libelle": "Frais de personnel / valeur ajoutée",
+   "unite": "%",
+   "sens": "bas_favorable",
+   "mesure_client": "(Salaires + charges sociales) / valeur ajoutée × 100"
+  },
+  "taux_investissement": {
+   "libelle": "Taux d'investissement (investissement / valeur ajoutée)",
+   "unite": "%",
+   "sens": "contexte",
+   "mesure_client": "Investissements corporels de l'exercice / valeur ajoutée × 100"
+  },
+  "evolution_ca": {
+   "libelle": "Évolution annuelle de la production du secteur (en valeur)",
+   "unite": "%",
+   "sens": "contexte",
+   "mesure_client": "(CA N − CA N-1) / CA N-1 × 100"
+  },
+  "defaillances_secteur": {
+   "libelle": "Défaillances d'entreprises du secteur (cumul 12 mois)",
+   "unite": "nombre",
+   "sens": "contexte",
+   "mesure_client": "Sans objet : indicateur de contexte sectoriel"
+  },
+  "conso_inter_production": {
+   "libelle": "Consommations intermédiaires / production",
+   "unite": "%",
+   "sens": "bas_favorable",
+   "mesure_client": "(Achats consommés + autres achats et charges externes) / production de l'exercice × 100"
+  }
+ },
+ "priorites": {
+  "cash": {
+   "libelle": "Trésorerie et encaissements",
+   "indicateurs": [
+    "delai_clients_jours",
+    "retard_paiement_jours",
+    "solde_commercial_jours"
+   ]
+  },
+  "profitability": {
+   "libelle": "Rentabilité et marges",
+   "indicateurs": [
+    "taux_marge_ebe_va",
+    "conso_inter_production"
+   ]
+  },
+  "productivity": {
+   "libelle": "Gain de temps et productivité",
+   "indicateurs": [
+    "va_par_salarie"
+   ]
+  },
+  "decision": {
+   "libelle": "Pilotage et prise de décision",
+   "indicateurs": [
+    "taux_marge_ebe_va",
+    "delai_clients_jours"
+   ]
+  },
+  "growth": {
+   "libelle": "Développement du chiffre d'affaires",
+   "indicateurs": [
+    "evolution_ca"
+   ]
+  },
+  "costs": {
+   "libelle": "Maîtrise des charges",
+   "indicateurs": [
+    "conso_inter_production",
+    "frais_personnel_va"
+   ]
+  },
+  "investment": {
+   "libelle": "Financement et investissements",
+   "indicateurs": [
+    "taux_investissement",
+    "taux_marge_ebe_va"
+   ]
+  },
+  "tax": {
+   "libelle": "Fiscalité et optimisation",
+   "indicateurs": [],
+   "sans_donnee_publique": "Pas de ratio sectoriel public pertinent : comparer la charge fiscale du client à ses propres exercices antérieurs."
+  },
+  "compliance": {
+   "libelle": "Conformité et obligations réglementaires",
+   "indicateurs": [],
+   "sans_donnee_publique": "Pas de ratio sectoriel public : établir le calendrier des obligations applicables et suivre les échéances manquées."
+  },
+  "people": {
+   "libelle": "Organisation et gestion des équipes",
+   "indicateurs": [
+    "va_par_salarie",
+    "frais_personnel_va"
+   ]
+  },
+  "risks": {
+   "libelle": "Gestion et prévention des risques",
+   "indicateurs": [
+    "defaillances_secteur",
+    "retard_paiement_jours"
+   ]
+  },
+  "transition": {
+   "libelle": "Transmission et évolution de l'entreprise",
+   "indicateurs": [
+    "taux_marge_ebe_va"
+   ],
+   "complement": "La valorisation d'une entreprise ne dépend pas d'un ratio sectoriel public ; le taux de marge sert seulement de contexte."
+  }
+ },
+ "naf": {
+  "divisions": {
+   "10": {
+    "libelle": "Industries alimentaires",
+    "section": "C"
+   },
+   "11": {
+    "libelle": "Fabrication de boissons",
+    "section": "C"
+   },
+   "12": {
+    "libelle": "Fabrication de produits à base de tabac",
+    "section": "C"
+   },
+   "13": {
+    "libelle": "Fabrication de textiles",
+    "section": "C"
+   },
+   "14": {
+    "libelle": "Industrie de l'habillement",
+    "section": "C"
+   },
+   "15": {
+    "libelle": "Industrie du cuir et de la chaussure",
+    "section": "C"
+   },
+   "16": {
+    "libelle": "Travail du bois et fabrication d'articles en bois et en liège, à l'exception des meubles",
+    "section": "C"
+   },
+   "17": {
+    "libelle": "Industrie du papier et du carton",
+    "section": "C"
+   },
+   "18": {
+    "libelle": "Imprimerie et reproduction d'enregistrements",
+    "section": "C"
+   },
+   "19": {
+    "libelle": "Cokéfaction et raffinage",
+    "section": "C"
+   },
+   "20": {
+    "libelle": "Industrie chimique",
+    "section": "C"
+   },
+   "21": {
+    "libelle": "Industrie pharmaceutique",
+    "section": "C"
+   },
+   "22": {
+    "libelle": "Fabrication de produits en caoutchouc et en plastique",
+    "section": "C"
+   },
+   "23": {
+    "libelle": "Fabrication d'autres produits minéraux non métalliques",
+    "section": "C"
+   },
+   "24": {
+    "libelle": "Métallurgie",
+    "section": "C"
+   },
+   "25": {
+    "libelle": "Fabrication de produits métalliques, à l'exception des machines et des équipements",
+    "section": "C"
+   },
+   "26": {
+    "libelle": "Fabrication de produits informatiques, électroniques et optiques",
+    "section": "C"
+   },
+   "27": {
+    "libelle": "Fabrication d'équipements électriques",
+    "section": "C"
+   },
+   "28": {
+    "libelle": "Fabrication de machines et équipements n.c.a.",
+    "section": "C"
+   },
+   "29": {
+    "libelle": "Industrie automobile",
+    "section": "C"
+   },
+   "30": {
+    "libelle": "Fabrication d'autres matériels de transport",
+    "section": "C"
+   },
+   "31": {
+    "libelle": "Fabrication de meubles",
+    "section": "C"
+   },
+   "32": {
+    "libelle": "Autres industries manufacturières",
+    "section": "C"
+   },
+   "33": {
+    "libelle": "Réparation et installation de machines et d'équipements",
+    "section": "C"
+   },
+   "35": {
+    "libelle": "Production et distribution d'électricité, de gaz, de vapeur et d'air conditionné",
+    "section": "D"
+   },
+   "36": {
+    "libelle": "Captage, traitement et distribution d'eau",
+    "section": "E"
+   },
+   "37": {
+    "libelle": "Collecte et traitement des eaux usées",
+    "section": "E"
+   },
+   "38": {
+    "libelle": "Collecte, traitement et élimination des déchets ; récupération",
+    "section": "E"
+   },
+   "39": {
+    "libelle": "Dépollution et autres services de gestion des déchets",
+    "section": "E"
+   },
+   "41": {
+    "libelle": "Construction de bâtiments",
+    "section": "F"
+   },
+   "42": {
+    "libelle": "Génie civil",
+    "section": "F"
+   },
+   "43": {
+    "libelle": "Travaux de construction spécialisés",
+    "section": "F"
+   },
+   "45": {
+    "libelle": "Commerce et réparation d'automobiles et de motocycles",
+    "section": "G"
+   },
+   "46": {
+    "libelle": "Commerce de gros, à l'exception des automobiles et des motocycles",
+    "section": "G"
+   },
+   "47": {
+    "libelle": "Commerce de détail, à l'exception des automobiles et des motocycles",
+    "section": "G"
+   },
+   "49": {
+    "libelle": "Transports terrestres et transport par conduites",
+    "section": "H"
+   },
+   "50": {
+    "libelle": "Transports par eau",
+    "section": "H"
+   },
+   "51": {
+    "libelle": "Transports aériens",
+    "section": "H"
+   },
+   "52": {
+    "libelle": "Entreposage et services auxiliaires des transports",
+    "section": "H"
+   },
+   "53": {
+    "libelle": "Activités de poste et de courrier",
+    "section": "H"
+   },
+   "55": {
+    "libelle": "Hébergement",
+    "section": "I"
+   },
+   "56": {
+    "libelle": "Restauration",
+    "section": "I"
+   },
+   "58": {
+    "libelle": "Édition",
+    "section": "J"
+   },
+   "59": {
+    "libelle": "Production de films, de vidéo et de programmes de télévision ; enregistrement sonore et édition musicale",
+    "section": "J"
+   },
+   "60": {
+    "libelle": "Programmation et diffusion",
+    "section": "J"
+   },
+   "61": {
+    "libelle": "Télécommunications",
+    "section": "J"
+   },
+   "62": {
+    "libelle": "Programmation, conseil et autres activités informatiques",
+    "section": "J"
+   },
+   "63": {
+    "libelle": "Services d'information",
+    "section": "J"
+   },
+   "64": {
+    "libelle": "Activités des services financiers, hors assurance et caisses de retraite",
+    "section": "K"
+   },
+   "65": {
+    "libelle": "Assurance",
+    "section": "K"
+   },
+   "66": {
+    "libelle": "Activités auxiliaires de services financiers et d'assurance",
+    "section": "K"
+   },
+   "68": {
+    "libelle": "Activités immobilières",
+    "section": "L"
+   },
+   "69": {
+    "libelle": "Activités juridiques et comptables",
+    "section": "M"
+   },
+   "70": {
+    "libelle": "Activités des sièges sociaux ; conseil de gestion",
+    "section": "M"
+   },
+   "71": {
+    "libelle": "Activités d'architecture et d'ingénierie ; contrôle et analyses techniques",
+    "section": "M"
+   },
+   "72": {
+    "libelle": "Recherche-développement scientifique",
+    "section": "M"
+   },
+   "73": {
+    "libelle": "Publicité et études de marché",
+    "section": "M"
+   },
+   "74": {
+    "libelle": "Autres activités spécialisées, scientifiques et techniques",
+    "section": "M"
+   },
+   "75": {
+    "libelle": "Activités vétérinaires",
+    "section": "M"
+   },
+   "77": {
+    "libelle": "Activités de location et location-bail",
+    "section": "N"
+   },
+   "78": {
+    "libelle": "Activités liées à l'emploi",
+    "section": "N"
+   },
+   "79": {
+    "libelle": "Agences de voyage, voyagistes, services de réservation et activités connexes",
+    "section": "N"
+   },
+   "80": {
+    "libelle": "Enquêtes et sécurité",
+    "section": "N"
+   },
+   "81": {
+    "libelle": "Services relatifs aux bâtiments et aménagement paysager",
+    "section": "N"
+   },
+   "82": {
+    "libelle": "Activités administratives et autres activités de soutien aux entreprises",
+    "section": "N"
+   },
+   "84": {
+    "libelle": "Administration publique et défense ; sécurité sociale obligatoire",
+    "section": "O"
+   },
+   "85": {
+    "libelle": "Enseignement",
+    "section": "P"
+   },
+   "86": {
+    "libelle": "Activités pour la santé humaine",
+    "section": "Q"
+   },
+   "87": {
+    "libelle": "Hébergement médico-social et social",
+    "section": "Q"
+   },
+   "88": {
+    "libelle": "Action sociale sans hébergement",
+    "section": "Q"
+   },
+   "90": {
+    "libelle": "Activités créatives, artistiques et de spectacle",
+    "section": "R"
+   },
+   "91": {
+    "libelle": "Bibliothèques, archives, musées et autres activités culturelles",
+    "section": "R"
+   },
+   "92": {
+    "libelle": "Organisation de jeux de hasard et d'argent",
+    "section": "R"
+   },
+   "93": {
+    "libelle": "Activités sportives, récréatives et de loisirs",
+    "section": "R"
+   },
+   "94": {
+    "libelle": "Activités des organisations associatives",
+    "section": "S"
+   },
+   "95": {
+    "libelle": "Réparation d'ordinateurs et de biens personnels et domestiques",
+    "section": "S"
+   },
+   "96": {
+    "libelle": "Autres services personnels",
+    "section": "S"
+   },
+   "97": {
+    "libelle": "Activités des ménages en tant qu'employeurs de personnel domestique",
+    "section": "T"
+   },
+   "98": {
+    "libelle": "Activités indifférenciées des ménages pour usage propre",
+    "section": "T"
+   },
+   "99": {
+    "libelle": "Activités des organisations et organismes extraterritoriaux",
+    "section": "U"
+   },
+   "01": {
+    "libelle": "Culture et production animale, chasse et services annexes",
+    "section": "A"
+   },
+   "02": {
+    "libelle": "Sylviculture et exploitation forestière",
+    "section": "A"
+   },
+   "03": {
+    "libelle": "Pêche et aquaculture",
+    "section": "A"
+   },
+   "05": {
+    "libelle": "Extraction de houille et de lignite",
+    "section": "B"
+   },
+   "06": {
+    "libelle": "Extraction d'hydrocarbures",
+    "section": "B"
+   },
+   "07": {
+    "libelle": "Extraction de minerais métalliques",
+    "section": "B"
+   },
+   "08": {
+    "libelle": "Autres industries extractives",
+    "section": "B"
+   },
+   "09": {
+    "libelle": "Services de soutien aux industries extractives",
+    "section": "B"
+   }
+  },
+  "sections": {
+   "A": {
+    "libelle": "Agriculture, sylviculture et pêche",
+    "divisions": [
+     "01",
+     "02",
+     "03"
+    ]
+   },
+   "B": {
+    "libelle": "Industries extractives",
+    "divisions": [
+     "05",
+     "06",
+     "07",
+     "08",
+     "09"
+    ]
+   },
+   "C": {
+    "libelle": "Industrie manufacturière",
+    "divisions": [
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15",
+     "16",
+     "17",
+     "18",
+     "19",
+     "20",
+     "21",
+     "22",
+     "23",
+     "24",
+     "25",
+     "26",
+     "27",
+     "28",
+     "29",
+     "30",
+     "31",
+     "32",
+     "33"
+    ]
+   },
+   "D": {
+    "libelle": "Production et distribution d'électricité, de gaz, de vapeur et d'air conditionné",
+    "divisions": [
+     "35"
+    ]
+   },
+   "E": {
+    "libelle": "Production et distribution d'eau ; assainissement, gestion des déchets et dépollution",
+    "divisions": [
+     "36",
+     "37",
+     "38",
+     "39"
+    ]
+   },
+   "F": {
+    "libelle": "Construction",
+    "divisions": [
+     "41",
+     "42",
+     "43"
+    ]
+   },
+   "G": {
+    "libelle": "Commerce ; réparation d'automobiles et de motocycles",
+    "divisions": [
+     "45",
+     "46",
+     "47"
+    ]
+   },
+   "H": {
+    "libelle": "Transports et entreposage",
+    "divisions": [
+     "49",
+     "50",
+     "51",
+     "52",
+     "53"
+    ]
+   },
+   "I": {
+    "libelle": "Hébergement et restauration",
+    "divisions": [
+     "55",
+     "56"
+    ]
+   },
+   "J": {
+    "libelle": "Information et communication",
+    "divisions": [
+     "58",
+     "59",
+     "60",
+     "61",
+     "62",
+     "63"
+    ]
+   },
+   "K": {
+    "libelle": "Activités financières et d'assurance",
+    "divisions": [
+     "64",
+     "65",
+     "66"
+    ]
+   },
+   "L": {
+    "libelle": "Activités immobilières",
+    "divisions": [
+     "68"
+    ]
+   },
+   "M": {
+    "libelle": "Activités spécialisées, scientifiques et techniques",
+    "divisions": [
+     "69",
+     "70",
+     "71",
+     "72",
+     "73",
+     "74",
+     "75"
+    ]
+   },
+   "N": {
+    "libelle": "Activités de services administratifs et de soutien",
+    "divisions": [
+     "77",
+     "78",
+     "79",
+     "80",
+     "81",
+     "82"
+    ]
+   },
+   "O": {
+    "libelle": "Administration publique",
+    "divisions": [
+     "84"
+    ]
+   },
+   "P": {
+    "libelle": "Enseignement",
+    "divisions": [
+     "85"
+    ]
+   },
+   "Q": {
+    "libelle": "Santé humaine et action sociale",
+    "divisions": [
+     "86",
+     "87",
+     "88"
+    ]
+   },
+   "R": {
+    "libelle": "Arts, spectacles et activités récréatives",
+    "divisions": [
+     "90",
+     "91",
+     "92",
+     "93"
+    ]
+   },
+   "S": {
+    "libelle": "Autres activités de services",
+    "divisions": [
+     "94",
+     "95",
+     "96"
+    ]
+   },
+   "T": {
+    "libelle": "Activités des ménages en tant qu'employeurs",
+    "divisions": [
+     "97",
+     "98"
+    ]
+   },
+   "U": {
+    "libelle": "Activités extra-territoriales",
+    "divisions": [
+     "99"
+    ]
+   }
+  },
+  "agregats": {
+   "B-E": {
+    "libelle": "Industrie (sections B à E)",
+    "sections": [
+     "B",
+     "C",
+     "D",
+     "E"
+    ]
+   }
+  },
+  "categories_simulateur": {
+   "commerce": "G",
+   "construction": "F",
+   "industrie": "B-E",
+   "transport": "H",
+   "hebergement": "I",
+   "information": "J",
+   "autre": "*"
+  }
+ },
+ "indicateurs": [
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "06",
+   "valeur": 75.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "07",
+   "valeur": 94.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "08",
+   "valeur": 62.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "09",
+   "valeur": 51.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "10",
+   "valeur": 75.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "11",
+   "valeur": 71.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "12",
+   "valeur": 92.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "13",
+   "valeur": 66.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "14",
+   "valeur": 61.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "15",
+   "valeur": 55.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "26",
+   "valeur": 63.5,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "27",
+   "valeur": 63.5,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "28",
+   "valeur": 63.5,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "31",
+   "valeur": 58.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "32",
+   "valeur": 54.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "35",
+   "valeur": 77.6,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "37",
+   "valeur": 45.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "38",
+   "valeur": 66.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "39",
+   "valeur": 66.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "41",
+   "valeur": 75.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "42",
+   "valeur": 69.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "43",
+   "valeur": 60.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "55",
+   "valeur": 53.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "56",
+   "valeur": 55.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "59",
+   "valeur": 60.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "60",
+   "valeur": 58.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "62",
+   "valeur": 47.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "63",
+   "valeur": 54.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "69",
+   "valeur": 34.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "70",
+   "valeur": 63.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "74",
+   "valeur": 61.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "75",
+   "valeur": 50.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "80",
+   "valeur": 36.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "81",
+   "valeur": 40.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "82",
+   "valeur": 60.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "84",
+   "valeur": 28.3,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "85",
+   "valeur": 20.1,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "87",
+   "valeur": 33.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "88",
+   "valeur": 22.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "90",
+   "valeur": 48.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "91",
+   "valeur": 32.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "conso_inter_production",
+   "naf": "92",
+   "valeur": 50.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Consommation intermédiaire / production de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "delai_clients_jours",
+   "naf": "*",
+   "valeur": 42,
+   "periode": "2025",
+   "perimetre": "Ensemble des entreprises françaises",
+   "source": "Banque de France — bulletin sur les délais de paiement, 16/10/2026",
+   "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/en-2025-les-delais-fournisseurs-ont-diminue-pour-toutes-les-categories-dentreprises-mais-des-marges",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "delai_clients_jours",
+   "naf": "*",
+   "valeur": 42.7,
+   "periode": "2023",
+   "perimetre": "PME hors microentreprises, base FIBEN",
+   "source": "Banque de France — Observatoire des délais de paiement, rapport 2024",
+   "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "06",
+   "valeur": -15.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "07",
+   "valeur": 0.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "08",
+   "valeur": -2.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "09",
+   "valeur": 0,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "10",
+   "valeur": -0.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "11",
+   "valeur": -1.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "12",
+   "valeur": -12.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "13",
+   "valeur": -0.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "14",
+   "valeur": -5.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "15",
+   "valeur": 12.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "26",
+   "valeur": 0.5,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "27",
+   "valeur": 0.5,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "28",
+   "valeur": 0.5,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "31",
+   "valeur": -6.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "32",
+   "valeur": 2.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "37",
+   "valeur": 7.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "38",
+   "valeur": 6.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "39",
+   "valeur": 4.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "41",
+   "valeur": -6.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "42",
+   "valeur": 4.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "43",
+   "valeur": 0,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "55",
+   "valeur": 6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "56",
+   "valeur": 6.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "59",
+   "valeur": 3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "60",
+   "valeur": 2.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "62",
+   "valeur": 5.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "63",
+   "valeur": 9.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "69",
+   "valeur": 4.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "70",
+   "valeur": 6.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "74",
+   "valeur": 4.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "75",
+   "valeur": 9.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "80",
+   "valeur": 8.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "81",
+   "valeur": 7.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "82",
+   "valeur": 6.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "87",
+   "valeur": 4.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "88",
+   "valeur": 3.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "90",
+   "valeur": 9.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "91",
+   "valeur": 4.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "92",
+   "valeur": 0.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "evolution_ca",
+   "naf": "97",
+   "valeur": 2.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Variation annuelle de la production de la branche à prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:evolution_ca"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "06",
+   "valeur": 15.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "08",
+   "valeur": 43.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "09",
+   "valeur": 104,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "10",
+   "valeur": 60.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "11",
+   "valeur": 35.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "12",
+   "valeur": 115.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "13",
+   "valeur": 64.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "14",
+   "valeur": 70.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "15",
+   "valeur": 45.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "26",
+   "valeur": 63.4,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "27",
+   "valeur": 63.4,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "28",
+   "valeur": 63.4,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "31",
+   "valeur": 60.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "32",
+   "valeur": 61.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "35",
+   "valeur": 41.9,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "37",
+   "valeur": 34.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "38",
+   "valeur": 45.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "39",
+   "valeur": 81,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "41",
+   "valeur": 71.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "42",
+   "valeur": 77,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "43",
+   "valeur": 57.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "55",
+   "valeur": 56.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "56",
+   "valeur": 70.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "59",
+   "valeur": 65.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "60",
+   "valeur": 42.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "62",
+   "valeur": 81.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "63",
+   "valeur": 62.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "69",
+   "valeur": 57.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "70",
+   "valeur": 91.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "74",
+   "valeur": 61,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "75",
+   "valeur": 65.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "80",
+   "valeur": 91.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "81",
+   "valeur": 73.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "82",
+   "valeur": 71.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "84",
+   "valeur": 70.7,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "85",
+   "valeur": 84.4,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "87",
+   "valeur": 90.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "88",
+   "valeur": 94.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "90",
+   "valeur": 79,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "91",
+   "valeur": 65.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "92",
+   "valeur": 42.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "frais_personnel_va",
+   "naf": "97",
+   "valeur": 150,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Rémunération des salariés (salaires + cotisations employeurs) / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:frais_personnel_va"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "*",
+   "valeur": 13.4,
+   "periode": "fin 2025",
+   "perimetre": "Retard moyen national (différent du délai clients)",
+   "source": "Banque de France — rapport de l'Observatoire des délais de paiement 2025, 24/09/2026",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "solde_commercial_jours",
+   "naf": "*",
+   "valeur": 12,
+   "periode": "2025",
+   "perimetre": "Agrégat national, jours de chiffre d'affaires",
+   "source": "Banque de France — bulletin sur les délais de paiement, octobre 2026",
+   "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/en-2025-les-delais-fournisseurs-ont-diminue-pour-toutes-les-categories-dentreprises-mais-des-marges",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "taux_investissement",
+   "naf": "26",
+   "valeur": 38.6,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_investissement"
+  },
+  {
+   "indicateur": "taux_investissement",
+   "naf": "27",
+   "valeur": 38.6,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_investissement"
+  },
+  {
+   "indicateur": "taux_investissement",
+   "naf": "28",
+   "valeur": 38.6,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_investissement"
+  },
+  {
+   "indicateur": "taux_investissement",
+   "naf": "35",
+   "valeur": 66.3,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_investissement"
+  },
+  {
+   "indicateur": "taux_investissement",
+   "naf": "84",
+   "valeur": 32.6,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_investissement"
+  },
+  {
+   "indicateur": "taux_investissement",
+   "naf": "85",
+   "valeur": 11.3,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Formation brute de capital fixe / valeur ajoutée brute de la branche",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_investissement"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "*",
+   "valeur": 16,
+   "periode": "2023",
+   "perimetre": "Médiane, entreprises employeuses",
+   "source": "INSEE — Panorama de l'appareil productif 2023, figure 6",
+   "url": "https://www.insee.fr/fr/statistiques/8679855?sommaire=7667330",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "06",
+   "valeur": 85.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "08",
+   "valeur": 52.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "09",
+   "valeur": -8.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "10",
+   "valeur": 35.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "11",
+   "valeur": 61.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "12",
+   "valeur": -19.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "13",
+   "valeur": 31.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "14",
+   "valeur": 26.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "15",
+   "valeur": 52.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "26",
+   "valeur": 34.2,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "27",
+   "valeur": 34.2,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "28",
+   "valeur": 34.2,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "31",
+   "valeur": 35.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "32",
+   "valeur": 35.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "35",
+   "valeur": 82.8,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "37",
+   "valeur": 65.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "38",
+   "valeur": 51.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "39",
+   "valeur": 15.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "41",
+   "valeur": 23.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "42",
+   "valeur": 19.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "43",
+   "valeur": 39.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "55",
+   "valeur": 42.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "56",
+   "valeur": 26.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "59",
+   "valeur": 37.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "60",
+   "valeur": 52.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "62",
+   "valeur": 15.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "63",
+   "valeur": 36.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "69",
+   "valeur": 39.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "70",
+   "valeur": 4.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "74",
+   "valeur": 38,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "75",
+   "valeur": 31.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "80",
+   "valeur": 5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "81",
+   "valeur": 23,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "82",
+   "valeur": 25.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "84",
+   "valeur": 27.2,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "85",
+   "valeur": 14.6,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "87",
+   "valeur": 6.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "88",
+   "valeur": 6.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "90",
+   "valeur": 24,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "91",
+   "valeur": 33.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "92",
+   "valeur": 54.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "97",
+   "valeur": 0,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Excédent brut d'exploitation et revenu mixte / valeur ajoutée brute de la branche, prix courants",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "B-E",
+   "valeur": 17.5,
+   "periode": "2023",
+   "perimetre": "Médiane, entreprises employeuses de l'industrie",
+   "source": "INSEE — Panorama de l'appareil productif 2023, figure 6",
+   "url": "https://www.insee.fr/fr/statistiques/8679855?sommaire=7667330",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "F",
+   "valeur": 15.6,
+   "periode": "2023",
+   "perimetre": "Médiane, entreprises employeuses de la construction",
+   "source": "INSEE — Panorama de l'appareil productif 2023, figure 6",
+   "url": "https://www.insee.fr/fr/statistiques/8679855?sommaire=7667330",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "G",
+   "valeur": 19.6,
+   "periode": "2023",
+   "perimetre": "Médiane, entreprises employeuses du commerce",
+   "source": "INSEE — Panorama de l'appareil productif 2023, figure 6",
+   "url": "https://www.insee.fr/fr/statistiques/8679855?sommaire=7667330",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "H",
+   "valeur": 15.3,
+   "periode": "2023",
+   "perimetre": "Médiane, entreprises employeuses des transports et de l'entreposage",
+   "source": "INSEE — Panorama de l'appareil productif 2023, figure 6",
+   "url": "https://www.insee.fr/fr/statistiques/8679855?sommaire=7667330",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "taux_marge_ebe_va",
+   "naf": "I",
+   "valeur": 14.2,
+   "periode": "2023",
+   "perimetre": "Médiane, entreprises employeuses de l'hébergement-restauration",
+   "source": "INSEE — Panorama de l'appareil productif 2023, figure 6",
+   "url": "https://www.insee.fr/fr/statistiques/8679855?sommaire=7667330",
+   "statut": "a_verifier",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "06",
+   "valeur": 2170,
+   "periode": "2022",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "07",
+   "valeur": 12.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "08",
+   "valeur": 137.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "09",
+   "valeur": 261.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "10",
+   "valeur": 66.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "11",
+   "valeur": 200.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "12",
+   "valeur": 55.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "13",
+   "valeur": 60.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "14",
+   "valeur": 49.5,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "15",
+   "valeur": 118.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "26",
+   "valeur": 115.8,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "27",
+   "valeur": 115.8,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "28",
+   "valeur": 115.8,
+   "periode": "2025",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale (branche regroupée C26T28)",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "31",
+   "valeur": 57.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "32",
+   "valeur": 72.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "37",
+   "valeur": 196.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "38",
+   "valeur": 100.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "39",
+   "valeur": 71.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "41",
+   "valeur": 77.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "42",
+   "valeur": 92.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "43",
+   "valeur": 69.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "55",
+   "valeur": 69,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "56",
+   "valeur": 42.4,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "59",
+   "valeur": 117.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "60",
+   "valeur": 188.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "62",
+   "valeur": 103.1,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "63",
+   "valeur": 149.6,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "69",
+   "valeur": 93.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "70",
+   "valeur": 97.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "74",
+   "valeur": 46,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "75",
+   "valeur": 68.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "80",
+   "valeur": 47.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "81",
+   "valeur": 36.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "82",
+   "valeur": 68.8,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "87",
+   "valeur": 51.9,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "88",
+   "valeur": 27.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "90",
+   "valeur": 52.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "91",
+   "valeur": 71.2,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "92",
+   "valeur": 133.3,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  },
+  {
+   "indicateur": "va_par_salarie",
+   "naf": "97",
+   "valeur": 24.7,
+   "periode": "2024",
+   "perimetre": "Ensemble des producteurs de la branche en France (sociétés et entrepreneurs individuels), comptabilité nationale",
+   "source": "INSEE — Comptes nationaux annuels, activité des branches de l'économie (DD_CNA_BRANCHES)",
+   "url": "https://catalogue-donnees.insee.fr/fr/catalogue/recherche/DD_CNA_BRANCHES",
+   "methode": "Valeur ajoutée brute / emploi total de la branche (personnes), en milliers d'euros",
+   "statut": "verifie",
+   "origine": "api:melodi:DD_CNA_BRANCHES:va_par_salarie"
+  }
+ ],
+ "liens": {
+  "cash": [
+   {
+    "titre": "Nombre annuel de délais de paiement octroyés par les Urssaf",
+    "url": "https://www.data.gouv.fr/datasets/nombre-annuel-de-delais-de-paiement-octroyes-par-les-urssaf",
+    "producteur": "Unions de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales",
+    "modifie": "2025-07-17T14:02:00+00:00"
+   },
+   {
+    "titre": "Délais global de paiement des fournisseurs de la Ville d'Issy-les-Moulineaux",
+    "url": "https://www.data.gouv.fr/datasets/delais-global-de-paiement-des-fournisseurs-de-la-ville-dissy-les-moulineaux",
+    "producteur": "Ville d'Issy-les-Moulineaux",
+    "modifie": "2019-11-12T09:45:43+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2025 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2025-des-collectivites-territoriales",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2026-07-17T10:38:23.201000+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2024 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2024-des-collectivites-territoriales-1",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2025-07-21T10:34:06.402000+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2023 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2023-des-collectivites-territoriales",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2024-04-12T09:04:12+00:00"
+   }
+  ],
+  "profitability": [],
+  "productivity": [
+   {
+    "titre": "Indice de productivité des milieux profonds",
+    "url": "https://www.data.gouv.fr/datasets/indice-de-productivite-des-milieux-profonds",
+    "producteur": "Office Français de la Biodiversité",
+    "modifie": "2026-10-02T13:56:46.698000+00:00"
+   }
+  ],
+  "decision": [
+   {
+    "titre": "Synthèse des comptes 2012 des principales entreprises à participations publiques",
+    "url": "https://www.data.gouv.fr/datasets/synthese-des-comptes-2012-des-principales-entreprises-a-participations-publiques",
+    "producteur": "Ministère de l'Economie, de l'Industrie et du Numérique",
+    "modifie": "2014-03-11T17:28:44.020000+00:00"
+   },
+   {
+    "titre": "Documents et comptes des entreprises",
+    "url": "https://www.data.gouv.fr/datasets/documents-et-comptes-des-entreprises",
+    "producteur": "Institut national de la propriété industrielle (INPI)",
+    "modifie": "2026-01-26T07:41:16.455000+00:00"
+   },
+   {
+    "titre": "Commissaires aux comptes des entreprises relevant de l'APE",
+    "url": "https://www.data.gouv.fr/datasets/commissaires-aux-comptes-des-entreprises-relevant-de-l-ape",
+    "producteur": "Ministère de l'Economie, de l'Industrie et du Numérique",
+    "modifie": "2014-03-11T17:02:15.901000+00:00"
+   }
+  ],
+  "growth": [
+   {
+    "titre": "Sources du chiffre d'affaires SNCF depuis 1955",
+    "url": "https://www.data.gouv.fr/datasets/sources-du-chiffre-daffaires-sncf-depuis-1955",
+    "producteur": "SNCF",
+    "modifie": "2017-04-01T08:24:08+00:00"
+   },
+   {
+    "titre": "Artisans : nombre d'entreprises, chiffre d'affaires et valeur ajoutée",
+    "url": "https://www.data.gouv.fr/datasets/artisans-nombre-d-entreprises-chiffre-d-affaires-et-valeur-ajoutee",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2018-12-13T22:01:19+00:00"
+   },
+   {
+    "titre": "Entreprises : évolution du chiffre d'affaires 2020 des librairies",
+    "url": "https://www.data.gouv.fr/datasets/entreprises-evolution-du-chiffre-daffaires-2020-des-librairies",
+    "producteur": "Ministère de la Culture",
+    "modifie": "2025-08-27T13:31:31.634000+00:00"
+   },
+   {
+    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
+    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
+    "producteur": "Ministère des Armées",
+    "modifie": "2014-01-06T09:17:18.390000+00:00"
+   },
+   {
+    "titre": "Entreprises : évolution du chiffre d'affaires 2020 du spectacle vivant",
+    "url": "https://www.data.gouv.fr/datasets/entreprises-evolution-du-chiffre-daffaires-2020-du-spectacle-vivant",
+    "producteur": "Ministère de la Culture",
+    "modifie": "2025-08-27T13:31:36.411000+00:00"
+   }
+  ],
+  "costs": [],
+  "investment": [],
+  "tax": [
+   {
+    "titre": "Fiscalité locale des entreprises dans la Communauté de Communes Cœur de France",
+    "url": "https://www.data.gouv.fr/datasets/fiscalite-locale-des-entreprises-dans-la-communaute-de-communes-coeur-de-france",
+    "producteur": "Communauté de Communes Coeur de France",
+    "modifie": "2025-10-02T15:01:38+00:00"
+   }
+  ],
+  "compliance": [
+   {
+    "titre": "Base de données des obligations d'information pesant sur les entreprises",
+    "url": "https://www.data.gouv.fr/datasets/base-de-donnees-des-obligations-d-information-pesant-sur-les-entreprises-30380604",
+    "producteur": "Premier ministre",
+    "modifie": "2014-01-06T08:46:38.789000+00:00"
+   }
+  ],
+  "people": [
+   {
+    "titre": "Effectifs salariés hospitaliers - Séries longues",
+    "url": "https://www.data.gouv.fr/datasets/effectifs-salaries-hospitaliers-series-longues",
+    "producteur": "Ministère des Solidarités et de la Santé",
+    "modifie": "2026-05-27T13:00:00+00:00"
+   },
+   {
+    "titre": "Effectifs salariés privés depuis 2006 par commune",
+    "url": "https://www.data.gouv.fr/datasets/effectifs-salaries-prives-depuis-2006-par-commune",
+    "producteur": "Région des Pays de la Loire",
+    "modifie": "2022-10-10T08:01:16+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 17 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-17-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:25.827000+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 38 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-38-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:26.023000+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:26.316000+00:00"
+   }
+  ],
+  "risks": [],
+  "transition": []
+ }
+}

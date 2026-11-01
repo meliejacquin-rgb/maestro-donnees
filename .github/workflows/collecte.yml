@@ -1,0 +1,71 @@
+name: Collecte des repères sectoriels
+
+on:
+  schedule:
+    - cron: '17 4 3 * *'   # le 3 de chaque mois à 04:17 UTC
+  workflow_dispatch:        # bouton « Run workflow » dans l'onglet Actions
+  pull_request:             # vérification d'une modification avant fusion
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collecte-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Tests
+        run: node --test tests/lib.test.mjs
+
+      - name: Collecte (INSEE Melodi, data.gouv.fr, Banque de France si configurée)
+        env:
+          BDF_API_KEY: ${{ secrets.BDF_API_KEY }}
+        run: node scripts/collect.mjs
+
+      - name: Rapport
+        if: always()
+        run: |
+          echo '## Rapport de collecte' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          head -c 60000 rapport-collecte.json >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      # Pull request : résultats écrits sur la branche d'essai « collecte-essai » (la branche de travail reste intacte).
+      - name: Publier l'essai (pull request)
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          git config user.name "maestro-collecte"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B collecte-essai
+          git add references.json rapport-collecte.json
+          git commit -m "Essai de collecte pour ${{ github.head_ref }} ($(date -u +%Y-%m-%d))" || true
+          git push -f origin collecte-essai
+
+      # Collecte mensuelle ou manuelle : enregistrement sur main (publié par GitHub Pages).
+      - name: Enregistrer les données mises à jour
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "maestro-collecte"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add references.json rapport-collecte.json
+          if git diff --cached --quiet; then echo "Aucun changement."; exit 0; fi
+          git commit -m "Mise à jour des repères sectoriels ($(date -u +%Y-%m-%d))"
+          # La branche a pu avancer pendant la collecte : on se recale puis on réessaie.
+          for i in 1 2 3; do
+            git push && exit 0
+            git pull --rebase -X theirs origin "${{ github.ref_name }}" || { git rebase --abort; exit 1; }
+          done
+          exit 1

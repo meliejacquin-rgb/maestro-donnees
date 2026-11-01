@@ -1,0 +1,572 @@
+{
+ "nomenclature": "NAF rév. 2 — divisions (2 chiffres) et sections",
+ "divisions": {
+  "01": {
+   "libelle": "Culture et production animale, chasse et services annexes",
+   "section": "A"
+  },
+  "02": {
+   "libelle": "Sylviculture et exploitation forestière",
+   "section": "A"
+  },
+  "03": {
+   "libelle": "Pêche et aquaculture",
+   "section": "A"
+  },
+  "05": {
+   "libelle": "Extraction de houille et de lignite",
+   "section": "B"
+  },
+  "06": {
+   "libelle": "Extraction d'hydrocarbures",
+   "section": "B"
+  },
+  "07": {
+   "libelle": "Extraction de minerais métalliques",
+   "section": "B"
+  },
+  "08": {
+   "libelle": "Autres industries extractives",
+   "section": "B"
+  },
+  "09": {
+   "libelle": "Services de soutien aux industries extractives",
+   "section": "B"
+  },
+  "10": {
+   "libelle": "Industries alimentaires",
+   "section": "C"
+  },
+  "11": {
+   "libelle": "Fabrication de boissons",
+   "section": "C"
+  },
+  "12": {
+   "libelle": "Fabrication de produits à base de tabac",
+   "section": "C"
+  },
+  "13": {
+   "libelle": "Fabrication de textiles",
+   "section": "C"
+  },
+  "14": {
+   "libelle": "Industrie de l'habillement",
+   "section": "C"
+  },
+  "15": {
+   "libelle": "Industrie du cuir et de la chaussure",
+   "section": "C"
+  },
+  "16": {
+   "libelle": "Travail du bois et fabrication d'articles en bois et en liège, à l'exception des meubles",
+   "section": "C"
+  },
+  "17": {
+   "libelle": "Industrie du papier et du carton",
+   "section": "C"
+  },
+  "18": {
+   "libelle": "Imprimerie et reproduction d'enregistrements",
+   "section": "C"
+  },
+  "19": {
+   "libelle": "Cokéfaction et raffinage",
+   "section": "C"
+  },
+  "20": {
+   "libelle": "Industrie chimique",
+   "section": "C"
+  },
+  "21": {
+   "libelle": "Industrie pharmaceutique",
+   "section": "C"
+  },
+  "22": {
+   "libelle": "Fabrication de produits en caoutchouc et en plastique",
+   "section": "C"
+  },
+  "23": {
+   "libelle": "Fabrication d'autres produits minéraux non métalliques",
+   "section": "C"
+  },
+  "24": {
+   "libelle": "Métallurgie",
+   "section": "C"
+  },
+  "25": {
+   "libelle": "Fabrication de produits métalliques, à l'exception des machines et des équipements",
+   "section": "C"
+  },
+  "26": {
+   "libelle": "Fabrication de produits informatiques, électroniques et optiques",
+   "section": "C"
+  },
+  "27": {
+   "libelle": "Fabrication d'équipements électriques",
+   "section": "C"
+  },
+  "28": {
+   "libelle": "Fabrication de machines et équipements n.c.a.",
+   "section": "C"
+  },
+  "29": {
+   "libelle": "Industrie automobile",
+   "section": "C"
+  },
+  "30": {
+   "libelle": "Fabrication d'autres matériels de transport",
+   "section": "C"
+  },
+  "31": {
+   "libelle": "Fabrication de meubles",
+   "section": "C"
+  },
+  "32": {
+   "libelle": "Autres industries manufacturières",
+   "section": "C"
+  },
+  "33": {
+   "libelle": "Réparation et installation de machines et d'équipements",
+   "section": "C"
+  },
+  "35": {
+   "libelle": "Production et distribution d'électricité, de gaz, de vapeur et d'air conditionné",
+   "section": "D"
+  },
+  "36": {
+   "libelle": "Captage, traitement et distribution d'eau",
+   "section": "E"
+  },
+  "37": {
+   "libelle": "Collecte et traitement des eaux usées",
+   "section": "E"
+  },
+  "38": {
+   "libelle": "Collecte, traitement et élimination des déchets ; récupération",
+   "section": "E"
+  },
+  "39": {
+   "libelle": "Dépollution et autres services de gestion des déchets",
+   "section": "E"
+  },
+  "41": {
+   "libelle": "Construction de bâtiments",
+   "section": "F"
+  },
+  "42": {
+   "libelle": "Génie civil",
+   "section": "F"
+  },
+  "43": {
+   "libelle": "Travaux de construction spécialisés",
+   "section": "F"
+  },
+  "45": {
+   "libelle": "Commerce et réparation d'automobiles et de motocycles",
+   "section": "G"
+  },
+  "46": {
+   "libelle": "Commerce de gros, à l'exception des automobiles et des motocycles",
+   "section": "G"
+  },
+  "47": {
+   "libelle": "Commerce de détail, à l'exception des automobiles et des motocycles",
+   "section": "G"
+  },
+  "49": {
+   "libelle": "Transports terrestres et transport par conduites",
+   "section": "H"
+  },
+  "50": {
+   "libelle": "Transports par eau",
+   "section": "H"
+  },
+  "51": {
+   "libelle": "Transports aériens",
+   "section": "H"
+  },
+  "52": {
+   "libelle": "Entreposage et services auxiliaires des transports",
+   "section": "H"
+  },
+  "53": {
+   "libelle": "Activités de poste et de courrier",
+   "section": "H"
+  },
+  "55": {
+   "libelle": "Hébergement",
+   "section": "I"
+  },
+  "56": {
+   "libelle": "Restauration",
+   "section": "I"
+  },
+  "58": {
+   "libelle": "Édition",
+   "section": "J"
+  },
+  "59": {
+   "libelle": "Production de films, de vidéo et de programmes de télévision ; enregistrement sonore et édition musicale",
+   "section": "J"
+  },
+  "60": {
+   "libelle": "Programmation et diffusion",
+   "section": "J"
+  },
+  "61": {
+   "libelle": "Télécommunications",
+   "section": "J"
+  },
+  "62": {
+   "libelle": "Programmation, conseil et autres activités informatiques",
+   "section": "J"
+  },
+  "63": {
+   "libelle": "Services d'information",
+   "section": "J"
+  },
+  "64": {
+   "libelle": "Activités des services financiers, hors assurance et caisses de retraite",
+   "section": "K"
+  },
+  "65": {
+   "libelle": "Assurance",
+   "section": "K"
+  },
+  "66": {
+   "libelle": "Activités auxiliaires de services financiers et d'assurance",
+   "section": "K"
+  },
+  "68": {
+   "libelle": "Activités immobilières",
+   "section": "L"
+  },
+  "69": {
+   "libelle": "Activités juridiques et comptables",
+   "section": "M"
+  },
+  "70": {
+   "libelle": "Activités des sièges sociaux ; conseil de gestion",
+   "section": "M"
+  },
+  "71": {
+   "libelle": "Activités d'architecture et d'ingénierie ; contrôle et analyses techniques",
+   "section": "M"
+  },
+  "72": {
+   "libelle": "Recherche-développement scientifique",
+   "section": "M"
+  },
+  "73": {
+   "libelle": "Publicité et études de marché",
+   "section": "M"
+  },
+  "74": {
+   "libelle": "Autres activités spécialisées, scientifiques et techniques",
+   "section": "M"
+  },
+  "75": {
+   "libelle": "Activités vétérinaires",
+   "section": "M"
+  },
+  "77": {
+   "libelle": "Activités de location et location-bail",
+   "section": "N"
+  },
+  "78": {
+   "libelle": "Activités liées à l'emploi",
+   "section": "N"
+  },
+  "79": {
+   "libelle": "Agences de voyage, voyagistes, services de réservation et activités connexes",
+   "section": "N"
+  },
+  "80": {
+   "libelle": "Enquêtes et sécurité",
+   "section": "N"
+  },
+  "81": {
+   "libelle": "Services relatifs aux bâtiments et aménagement paysager",
+   "section": "N"
+  },
+  "82": {
+   "libelle": "Activités administratives et autres activités de soutien aux entreprises",
+   "section": "N"
+  },
+  "84": {
+   "libelle": "Administration publique et défense ; sécurité sociale obligatoire",
+   "section": "O"
+  },
+  "85": {
+   "libelle": "Enseignement",
+   "section": "P"
+  },
+  "86": {
+   "libelle": "Activités pour la santé humaine",
+   "section": "Q"
+  },
+  "87": {
+   "libelle": "Hébergement médico-social et social",
+   "section": "Q"
+  },
+  "88": {
+   "libelle": "Action sociale sans hébergement",
+   "section": "Q"
+  },
+  "90": {
+   "libelle": "Activités créatives, artistiques et de spectacle",
+   "section": "R"
+  },
+  "91": {
+   "libelle": "Bibliothèques, archives, musées et autres activités culturelles",
+   "section": "R"
+  },
+  "92": {
+   "libelle": "Organisation de jeux de hasard et d'argent",
+   "section": "R"
+  },
+  "93": {
+   "libelle": "Activités sportives, récréatives et de loisirs",
+   "section": "R"
+  },
+  "94": {
+   "libelle": "Activités des organisations associatives",
+   "section": "S"
+  },
+  "95": {
+   "libelle": "Réparation d'ordinateurs et de biens personnels et domestiques",
+   "section": "S"
+  },
+  "96": {
+   "libelle": "Autres services personnels",
+   "section": "S"
+  },
+  "97": {
+   "libelle": "Activités des ménages en tant qu'employeurs de personnel domestique",
+   "section": "T"
+  },
+  "98": {
+   "libelle": "Activités indifférenciées des ménages pour usage propre",
+   "section": "T"
+  },
+  "99": {
+   "libelle": "Activités des organisations et organismes extraterritoriaux",
+   "section": "U"
+  }
+ },
+ "sections": {
+  "A": {
+   "libelle": "Agriculture, sylviculture et pêche",
+   "divisions": [
+    "01",
+    "02",
+    "03"
+   ]
+  },
+  "B": {
+   "libelle": "Industries extractives",
+   "divisions": [
+    "05",
+    "06",
+    "07",
+    "08",
+    "09"
+   ]
+  },
+  "C": {
+   "libelle": "Industrie manufacturière",
+   "divisions": [
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33"
+   ]
+  },
+  "D": {
+   "libelle": "Production et distribution d'électricité, de gaz, de vapeur et d'air conditionné",
+   "divisions": [
+    "35"
+   ]
+  },
+  "E": {
+   "libelle": "Production et distribution d'eau ; assainissement, gestion des déchets et dépollution",
+   "divisions": [
+    "36",
+    "37",
+    "38",
+    "39"
+   ]
+  },
+  "F": {
+   "libelle": "Construction",
+   "divisions": [
+    "41",
+    "42",
+    "43"
+   ]
+  },
+  "G": {
+   "libelle": "Commerce ; réparation d'automobiles et de motocycles",
+   "divisions": [
+    "45",
+    "46",
+    "47"
+   ]
+  },
+  "H": {
+   "libelle": "Transports et entreposage",
+   "divisions": [
+    "49",
+    "50",
+    "51",
+    "52",
+    "53"
+   ]
+  },
+  "I": {
+   "libelle": "Hébergement et restauration",
+   "divisions": [
+    "55",
+    "56"
+   ]
+  },
+  "J": {
+   "libelle": "Information et communication",
+   "divisions": [
+    "58",
+    "59",
+    "60",
+    "61",
+    "62",
+    "63"
+   ]
+  },
+  "K": {
+   "libelle": "Activités financières et d'assurance",
+   "divisions": [
+    "64",
+    "65",
+    "66"
+   ]
+  },
+  "L": {
+   "libelle": "Activités immobilières",
+   "divisions": [
+    "68"
+   ]
+  },
+  "M": {
+   "libelle": "Activités spécialisées, scientifiques et techniques",
+   "divisions": [
+    "69",
+    "70",
+    "71",
+    "72",
+    "73",
+    "74",
+    "75"
+   ]
+  },
+  "N": {
+   "libelle": "Activités de services administratifs et de soutien",
+   "divisions": [
+    "77",
+    "78",
+    "79",
+    "80",
+    "81",
+    "82"
+   ]
+  },
+  "O": {
+   "libelle": "Administration publique",
+   "divisions": [
+    "84"
+   ]
+  },
+  "P": {
+   "libelle": "Enseignement",
+   "divisions": [
+    "85"
+   ]
+  },
+  "Q": {
+   "libelle": "Santé humaine et action sociale",
+   "divisions": [
+    "86",
+    "87",
+    "88"
+   ]
+  },
+  "R": {
+   "libelle": "Arts, spectacles et activités récréatives",
+   "divisions": [
+    "90",
+    "91",
+    "92",
+    "93"
+   ]
+  },
+  "S": {
+   "libelle": "Autres activités de services",
+   "divisions": [
+    "94",
+    "95",
+    "96"
+   ]
+  },
+  "T": {
+   "libelle": "Activités des ménages en tant qu'employeurs",
+   "divisions": [
+    "97",
+    "98"
+   ]
+  },
+  "U": {
+   "libelle": "Activités extra-territoriales",
+   "divisions": [
+    "99"
+   ]
+  }
+ },
+ "agregats": {
+  "B-E": {
+   "libelle": "Industrie (sections B à E)",
+   "sections": [
+    "B",
+    "C",
+    "D",
+    "E"
+   ]
+  }
+ },
+ "categories_simulateur": {
+  "commerce": "G",
+  "construction": "F",
+  "industrie": "B-E",
+  "transport": "H",
+  "hebergement": "I",
+  "information": "J",
+  "autre": "*"
+ }
+}

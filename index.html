@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maestro — repères sectoriels</title>
+<style>
+:root{--ink:#24354a;--muted:#607188;--green:#237b69;--line:#dce5ea;--bg:#f5f7f8;--card:#fff;--warn:#8a5a00}
+@media (prefers-color-scheme:dark){:root{--ink:#e6edf2;--muted:#9fb0bf;--green:#5fc2a8;--line:#2c3a45;--bg:#121a20;--card:#1a242c;--warn:#e0b45c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px 16px}h1{font-size:24px;margin:0 0 4px}p.lead{color:var(--muted);margin:0 0 20px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.meta span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:12px;color:var(--muted)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.warn{color:var(--warn);font-weight:600}a{color:var(--green)}
+.wrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<main>
+<h1>Maestro — repères sectoriels publics</h1>
+<p class="lead">Statistiques publiques datées et sourcées utilisées par Maestro Insight. Fichier machine : <a href="references.json">references.json</a>. Aucune donnée client n'est stockée ici.</p>
+<div class="meta" id="meta"><span>Chargement…</span></div>
+<div class="wrap"><table><thead><tr><th>Indicateur</th><th>Secteur</th><th>Valeur</th><th>Période</th><th>Source</th><th>Statut</th></tr></thead><tbody id="rows"></tbody></table></div>
+</main>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('references.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+ const label=c=>c==='*'?'France (tous secteurs)':d.naf.divisions[c]?c+' — '+d.naf.divisions[c].libelle:d.naf.sections[c]?'Section '+c+' — '+d.naf.sections[c].libelle:d.naf.agregats[c]?.libelle||c;
+ const n=d.indicateurs.length,v=d.indicateurs.filter(e=>e.statut==='a_verifier').length;
+ document.getElementById('meta').innerHTML='<span>Généré le '+esc(new Date(d.genere_le).toLocaleString('fr-FR'))+'</span><span>'+n+' repères</span><span>'+v+' à vérifier</span>';
+ document.getElementById('rows').innerHTML=d.indicateurs.map(e=>'<tr><td>'+esc(d.definitions[e.indicateur]?.libelle||e.indicateur)+'</td><td>'+esc(label(e.naf))+'</td><td class="num">'+esc(e.valeur.toLocaleString('fr-FR'))+' '+esc(d.definitions[e.indicateur]?.unite||'')+'</td><td>'+esc(e.periode)+'</td><td><a href="'+esc(e.url)+'" target="_blank" rel="noopener noreferrer">'+esc(e.source)+'</a><br><small>'+esc(e.perimetre)+(e.methode?' — '+esc(e.methode):'')+'</small></td><td'+(e.statut==='a_verifier'?' class="warn">À vérifier':'>Vérifié')+'</td></tr>').join('');
+}).catch(e=>{document.getElementById('meta').innerHTML='<span class="warn">references.json illisible : '+esc(e.message)+'</span>'});
+</script>
+</body>
+</html>
