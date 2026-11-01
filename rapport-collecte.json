@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-31T11:18:15.813Z",
+  "date": "2026-11-01T08:50:32.074Z",
   "mode": "en ligne",
   "sources": {
     "melodi_catalogue": {
@@ -9,17 +9,19 @@
     },
     "api:melodi:DD_CNA_BRANCHES:taux_marge_ebe_va": {
       "ok": true,
-      "valeurs": 42,
+      "valeurs": 101,
       "periodes": [
         "2024",
         "2025"
       ],
-      "doublons_ecartes": 428,
-      "doublon_exemple": [
-        "COUNTERPART_AREA: W2 / W0"
-      ],
+      "doublons_ecartes": 0,
+      "doublon_exemple": null,
       "branches_non_reconnues": [
+        "RTU",
+        "OTQ",
+        "M_N",
         "GTN_RTU",
+        "GTI",
         "C_OTH",
         "B_D_E"
       ],
@@ -30,19 +32,24 @@
     },
     "api:melodi:DD_CNA_BRANCHES:frais_personnel_va": {
       "ok": true,
-      "valeurs": 42,
+      "valeurs": 106,
       "periodes": [
         "2024",
         "2025"
       ],
-      "doublons_ecartes": 846,
+      "doublons_ecartes": 0,
       "doublon_exemple": [
-        "COUNTERPART_AREA: W2 / W0"
+        "ACCOUNTING_ENTRY: C / D"
       ],
       "branches_non_reconnues": [
+        "RTU",
+        "M_N",
         "C_OTH",
+        "L68A",
         "GTN_RTU",
-        "B_D_E"
+        "B_D_E",
+        "GTI",
+        "OTQ"
       ],
       "obs": [
         9527,
@@ -51,11 +58,12 @@
     },
     "api:melodi:DD_CNA_BRANCHES:taux_investissement": {
       "ok": true,
-      "valeurs": 6,
+      "valeurs": 65,
       "periodes": [
+        "2023",
         "2025"
       ],
-      "doublons_ecartes": 428,
+      "doublons_ecartes": 2,
       "doublon_exemple": [
         "COUNTERPART_AREA: W2 / W0",
         "INSTR_ASSET: _Z / N11G"
@@ -63,7 +71,11 @@
       "branches_non_reconnues": [
         "C_OTH",
         "B_D_E",
-        "GTN_RTU"
+        "OTQ",
+        "GTI",
+        "GTN_RTU",
+        "M_N",
+        "RTU"
       ],
       "obs": [
         6797,
@@ -72,19 +84,22 @@
     },
     "api:melodi:DD_CNA_BRANCHES:conso_inter_production": {
       "ok": true,
-      "valeurs": 42,
+      "valeurs": 106,
       "periodes": [
         "2024",
         "2025"
       ],
-      "doublons_ecartes": 841,
-      "doublon_exemple": [
-        "COUNTERPART_AREA: W0 / W2"
-      ],
+      "doublons_ecartes": 0,
+      "doublon_exemple": null,
       "branches_non_reconnues": [
         "B_D_E",
         "C_OTH",
-        "GTN_RTU"
+        "GTI",
+        "L68A",
+        "M_N",
+        "OTQ",
+        "GTN_RTU",
+        "RTU"
       ],
       "obs": [
         10096,
@@ -93,20 +108,22 @@
     },
     "api:melodi:DD_CNA_BRANCHES:va_par_salarie": {
       "ok": true,
-      "valeurs": 40,
+      "valeurs": 107,
       "periodes": [
         "2022",
         "2024",
         "2025"
       ],
-      "doublons_ecartes": 483,
-      "doublon_exemple": [
-        "COUNTERPART_AREA: W2 / W0"
-      ],
+      "doublons_ecartes": 0,
+      "doublon_exemple": null,
       "branches_non_reconnues": [
         "GTN_RTU",
+        "RTU",
         "B_D_E",
-        "C_OTH"
+        "GTI",
+        "C_OTH",
+        "M_N",
+        "OTQ"
       ],
       "obs": [
         10441,
@@ -115,18 +132,21 @@
     },
     "api:melodi:DD_CNA_BRANCHES:evolution_ca": {
       "ok": true,
-      "valeurs": 40,
+      "valeurs": 107,
       "periodes": [
         "2024",
         "2025"
       ],
-      "doublons_ecartes": 423,
-      "doublon_exemple": [
-        "COUNTERPART_AREA: W2 / W0"
-      ],
+      "doublons_ecartes": 0,
+      "doublon_exemple": null,
       "branches_non_reconnues": [
+        "GTI",
         "GTN_RTU",
+        "M_N",
+        "RTU",
+        "OTQ",
         "B_D_E",
+        "L68A",
         "C_OTH"
       ],
       "obs": [
@@ -526,6 +546,6 @@
     "isLast": true
   },
   "validation": "ok",
-  "total_indicateurs": 222,
+  "total_indicateurs": 602,
   "a_verifier": 10
 }
