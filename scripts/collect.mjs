@@ -4,7 +4,7 @@
 //   --offline : n'interroge aucune API (reconstruit depuis data/manuel.json et l'ancien fichier).
 // Aucune donnée client n'est lue ni envoyée : uniquement des statistiques publiques.
 import { readFile, writeFile } from 'node:fs/promises';
-import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate } from './lib.mjs';
+import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate, parseBdmSeries, buildDefaillances } from './lib.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = async (p, fallback) => { try { return JSON.parse(await readFile(new URL(p, ROOT), 'utf8')); } catch (e) { if (fallback !== undefined) return fallback; throw e; } };
@@ -129,6 +129,24 @@ if (!offline) {
   }
   report.sources.datagouv = { ok: ok > 0, recherches_reussies: ok, total: Object.keys(sources.datagouv.recherches).length };
   if (!ok) liens = null;
+
+  // 2 bis. Défaillances d'entreprises par grand secteur (base BDM de l'INSEE, cumul 12 mois glissants).
+  const def = sources.bdm?.defaillances;
+  if (def) {
+    try {
+      const abort = new AbortController(); const timer = setTimeout(() => abort.abort(), 120000);
+      const res = await fetch(`https://bdm.insee.fr/series/sdmx/data/${def.flux}?lastNObservations=13`, { signal: abort.signal, headers: { 'User-Agent': 'maestro-donnees (GitHub Actions)' } });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const entries = buildDefaillances(parseBdmSeries(await res.text()), def);
+      if (!entries.length) throw new Error('aucune série reconnue');
+      auto[def.origine] = entries;
+      report.sources[def.origine] = { ok: true, valeurs: entries.length, periode: entries[0].periode };
+    } catch (e) {
+      failed.push(def.origine);
+      report.sources[def.origine] = { ok: false, erreur: String(e.message || e) };
+    }
+  }
 
   // 3. Banque de France : seulement si une clé et des séries sont configurées.
   if (!process.env.BDF_API_KEY || !sources.banque_de_france.series.length) {
