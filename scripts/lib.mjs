@@ -221,7 +221,8 @@ export function build({ manuel, auto, liens, previous, failed, now, naf, priorit
   const seen = new Set();
   const indicateurs = [];
   for (const e of all) {
-    const k = e.indicateur + '|' + e.naf + '|' + e.periode;
+    // Un même secteur peut avoir un repère par taille d'entreprise (« population ») : ils coexistent.
+    const k = e.indicateur + '|' + e.naf + '|' + e.periode + '|' + (e.population || '');
     if (seen.has(k)) continue;
     seen.add(k);
     indicateurs.push(e);
@@ -253,6 +254,7 @@ export function validate(refs) {
     if (!Number.isFinite(e.valeur)) errors.push(where + ' : valeur non numérique');
     for (const f of ['periode', 'perimetre', 'source', 'url', 'statut', 'origine']) if (!e[f]) errors.push(where + ' : champ ' + f + ' manquant');
     if (e.url && !/^https:\/\//.test(e.url)) errors.push(where + ' : URL non HTTPS');
+    if (e.population && !['micro', 'pme_ge'].includes(e.population)) errors.push(where + ' : population inconnue (micro ou pme_ge)');
     if (e.statut && !['verifie', 'a_verifier'].includes(e.statut)) errors.push(where + ' : statut invalide');
   });
   for (const [id, p] of Object.entries(refs.priorites || {})) {

@@ -162,3 +162,15 @@ test('défaillances BDM : cumul 12 mois par secteur, évolution sur un an, corre
   assert.equal(out[0].url, 'https://www.insee.fr/fr/statistiques/serie/001656191');
   assert.equal(out[1].methode, undefined);
 });
+
+test('repères par taille d’entreprise : micro et PME coexistent pour un même secteur', async () => {
+  const { build, validate } = await import('../scripts/lib.mjs');
+  const naf = JSON.parse(await readFile(new URL('../naf.json', import.meta.url), 'utf8'));
+  const priorites = JSON.parse(await readFile(new URL('../config/priorites.json', import.meta.url), 'utf8'));
+  const base = { indicateur: 'delai_clients_jours', naf: 'F', periode: '2025', perimetre: 'p', source: 's', url: 'https://x', statut: 'verifie' };
+  const refs = build({ manuel: [{ ...base, valeur: 59.7, population: 'pme_ge' }, { ...base, valeur: 32.6, population: 'micro' }], auto: {}, liens: null, previous: null, failed: [], now: '2026-11-01', naf, priorites });
+  assert.equal(refs.indicateurs.filter((e) => e.naf === 'F').length, 2);
+  assert.deepEqual(validate(refs), []);
+  const bad = build({ manuel: [{ ...base, valeur: 1, population: 'xl' }], auto: {}, liens: null, previous: null, failed: [], now: '2026-11-01', naf, priorites });
+  assert.ok(validate(bad).some((m) => /population inconnue/.test(m)));
+});
