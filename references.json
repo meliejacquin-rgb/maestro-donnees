@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "genere_le": "2026-11-01T10:59:27.284Z",
+ "genere_le": "2026-11-01T17:41:50.239Z",
  "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
  "definitions": {
   "delai_clients_jours": {
@@ -4740,11 +4740,132 @@
    "indicateur": "retard_paiement_jours",
    "naf": "*",
    "valeur": 13.4,
-   "periode": "fin 2025",
-   "perimetre": "Retard moyen national (différent du délai clients)",
-   "source": "Altares, baromètre des comportements de paiement (T4 2025), repris dans le rapport 2025 de l'Observatoire des délais de paiement (Banque de France)",
+   "periode": "T4 2025",
+   "perimetre": "Ensemble des entreprises, retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
    "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
-   "statut": "a_verifier",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "B-E",
+   "valeur": 11.2,
+   "periode": "T4 2025",
+   "perimetre": "Industrie : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "F",
+   "valeur": 10.8,
+   "periode": "T4 2025",
+   "perimetre": "Construction : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "G",
+   "valeur": 12.3,
+   "periode": "T4 2025",
+   "perimetre": "Commerce : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "H",
+   "valeur": 16,
+   "periode": "T4 2025",
+   "perimetre": "Transport et logistique : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "I",
+   "valeur": 14.8,
+   "periode": "T4 2025",
+   "perimetre": "Hébergement, restauration, débits de boisson : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "J",
+   "valeur": 19.6,
+   "periode": "T4 2025",
+   "perimetre": "Information et communication : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "K",
+   "valeur": 19.4,
+   "periode": "T4 2025",
+   "perimetre": "Activités d’assurance et financières : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "M",
+   "valeur": 18.4,
+   "periode": "T4 2025",
+   "perimetre": "Services aux entreprises : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "N",
+   "valeur": 18.4,
+   "periode": "T4 2025",
+   "perimetre": "Services aux entreprises : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "R",
+   "valeur": 13.3,
+   "periode": "T4 2025",
+   "perimetre": "Services aux particuliers : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
+   "origine": "manuel"
+  },
+  {
+   "indicateur": "retard_paiement_jours",
+   "naf": "S",
+   "valeur": 13.3,
+   "periode": "T4 2025",
+   "perimetre": "Services aux particuliers : retard moyen au-delà de l’échéance (différent du délai clients)",
+   "source": "Altares, repris dans le rapport annuel 2025 de l'Observatoire des délais de paiement (Banque de France), tableau T3, p. 15",
+   "url": "https://www.banque-france.fr/fr/actualites/rapport-de-lobservatoire-des-delais-de-paiement-2025",
+   "statut": "verifie",
    "origine": "manuel"
   },
   {
@@ -8116,12 +8237,6 @@
     "modifie": "2019-11-12T09:45:43+00:00"
    },
    {
-    "titre": "Délais de paiement 2025 des collectivités territoriales",
-    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2025-des-collectivites-territoriales",
-    "producteur": "Ministères économiques et financiers",
-    "modifie": "2026-07-17T10:38:23.201000+00:00"
-   },
-   {
     "titre": "Délais de paiement 2024 des collectivités territoriales",
     "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2024-des-collectivites-territoriales-1",
     "producteur": "Ministères économiques et financiers",
@@ -8132,6 +8247,12 @@
     "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2023-des-collectivites-territoriales",
     "producteur": "Ministères économiques et financiers",
     "modifie": "2024-04-12T09:04:12+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2025 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2025-des-collectivites-territoriales",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2026-07-17T10:38:23.201000+00:00"
    }
   ],
   "profitability": [],
@@ -8171,10 +8292,10 @@
     "modifie": "2017-04-01T08:24:08+00:00"
    },
    {
-    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
-    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
-    "producteur": "Ministère des Armées",
-    "modifie": "2014-01-06T09:17:18.390000+00:00"
+    "titre": "Artisans : nombre d'entreprises, chiffre d'affaires et valeur ajoutée",
+    "url": "https://www.data.gouv.fr/datasets/artisans-nombre-d-entreprises-chiffre-d-affaires-et-valeur-ajoutee",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2018-12-13T22:01:19+00:00"
    },
    {
     "titre": "Entreprises : évolution du chiffre d'affaires 2020 des librairies",
@@ -8183,10 +8304,10 @@
     "modifie": "2025-08-27T13:31:31.634000+00:00"
    },
    {
-    "titre": "Artisans : nombre d'entreprises, chiffre d'affaires et valeur ajoutée",
-    "url": "https://www.data.gouv.fr/datasets/artisans-nombre-d-entreprises-chiffre-d-affaires-et-valeur-ajoutee",
-    "producteur": "Ministères économiques et financiers",
-    "modifie": "2018-12-13T22:01:19+00:00"
+    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
+    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
+    "producteur": "Ministère des Armées",
+    "modifie": "2014-01-06T09:17:18.390000+00:00"
    },
    {
     "titre": "Entreprises : évolution du chiffre d'affaires 2020 du spectacle vivant",
@@ -8233,16 +8354,16 @@
     "modifie": "2026-10-09T00:01:26.185000+00:00"
    },
    {
-    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
-    "producteur": "Institut national de la statistique et des études économiques (Insee)",
-    "modifie": "2026-10-09T00:01:26.316000+00:00"
-   },
-   {
     "titre": "Nombre d'établissements et effectifs salariés en 38 grands secteurs",
     "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-38-grands-secteurs",
     "producteur": "Institut national de la statistique et des études économiques (Insee)",
     "modifie": "2026-10-09T00:01:26.023000+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:26.316000+00:00"
    }
   ],
   "risks": [],
