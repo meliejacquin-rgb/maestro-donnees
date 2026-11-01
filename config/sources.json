@@ -244,5 +244,11 @@
   "banque_de_france": {
     "_role": "Activé seulement si le secret BDF_API_KEY est défini dans GitHub et qu'au moins une série est configurée.",
     "series": []
+  },
+  "bdm": {
+    "_role": "Exploration de la base BDM de l'INSEE (séries chronologiques), sans effet sur les repères publiés.",
+    "explorer": [
+      "DEFAILLANCES-ENTREPRISES"
+    ]
   }
 }

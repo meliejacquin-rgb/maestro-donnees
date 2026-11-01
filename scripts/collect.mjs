@@ -130,6 +130,29 @@ if (!offline) {
   report.sources.datagouv = { ok: ok > 0, recherches_reussies: ok, total: Object.keys(sources.datagouv.recherches).length };
   if (!ok) liens = null;
 
+  // 2 bis. Exploration (sans effet sur les repères) : défaillances d'entreprises par secteur, base BDM de l'INSEE.
+  // Le rapport garde la structure réelle des séries pour configurer ensuite l'extraction.
+  if (sources.bdm?.explorer?.length) {
+    report.exploration_bdm = {};
+    for (const flux of sources.bdm.explorer) {
+      const out = {};
+      try {
+        const abort = new AbortController(); const timer = setTimeout(() => abort.abort(), 90000);
+        const res = await fetch(`https://bdm.insee.fr/series/sdmx/data/${flux}?lastNObservations=1`, { signal: abort.signal, headers: { 'User-Agent': 'maestro-donnees (GitHub Actions)' } });
+        clearTimeout(timer);
+        const xml = await res.text();
+        out.http = res.status; out.taille = xml.length; out.debut = xml.slice(0, 1500);
+        const series = [...xml.matchAll(/<Series\b([^>]*)>([\s\S]*?)<\/Series>/g)].map(([, attrs, body]) => {
+          const a = Object.fromEntries([...attrs.matchAll(/(\w+)="([^"]*)"/g)].map((m) => [m[1], m[2]]));
+          const obs = body.match(/<Obs\b([^>]*)\/?>/); const o = obs ? Object.fromEntries([...obs[1].matchAll(/(\w+)="([^"]*)"/g)].map((m) => [m[1], m[2]])) : {};
+          return { ...a, derniere: o.TIME_PERIOD, valeur: o.OBS_VALUE };
+        });
+        out.nb_series = series.length; out.series = series.slice(0, 400);
+      } catch (e) { out.erreur = String(e.message || e); }
+      report.exploration_bdm[flux] = out;
+    }
+  }
+
   // 3. Banque de France : seulement si une clé et des séries sont configurées.
   if (!process.env.BDF_API_KEY || !sources.banque_de_france.series.length) {
     report.sources.banque_de_france = { ok: false, erreur: 'non configurée (secret BDF_API_KEY ou séries absents)' };
