@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-01T08:50:32.074Z",
+  "date": "2026-11-01T09:14:26.544Z",
   "mode": "en ligne",
   "sources": {
     "melodi_catalogue": {
@@ -546,6 +546,6 @@
     "isLast": true
   },
   "validation": "ok",
-  "total_indicateurs": 602,
-  "a_verifier": 10
+  "total_indicateurs": 601,
+  "a_verifier": 3
 }
