@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-01T09:14:26.544Z",
+  "date": "2026-11-01T10:59:27.284Z",
   "mode": "en ligne",
   "sources": {
     "melodi_catalogue": {
@@ -158,6 +158,11 @@
       "ok": true,
       "recherches_reussies": 12,
       "total": 12
+    },
+    "bdm:DEFAILLANCES-ENTREPRISES": {
+      "ok": true,
+      "valeurs": 15,
+      "periode": "12 mois glissants à fin 07/2026"
     },
     "banque_de_france": {
       "ok": false,
@@ -546,6 +551,6 @@
     "isLast": true
   },
   "validation": "ok",
-  "total_indicateurs": 601,
+  "total_indicateurs": 616,
   "a_verifier": 3
 }

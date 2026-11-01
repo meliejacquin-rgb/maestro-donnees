@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "genere_le": "2026-11-01T09:14:26.544Z",
+ "genere_le": "2026-11-01T10:59:27.284Z",
  "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
  "definitions": {
   "delai_clients_jours": {
@@ -1988,6 +1988,186 @@
    "methode": "Consommation intermédiaire / production de la branche, prix courants",
    "statut": "verifie",
    "origine": "api:melodi:DD_CNA_BRANCHES:conso_inter_production"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "*",
+   "valeur": 70605,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Tous secteurs d'activité : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,4 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656101)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656101",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "A",
+   "valeur": 1775,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Agriculture, sylviculture et pêche : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-1,2 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656093)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656093",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "B-E",
+   "valeur": 4442,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Industrie : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,6 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656094)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656094",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "F",
+   "valeur": 14351,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Construction : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-1 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656095)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656095",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "G",
+   "valeur": 14073,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Commerce et réparation automobile : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,5 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656096)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656096",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "H",
+   "valeur": 3235,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Transports et entreposage : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656097)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656097",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "I",
+   "valeur": 9721,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Hébergement et restauration : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "+0,4 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656098)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656098",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "J",
+   "valeur": 2123,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Information et communication : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-1 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656099)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656099",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "K",
+   "valeur": 1767,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Activités financières et d'assurance : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "+3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656100)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656100",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "L",
+   "valeur": 2648,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Activités immobilières : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656102)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656102",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "M",
+   "valeur": 9061,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Soutien aux entreprises : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656103)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656103",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "N",
+   "valeur": 9061,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Soutien aux entreprises : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656103)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656103",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "P",
+   "valeur": 7229,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Enseignement, santé humaine, action sociale et services aux ménages : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656104)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656104",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "Q",
+   "valeur": 7229,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Enseignement, santé humaine, action sociale et services aux ménages : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656104)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656104",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
+  },
+  {
+   "indicateur": "defaillances_secteur",
+   "naf": "S",
+   "valeur": 7229,
+   "periode": "12 mois glissants à fin 07/2026",
+   "perimetre": "France, Enseignement, santé humaine, action sociale et services aux ménages : défaillances par date de jugement, cumul brut sur 12 mois",
+   "methode": "-0,3 % sur un an",
+   "source": "INSEE — Défaillances d'entreprises par date de jugement (série 001656104)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/001656104",
+   "statut": "verifie",
+   "origine": "bdm:DEFAILLANCES-ENTREPRISES"
   },
   {
    "indicateur": "delai_clients_jours",
@@ -7936,10 +8116,10 @@
     "modifie": "2019-11-12T09:45:43+00:00"
    },
    {
-    "titre": "Délais de paiement 2023 des collectivités territoriales",
-    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2023-des-collectivites-territoriales",
+    "titre": "Délais de paiement 2025 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2025-des-collectivites-territoriales",
     "producteur": "Ministères économiques et financiers",
-    "modifie": "2024-04-12T09:04:12+00:00"
+    "modifie": "2026-07-17T10:38:23.201000+00:00"
    },
    {
     "titre": "Délais de paiement 2024 des collectivités territoriales",
@@ -7948,10 +8128,10 @@
     "modifie": "2025-07-21T10:34:06.402000+00:00"
    },
    {
-    "titre": "Délais de paiement 2025 des collectivités territoriales",
-    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2025-des-collectivites-territoriales",
+    "titre": "Délais de paiement 2023 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2023-des-collectivites-territoriales",
     "producteur": "Ministères économiques et financiers",
-    "modifie": "2026-07-17T10:38:23.201000+00:00"
+    "modifie": "2024-04-12T09:04:12+00:00"
    }
   ],
   "profitability": [],
@@ -7991,12 +8171,6 @@
     "modifie": "2017-04-01T08:24:08+00:00"
    },
    {
-    "titre": "Artisans : nombre d'entreprises, chiffre d'affaires et valeur ajoutée",
-    "url": "https://www.data.gouv.fr/datasets/artisans-nombre-d-entreprises-chiffre-d-affaires-et-valeur-ajoutee",
-    "producteur": "Ministères économiques et financiers",
-    "modifie": "2018-12-13T22:01:19+00:00"
-   },
-   {
     "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
     "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
     "producteur": "Ministère des Armées",
@@ -8007,6 +8181,12 @@
     "url": "https://www.data.gouv.fr/datasets/entreprises-evolution-du-chiffre-daffaires-2020-des-librairies",
     "producteur": "Ministère de la Culture",
     "modifie": "2025-08-27T13:31:31.634000+00:00"
+   },
+   {
+    "titre": "Artisans : nombre d'entreprises, chiffre d'affaires et valeur ajoutée",
+    "url": "https://www.data.gouv.fr/datasets/artisans-nombre-d-entreprises-chiffre-d-affaires-et-valeur-ajoutee",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2018-12-13T22:01:19+00:00"
    },
    {
     "titre": "Entreprises : évolution du chiffre d'affaires 2020 du spectacle vivant",
@@ -8047,22 +8227,22 @@
     "modifie": "2022-10-10T08:01:16+00:00"
    },
    {
-    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
-    "producteur": "Institut national de la statistique et des études économiques (Insee)",
-    "modifie": "2026-10-09T00:01:26.316000+00:00"
-   },
-   {
     "titre": "Nombre d'établissements et effectifs salariés en 5 grands secteurs",
     "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-5-grands-secteurs",
     "producteur": "Institut national de la statistique et des études économiques (Insee)",
     "modifie": "2026-10-09T00:01:26.185000+00:00"
    },
    {
-    "titre": "Nombre d'établissements et effectifs salariés en 17 grands secteurs",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-17-grands-secteurs",
+    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
     "producteur": "Institut national de la statistique et des études économiques (Insee)",
-    "modifie": "2026-10-09T00:01:25.827000+00:00"
+    "modifie": "2026-10-09T00:01:26.316000+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 38 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-38-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:26.023000+00:00"
    }
   ],
   "risks": [],
