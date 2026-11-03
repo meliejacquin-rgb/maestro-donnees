@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "genere_le": "2026-11-01T18:02:16.760Z",
+ "genere_le": "2026-11-03T05:12:58.649Z",
  "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
  "definitions": {
   "delai_clients_jours": {
@@ -8756,16 +8756,16 @@
     "modifie": "2018-12-13T22:01:19+00:00"
    },
    {
-    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
-    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
-    "producteur": "Ministère des Armées",
-    "modifie": "2014-01-06T09:17:18.390000+00:00"
-   },
-   {
     "titre": "Entreprises : évolution du chiffre d'affaires 2020 des librairies",
     "url": "https://www.data.gouv.fr/datasets/entreprises-evolution-du-chiffre-daffaires-2020-des-librairies",
     "producteur": "Ministère de la Culture",
     "modifie": "2025-08-27T13:31:31.634000+00:00"
+   },
+   {
+    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
+    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
+    "producteur": "Ministère des Armées",
+    "modifie": "2014-01-06T09:17:18.390000+00:00"
    },
    {
     "titre": "Entreprises : évolution du chiffre d'affaires 2020 du spectacle vivant",
@@ -8806,16 +8806,16 @@
     "modifie": "2022-10-10T08:01:16+00:00"
    },
    {
-    "titre": "Nombre d'établissements et effectifs salariés en 17 grands secteurs",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-17-grands-secteurs",
-    "producteur": "Institut national de la statistique et des études économiques (Insee)",
-    "modifie": "2026-10-09T00:01:25.827000+00:00"
-   },
-   {
     "titre": "Nombre d'établissements et effectifs salariés en 38 grands secteurs",
     "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-38-grands-secteurs",
     "producteur": "Institut national de la statistique et des études économiques (Insee)",
     "modifie": "2026-10-09T00:01:26.023000+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 17 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-17-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:25.827000+00:00"
    },
    {
     "titre": "Nombre d'établissements et effectifs salariés en 5 grands secteurs",
