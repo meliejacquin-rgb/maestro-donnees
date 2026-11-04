@@ -302,5 +302,16 @@
         ]
       }
     }
+  },
+  "urssaf": {
+    "salaires": {
+      "url_api": "https://open.urssaf.fr/api/explore/v2.1/catalog/datasets/nombre-etab-effectifs-salaries-et-masse-salariale-secteur-prive-france-x-na88/records?order_by=annee%20desc&limit=100",
+      "indicateur": "salaire_moyen_salarie",
+      "origine": "api:urssaf:na88",
+      "source": "URSSAF — Effectifs salariés et masse salariale du secteur privé, France entière, par secteur NA88 (open.urssaf.fr)",
+      "url": "https://open.urssaf.fr/explore/dataset/nombre-etab-effectifs-salaries-et-masse-salariale-secteur-prive-france-x-na88/",
+      "perimetre": "France, secteur privé (régime général), salariés à temps complet et partiel",
+      "methode": "Masse salariale brute annuelle / effectif salarié moyen de l'année, en milliers d'euros"
+    }
   }
 }

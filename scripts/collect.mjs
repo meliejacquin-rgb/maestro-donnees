@@ -4,7 +4,7 @@
 //   --offline : n'interroge aucune API (reconstruit depuis data/manuel.json et l'ancien fichier).
 // Aucune donnée client n'est lue ni envoyée : uniquement des statistiques publiques.
 import { readFile, writeFile } from 'node:fs/promises';
-import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate, parseBdmSeries, buildDefaillances } from './lib.mjs';
+import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate, parseBdmSeries, buildDefaillances, buildSalaires } from './lib.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = async (p, fallback) => { try { return JSON.parse(await readFile(new URL(p, ROOT), 'utf8')); } catch (e) { if (fallback !== undefined) return fallback; throw e; } };
@@ -145,6 +145,21 @@ if (!offline) {
     } catch (e) {
       failed.push(def.origine);
       report.sources[def.origine] = { ok: false, erreur: String(e.message || e) };
+    }
+  }
+
+  // 2 ter. Salaire brut moyen par salarié et par secteur (URSSAF, open.urssaf.fr, données annuelles).
+  const sal = sources.urssaf?.salaires;
+  if (sal) {
+    try {
+      const json = await get(sal.url_api, { timeout: 60000 });
+      const entries = buildSalaires(json.results || [], sal, naf);
+      if (entries.length < 50) throw new Error(`seulement ${entries.length} secteurs reconnus`);
+      auto[sal.origine] = entries;
+      report.sources[sal.origine] = { ok: true, valeurs: entries.length, periode: entries[0].periode };
+    } catch (e) {
+      failed.push(sal.origine);
+      report.sources[sal.origine] = { ok: false, erreur: String(e.message || e) };
     }
   }
 

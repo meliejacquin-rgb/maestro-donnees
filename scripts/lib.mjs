@@ -326,3 +326,38 @@ export function buildDefaillances(series, cfg) {
   }
   return out;
 }
+
+/**
+ * Salaire brut moyen par salarié (URSSAF, secteur privé, France entière, données annuelles par secteur NA88) :
+ * masse salariale / effectif salarié moyen de la dernière année publiée, en k€ par an.
+ * Les secteurs regroupés (« 05-06 ») ou scindés (« 78a », « 78b ») sont additionnés par division NAF ;
+ * les sections et le total national sont recalculés à partir des mêmes données.
+ */
+export function buildSalaires(records, cfg, naf) {
+  const annee = (r) => String(r.annee || '').slice(0, 4);
+  const derniere = records.map(annee).filter((y) => /^\d{4}$/.test(y)).sort().at(-1);
+  if (!derniere) return [];
+  const div = new Map(), add = (m, k, ms, ef) => { const v = m.get(k) || { ms: 0, ef: 0 }; v.ms += ms; v.ef += ef; m.set(k, v); };
+  for (const r of records) {
+    if (annee(r) !== derniere) continue;
+    const ms = Number(r.masse_salariale), ef = Number(r.effectifs_salaries_moyens);
+    if (!(ms > 0 && ef > 0)) continue;
+    const m = String(r.secteur_na88i || '').match(/^(\d{2})[ab]?(?:-(\d{2}))?\s/);
+    if (!m) continue;
+    const codes = m[2] ? Object.keys(naf.divisions).filter((d) => d >= m[1] && d <= m[2]) : [m[1]];
+    if (!codes.length || !codes.every((c) => naf.divisions[c])) continue;
+    // Secteur regroupé : la même valeur moyenne s'applique à chaque division du regroupement.
+    for (const c of codes) add(div, c, ms / codes.length, ef / codes.length);
+  }
+  const sections = new Map(), total = { ms: 0, ef: 0 };
+  for (const [c, v] of div) { add(sections, naf.divisions[c].section, v.ms, v.ef); total.ms += v.ms; total.ef += v.ef; }
+  const k = (v) => Math.round((v.ms / v.ef) / 100) / 10;
+  const entry = (code, v, portee) => ({
+    indicateur: cfg.indicateur, naf: code, valeur: k(v), periode: derniere,
+    perimetre: `${cfg.perimetre}${portee}`, methode: cfg.methode, source: cfg.source, url: cfg.url, statut: 'verifie', origine: cfg.origine,
+  });
+  const out = [...div].map(([c, v]) => entry(c, v, ''));
+  for (const [s, v] of sections) out.push(entry(s, v, ' (ensemble de la section)'));
+  if (total.ef) out.push(entry('*', total, ' (ensemble des secteurs couverts)'));
+  return out;
+}

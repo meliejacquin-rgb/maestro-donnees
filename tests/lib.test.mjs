@@ -174,3 +174,21 @@ test('repères par taille d’entreprise : micro et PME coexistent pour un même
   const bad = build({ manuel: [{ ...base, valeur: 1, population: 'xl' }], auto: {}, liens: null, previous: null, failed: [], now: '2026-11-01', naf, priorites });
   assert.ok(validate(bad).some((m) => /population inconnue/.test(m)));
 });
+
+test('salaires URSSAF : dernière année, secteurs regroupés ou scindés, sections et national', async () => {
+  const { buildSalaires } = await import('../scripts/lib.mjs');
+  const naf = JSON.parse(await readFile(new URL('../naf.json', import.meta.url), 'utf8'));
+  const json = JSON.parse(await readFile(new URL('./fixtures/urssaf-na88.json', import.meta.url), 'utf8'));
+  const cfg = { indicateur: 'salaire_moyen_salarie', origine: 'api:urssaf:na88', source: 'URSSAF', url: 'https://open.urssaf.fr/', perimetre: 'France', methode: 'm' };
+  const out = buildSalaires(json.results, cfg, naf);
+  const v = (c) => out.find((e) => e.naf === c);
+  assert.ok(out.every((e) => e.periode === '2024'), 'seule la dernière année est retenue');
+  assert.equal(v('69').valeur, 40.2, 'activités juridiques et comptables');
+  assert.equal(v('05').valeur, v('06').valeur, 'secteur « 05-06 » appliqué aux deux divisions');
+  const r78 = json.results.filter((r) => r.annee.startsWith('2024') && /^78[ab] /.test(r.secteur_na88i));
+  assert.equal(r78.length, 2);
+  assert.equal(v('78').valeur, Math.round(r78.reduce((s, r) => s + +r.masse_salariale, 0) / r78.reduce((s, r) => s + +r.effectifs_salaries_moyens, 0) / 100) / 10, '78a + 78b additionnés');
+  assert.ok(v('*') && v('C') && v('M'), 'national et sections calculés');
+  assert.ok(v('*').valeur > 30 && v('*').valeur < 50, 'ordre de grandeur national plausible : ' + v('*').valeur);
+  assert.equal(out.filter((e) => e.naf === '01').length, 0, 'agriculture (MSA) absente de l’URSSAF');
+});
