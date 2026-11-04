@@ -163,6 +163,25 @@ if (!offline) {
     }
   }
 
+  // Exploration BDM (configuration de nouvelles séries) : flux dont le nom contient un mot-clé, et séries d'un flux.
+  const explo = sources.bdm?.explorer;
+  if (explo) {
+    report.exploration_bdm = {};
+    const txt = async (url) => { const ab = new AbortController(); const t = setTimeout(() => ab.abort(), 120000); try { const r = await fetch(url, { signal: ab.signal, headers: { 'User-Agent': 'maestro-donnees (GitHub Actions)' } }); return r.ok ? await r.text() : 'HTTP ' + r.status; } finally { clearTimeout(t); } };
+    try {
+      const xml = await txt('https://bdm.insee.fr/series/sdmx/dataflow/FR1');
+      const flux = [...xml.matchAll(/<str:Dataflow[^>]*id="([^"]+)"[\s\S]*?<com:Name xml:lang="fr">([^<]*)</g)].map((m) => m[1] + ' — ' + m[2]);
+      report.exploration_bdm.flux = flux.filter((f) => (explo.mots_cles || []).some((k) => f.toLowerCase().includes(k)));
+    } catch (e) { report.exploration_bdm.flux_erreur = String(e.message || e); }
+    for (const f of explo.flux || []) {
+      try {
+        const series = parseBdmSeries(await txt(`https://bdm.insee.fr/series/sdmx/data/${f}?lastNObservations=6`));
+        report.exploration_bdm[f] = series.filter((x) => (explo.titre_contient || []).some((k) => String(x.TITLE_FR || '').includes(k))).slice(0, 40)
+          .map((x) => ({ idbank: x.IDBANK, titre: x.TITLE_FR, obs: x.obs }));
+      } catch (e) { report.exploration_bdm[f] = 'erreur : ' + (e.message || e); }
+    }
+  }
+
   // 3. Banque de France : seulement si une clé et des séries sont configurées.
   if (!process.env.BDF_API_KEY || !sources.banque_de_france.series.length) {
     report.sources.banque_de_france = { ok: false, erreur: 'non configurée (secret BDF_API_KEY ou séries absents)' };

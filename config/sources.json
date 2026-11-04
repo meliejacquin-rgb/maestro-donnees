@@ -301,6 +301,20 @@
           "S"
         ]
       }
+    },
+    "explorer": {
+      "mots_cles": [
+        "prix de production des services",
+        "services aux entreprises",
+        "ipps"
+      ],
+      "flux": [
+        "IPPS-2021"
+      ],
+      "titre_contient": [
+        "69.20",
+        "comptab"
+      ]
     }
   },
   "urssaf": {
