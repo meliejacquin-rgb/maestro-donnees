@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-04T15:38:51.939Z",
+  "date": "2026-11-04T16:33:33.238Z",
   "mode": "en ligne",
   "sources": {
     "melodi_catalogue": {
@@ -168,6 +168,46 @@
       "ok": true,
       "valeurs": 101,
       "periode": "2024"
+    },
+    "indice:honoraires_comptables": {
+      "ok": true,
+      "derniere": {
+        "periode": "2026-Q2",
+        "libelle": "T2 2026",
+        "valeur": 112.3
+      },
+      "series": [
+        {
+          "IDBANK": "010766437",
+          "FREQ": "T",
+          "TITLE_FR": "Indices des prix de production des services français aux entreprises françaises (BtoB) − CPF 69.20 − Services comptables, d'audits, et de conseil fiscal ",
+          "TITLE_EN": "French services producer price index sold to French businesses (BtoB) − CPA 69.20 − Accounting, bookkeeping and auditing services; tax consulting services",
+          "LAST_UPDATE": "2026-08-27",
+          "UNIT_MEASURE": "SO",
+          "UNIT_MULT": "0",
+          "REF_AREA": "FM",
+          "DECIMALS": "1",
+          "derniere": {
+            "periode": "2026-Q2",
+            "valeur": 112.3
+          }
+        },
+        {
+          "IDBANK": "010766582",
+          "FREQ": "T",
+          "TITLE_FR": "Indices des prix de production des services français aux entreprises françaises (BtoB) − CPF 69.20 − Services comptables, d'audits, et de conseil fiscal ",
+          "TITLE_EN": "French services producer price index sold to French businesses (BtoB) − CPA 69.20 − Accounting, bookkeeping and auditing services; tax consulting services",
+          "LAST_UPDATE": "2026-08-27",
+          "UNIT_MEASURE": "SO",
+          "UNIT_MULT": "0",
+          "REF_AREA": "FM",
+          "DECIMALS": "1",
+          "derniere": {
+            "periode": "2026-Q2",
+            "valeur": 112.3
+          }
+        }
+      ]
     },
     "banque_de_france": {
       "ok": false,
