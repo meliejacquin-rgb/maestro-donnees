@@ -302,19 +302,16 @@
         ]
       }
     },
-    "explorer": {
-      "mots_cles": [
-        "prix de production des services",
-        "services aux entreprises",
-        "ipps"
-      ],
-      "flux": [
-        "IPPS-2021"
-      ],
-      "titre_contient": [
-        "69.20",
-        "comptab"
-      ]
+    "indices": {
+      "honoraires_comptables": {
+        "idbank": "010766437",
+        "comparer": [
+          "010766582"
+        ],
+        "libelle": "Indice des prix de production des services comptables, d'audit et de conseil fiscal (CPF 69.20), services aux entreprises (BtoB)",
+        "source": "INSEE — Indices de prix de production des services français aux entreprises françaises (IPPS, base 2021)",
+        "base": "base 100 en 2021"
+      }
     }
   },
   "urssaf": {

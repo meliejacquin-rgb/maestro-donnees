@@ -4,7 +4,7 @@
 //   --offline : n'interroge aucune API (reconstruit depuis data/manuel.json et l'ancien fichier).
 // Aucune donnée client n'est lue ni envoyée : uniquement des statistiques publiques.
 import { readFile, writeFile } from 'node:fs/promises';
-import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate, parseBdmSeries, buildDefaillances, buildSalaires } from './lib.mjs';
+import { parseMelodiCatalog, discover, normalizeMelodiData, computeBranchRatio, parseDatagouv, build, validate, parseBdmSeries, buildDefaillances, buildSalaires, buildIndice } from './lib.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = async (p, fallback) => { try { return JSON.parse(await readFile(new URL(p, ROOT), 'utf8')); } catch (e) { if (fallback !== undefined) return fallback; throw e; } };
@@ -39,6 +39,7 @@ const report = { date: new Date().toISOString(), mode: offline ? 'hors ligne' : 
 const auto = {};
 const failed = [];
 let liens = null;
+const indices = {};
 
 if (!offline) {
   // 1. INSEE Melodi : découverte du catalogue + extraction des jeux configurés.
@@ -163,22 +164,20 @@ if (!offline) {
     }
   }
 
-  // Exploration BDM (configuration de nouvelles séries) : flux dont le nom contient un mot-clé, et séries d'un flux.
-  const explo = sources.bdm?.explorer;
-  if (explo) {
-    report.exploration_bdm = {};
-    const txt = async (url) => { const ab = new AbortController(); const t = setTimeout(() => ab.abort(), 120000); try { const r = await fetch(url, { signal: ab.signal, headers: { 'User-Agent': 'maestro-donnees (GitHub Actions)' } }); return r.ok ? await r.text() : 'HTTP ' + r.status; } finally { clearTimeout(t); } };
+  // 2 quater. Indices de prix de la révision des honoraires (BDM INSEE, séries désignées par leur idbank).
+  for (const [cle, cfg] of Object.entries(sources.bdm?.indices || {})) {
     try {
-      const xml = await txt('https://bdm.insee.fr/series/sdmx/dataflow/FR1');
-      const flux = [...xml.matchAll(/<str:Dataflow[^>]*id="([^"]+)"[\s\S]*?<com:Name xml:lang="fr">([^<]*)</g)].map((m) => m[1] + ' — ' + m[2]);
-      report.exploration_bdm.flux = flux.filter((f) => (explo.mots_cles || []).some((k) => f.toLowerCase().includes(k)));
-    } catch (e) { report.exploration_bdm.flux_erreur = String(e.message || e); }
-    for (const f of explo.flux || []) {
-      try {
-        const series = parseBdmSeries(await txt(`https://bdm.insee.fr/series/sdmx/data/${f}?lastNObservations=6`));
-        report.exploration_bdm[f] = series.filter((x) => (explo.titre_contient || []).some((k) => String(x.TITLE_FR || '').includes(k))).slice(0, 40)
-          .map((x) => ({ idbank: x.IDBANK, titre: x.TITLE_FR, obs: x.obs }));
-      } catch (e) { report.exploration_bdm[f] = 'erreur : ' + (e.message || e); }
+      const ab = new AbortController(); const tm = setTimeout(() => ab.abort(), 120000);
+      const res = await fetch(`https://bdm.insee.fr/series/sdmx/data/SERIES_BDM/${[cfg.idbank, ...(cfg.comparer || [])].join('+')}?lastNObservations=12`, { signal: ab.signal, headers: { 'User-Agent': 'maestro-donnees (GitHub Actions)' } });
+      clearTimeout(tm);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const series = parseBdmSeries(await res.text());
+      const ind = buildIndice(series, cfg);
+      if (!ind) throw new Error('série ' + cfg.idbank + ' introuvable');
+      indices[cle] = ind;
+      report.sources['indice:' + cle] = { ok: true, derniere: ind.derniere, series: series.map(({ obs, ...attrs }) => ({ ...attrs, derniere: obs.at(-1) })) };
+    } catch (e) {
+      report.sources['indice:' + cle] = { ok: false, erreur: String(e.message || e) };
     }
   }
 
@@ -188,7 +187,7 @@ if (!offline) {
   }
 }
 
-const refs = build({ manuel, auto, liens, previous, failed, now: report.date, naf, priorites });
+const refs = build({ manuel, auto, liens, previous, failed, now: report.date, naf, priorites, indices });
 const errors = validate(refs);
 report.validation = errors.length ? errors : 'ok';
 report.total_indicateurs = refs.indicateurs.length;

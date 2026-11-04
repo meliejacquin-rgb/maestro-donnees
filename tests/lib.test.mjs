@@ -192,3 +192,17 @@ test('salaires URSSAF : dernière année, secteurs regroupés ou scindés, secti
   assert.ok(v('*').valeur > 30 && v('*').valeur < 50, 'ordre de grandeur national plausible : ' + v('*').valeur);
   assert.equal(out.filter((e) => e.naf === '01').length, 0, 'agriculture (MSA) absente de l’URSSAF');
 });
+
+test('indice de révision des honoraires : série choisie par idbank, 12 derniers trimestres, libellés « T2 2026 »', async () => {
+  const { buildIndice, parseBdmSeries, build } = await import('../scripts/lib.mjs');
+  const obs = Array.from({ length: 14 }, (_, i) => `<Obs TIME_PERIOD="${2023 + Math.floor(i / 4)}-Q${(i % 4) + 1}" OBS_VALUE="${(105 + i * 0.5).toFixed(1)}"/>`).join('');
+  const xml = `<Series IDBANK="010766437" TITLE_FR="IPPS − CPF 69.20 − Services comptables">${obs}</Series><Series IDBANK="010766582" TITLE_FR="autre"><Obs TIME_PERIOD="2026-Q2" OBS_VALUE="1"/></Series>`;
+  const ind = buildIndice(parseBdmSeries(xml), { idbank: '010766437', libelle: 'Indice', source: 'INSEE', base: 'base 100 en 2021' });
+  assert.equal(ind.obs.length, 12);
+  assert.deepEqual(ind.derniere, { periode: '2026-Q2', libelle: 'T2 2026', valeur: 111.5 });
+  assert.equal(ind.url, 'https://www.insee.fr/fr/statistiques/serie/010766437');
+  assert.equal(buildIndice(parseBdmSeries(xml), { idbank: '999' }), null);
+  // Collecte en échec : l'indice précédent est conservé.
+  const refs = build({ manuel: [], auto: {}, liens: null, previous: { indices: { honoraires_comptables: ind } }, failed: [], now: 'x', naf: { divisions: {}, sections: {}, agregats: {} }, priorites: { indicateurs: {}, priorites: {} }, indices: {} });
+  assert.equal(refs.indices.honoraires_comptables.derniere.valeur, 111.5);
+});
