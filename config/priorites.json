@@ -60,6 +60,12 @@
       "unite": "%",
       "sens": "bas_favorable",
       "mesure_client": "(Achats consommés + autres achats et charges externes) / production de l'exercice × 100"
+    },
+    "salaire_moyen_salarie": {
+      "libelle": "Salaire brut moyen par salarié",
+      "unite": "k€ brut par an",
+      "sens": "contexte",
+      "mesure_client": "Salaires bruts annuels (compte 641) / effectif salarié moyen, hors dirigeants non salariés"
     }
   },
   "priorites": {
@@ -101,7 +107,8 @@
       "libelle": "Maîtrise des charges",
       "indicateurs": [
         "conso_inter_production",
-        "frais_personnel_va"
+        "frais_personnel_va",
+        "salaire_moyen_salarie"
       ]
     },
     "investment": {
@@ -125,7 +132,8 @@
       "libelle": "Organisation et gestion des équipes",
       "indicateurs": [
         "va_par_salarie",
-        "frais_personnel_va"
+        "frais_personnel_va",
+        "salaire_moyen_salarie"
       ]
     },
     "risks": {
