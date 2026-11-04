@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "genere_le": "2026-11-04T15:38:51.939Z",
+ "genere_le": "2026-11-04T16:52:36.393Z",
  "avertissement": "Repères statistiques publics, datés et sourcés. Ils contextualisent la situation du client ; ce ne sont ni des objectifs ni des normes.",
  "definitions": {
   "delai_clients_jours": {
@@ -9921,16 +9921,16 @@
     "modifie": "2024-04-12T09:04:12+00:00"
    },
    {
-    "titre": "Délais de paiement 2024 des collectivités territoriales",
-    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2024-des-collectivites-territoriales-1",
-    "producteur": "Ministères économiques et financiers",
-    "modifie": "2025-07-21T10:34:06.402000+00:00"
-   },
-   {
     "titre": "Délais de paiement 2025 des collectivités territoriales",
     "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2025-des-collectivites-territoriales",
     "producteur": "Ministères économiques et financiers",
     "modifie": "2026-07-17T10:38:23.201000+00:00"
+   },
+   {
+    "titre": "Délais de paiement 2024 des collectivités territoriales",
+    "url": "https://www.data.gouv.fr/datasets/delais-de-paiement-2024-des-collectivites-territoriales-1",
+    "producteur": "Ministères économiques et financiers",
+    "modifie": "2025-07-21T10:34:06.402000+00:00"
    }
   ],
   "profitability": [],
@@ -9970,12 +9970,6 @@
     "modifie": "2017-04-01T08:24:08+00:00"
    },
    {
-    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
-    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
-    "producteur": "Ministère des Armées",
-    "modifie": "2014-01-06T09:17:18.390000+00:00"
-   },
-   {
     "titre": "Entreprises : évolution du chiffre d'affaires 2020 des librairies",
     "url": "https://www.data.gouv.fr/datasets/entreprises-evolution-du-chiffre-daffaires-2020-des-librairies",
     "producteur": "Ministère de la Culture",
@@ -9986,6 +9980,12 @@
     "url": "https://www.data.gouv.fr/datasets/artisans-nombre-d-entreprises-chiffre-d-affaires-et-valeur-ajoutee",
     "producteur": "Ministères économiques et financiers",
     "modifie": "2018-12-13T22:01:19+00:00"
+   },
+   {
+    "titre": "Evolution du chiffre d'affaires de l'industrie de défense",
+    "url": "https://www.data.gouv.fr/datasets/evolution-du-chiffre-d-affaires-de-l-industrie-de-defense-30382650",
+    "producteur": "Ministère des Armées",
+    "modifie": "2014-01-06T09:17:18.390000+00:00"
    },
    {
     "titre": "Entreprises : évolution du chiffre d'affaires 2020 du spectacle vivant",
@@ -10026,25 +10026,102 @@
     "modifie": "2022-10-10T08:01:16+00:00"
    },
    {
-    "titre": "Nombre d'établissements et effectifs salariés en 5 grands secteurs",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-5-grands-secteurs",
+    "titre": "Nombre d'établissements et effectifs salariés en 17 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-17-grands-secteurs",
     "producteur": "Institut national de la statistique et des études économiques (Insee)",
-    "modifie": "2026-10-09T00:01:26.185000+00:00"
-   },
-   {
-    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
-    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
-    "producteur": "Institut national de la statistique et des études économiques (Insee)",
-    "modifie": "2026-10-09T00:01:26.316000+00:00"
+    "modifie": "2026-10-09T00:01:25.827000+00:00"
    },
    {
     "titre": "Nombre d'établissements et effectifs salariés en 38 grands secteurs",
     "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-38-grands-secteurs",
     "producteur": "Institut national de la statistique et des études économiques (Insee)",
     "modifie": "2026-10-09T00:01:26.023000+00:00"
+   },
+   {
+    "titre": "Nombre d'établissements et effectifs salariés en 88 grands secteurs",
+    "url": "https://www.data.gouv.fr/datasets/nombre-detablissements-et-effectifs-salaries-en-88-grands-secteurs",
+    "producteur": "Institut national de la statistique et des études économiques (Insee)",
+    "modifie": "2026-10-09T00:01:26.316000+00:00"
    }
   ],
   "risks": [],
   "transition": []
+ },
+ "indices": {
+  "honoraires_comptables": {
+   "libelle": "Indice des prix de production des services comptables, d'audit et de conseil fiscal (CPF 69.20), services aux entreprises (BtoB)",
+   "idbank": "010766437",
+   "titre_insee": "Indices des prix de production des services français aux entreprises françaises (BtoB) − CPF 69.20 − Services comptables, d'audits, et de conseil fiscal ",
+   "source": "INSEE — Indices de prix de production des services français aux entreprises françaises (IPPS, base 2021)",
+   "url": "https://www.insee.fr/fr/statistiques/serie/010766437",
+   "base": "base 100 en 2021",
+   "derniere": {
+    "periode": "2026-Q2",
+    "libelle": "T2 2026",
+    "valeur": 112.3
+   },
+   "obs": [
+    {
+     "periode": "2023-Q3",
+     "libelle": "T3 2023",
+     "valeur": 106.3
+    },
+    {
+     "periode": "2023-Q4",
+     "libelle": "T4 2023",
+     "valeur": 107
+    },
+    {
+     "periode": "2024-Q1",
+     "libelle": "T1 2024",
+     "valeur": 107.9
+    },
+    {
+     "periode": "2024-Q2",
+     "libelle": "T2 2024",
+     "valeur": 109.7
+    },
+    {
+     "periode": "2024-Q3",
+     "libelle": "T3 2024",
+     "valeur": 109.3
+    },
+    {
+     "periode": "2024-Q4",
+     "libelle": "T4 2024",
+     "valeur": 110.6
+    },
+    {
+     "periode": "2025-Q1",
+     "libelle": "T1 2025",
+     "valeur": 111.5
+    },
+    {
+     "periode": "2025-Q2",
+     "libelle": "T2 2025",
+     "valeur": 110.3
+    },
+    {
+     "periode": "2025-Q3",
+     "libelle": "T3 2025",
+     "valeur": 111.6
+    },
+    {
+     "periode": "2025-Q4",
+     "libelle": "T4 2025",
+     "valeur": 110.6
+    },
+    {
+     "periode": "2026-Q1",
+     "libelle": "T1 2026",
+     "valeur": 112.3
+    },
+    {
+     "periode": "2026-Q2",
+     "libelle": "T2 2026",
+     "valeur": 112.3
+    }
+   ]
+  }
  }
 }
