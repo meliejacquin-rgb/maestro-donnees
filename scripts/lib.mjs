@@ -212,7 +212,7 @@ export function parseDatagouv(json) {
  * - auto   : { [origine]: entries[] } des sources qui ont répondu ;
  * - previous : ancien references.json, dont on conserve les entrées des sources en échec.
  */
-export function build({ manuel, auto, liens, previous, failed, now, naf, priorites }) {
+export function build({ manuel, auto, liens, previous, failed, now, naf, priorites, indices }) {
   const kept = (previous?.indicateurs || []).filter((e) => e.origine && failed.some((f) => e.origine.startsWith(f)));
   const fresh = Object.values(auto).flat();
   const manual = manuel.map((e) => ({ ...e, origine: 'manuel' }));
@@ -237,6 +237,8 @@ export function build({ manuel, auto, liens, previous, failed, now, naf, priorit
     naf: { divisions: naf.divisions, sections: naf.sections, agregats: naf.agregats, categories_simulateur: naf.categories_simulateur },
     indicateurs,
     liens: liens || previous?.liens || {},
+    // Indices de prix (révision des honoraires) : conservés tels quels si la collecte du mois échoue.
+    indices: { ...(previous?.indices || {}), ...(indices || {}) },
   };
 }
 
@@ -360,4 +362,16 @@ export function buildSalaires(records, cfg, naf) {
   for (const [s, v] of sections) out.push(entry(s, v, ' (ensemble de la section)'));
   if (total.ef) out.push(entry('*', total, ' (ensemble des secteurs couverts)'));
   return out;
+}
+
+/**
+ * Indice de prix pour la révision des honoraires (série BDM de l'INSEE) : 12 dernières valeurs trimestrielles.
+ * « 2026-Q2 » est affiché « T2 2026 ».
+ */
+export function buildIndice(series, cfg) {
+  const s = series.find((x) => x.IDBANK === cfg.idbank);
+  if (!s || !s.obs.length) return null;
+  const libelle = (p) => { const m = String(p).match(/^(\d{4})-Q(\d)$/); return m ? `T${m[2]} ${m[1]}` : String(p); };
+  const obs = s.obs.slice(-12).map((o) => ({ periode: o.periode, libelle: libelle(o.periode), valeur: o.valeur }));
+  return { libelle: cfg.libelle, idbank: cfg.idbank, titre_insee: s.TITLE_FR || '', source: cfg.source, url: `https://www.insee.fr/fr/statistiques/serie/${cfg.idbank}`, base: cfg.base, derniere: obs.at(-1), obs };
 }
